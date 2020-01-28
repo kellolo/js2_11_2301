@@ -7,8 +7,4 @@ console.log(a);
 function hello () {
     console.log ('Hello')
 }
-
-
-
-
 hello()
