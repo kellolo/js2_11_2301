@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Гамбургерная</title>
+</head>
+
+<body>
+    <h1>Гамбургерная</h1>
+
+    <p>Выберите размер</p>
+    <div class="loafList"></div>
+
+    <p>Выберите одну из начинок</p>
+    <div class="fillingList"></div>
+
+    <p>Дополнительные добавки</p>
+    <div class="toppingList"></div>
+
+    <div><button id="finalizeBtn">Оформить</button></div>
+    <br>
+    <div class="orderList"></div>
+
+
+
+    <script>
+        const FoodItems = [{
+                type: 'loaf',
+                name: 'Маленький',
+                price: 50,
+                calorie: 20
+            },
+            {
+                type: 'loaf',
+                name: 'Большой',
+                price: 100,
+                calorie: 40
+            },
+            {
+                type: 'filling',
+                name: 'С сыром',
+                price: 10,
+                calorie: 20
+            },
+            {
+                type: 'filling',
+                name: 'С салатом',
+                price: 20,
+                calorie: 5
+            },
+            {
+                type: 'filling',
+                name: 'С картофелем',
+                price: 15,
+                calorie: 10
+            },
+            {
+                type: 'topping',
+                name: 'посыпать приправой',
+                price: 15,
+                calorie: 0
+            },
+            {
+                type: 'topping',
+                name: 'полить майонезом',
+                price: 20,
+                calorie: 5
+            }
+        ];
+
+        var Loafs = [];
+        var Fillings = [];
+        var Toppings = [];
+
+        function ready() {
+            console.log('DOM готов');
+            FoodItems.filter(element => element.type.toLowerCase() === 'loaf').forEach(item => {
+                let foodUnit = new Loaf(item.name, item.price, item.calorie);
+                Loafs.push(foodUnit);
+                foodUnit.render('.loafList');
+            });
+            FoodItems.filter(element => element.type.toLowerCase() === 'filling').forEach(item => {
+                let foodUnit = new Filling(item.name, item.price, item.calorie);
+                Loafs.push(foodUnit);
+                foodUnit.render('.fillingList');
+            });
+            FoodItems.filter(element => element.type.toLowerCase() === 'topping').forEach(item => {
+                let foodUnit = new Topping(item.name, item.price, item.calorie);
+                Loafs.push(foodUnit);
+                foodUnit.render('.toppingList');
+            });
+        }
+
+        document.addEventListener("DOMContentLoaded", ready);
+        document.querySelector('#finalizeBtn').addEventListener('click', () => {
+            alert(расчет);
+        });
+
+
+        class FoodItem {
+            constructor(name, price, calorie) {
+                this.name = name;
+                this.price = price;
+                this.calorie = calorie;
+            }
+
+            render(querySelector) {
+                document.querySelector(querySelector).innerHTML +=
+                    `${this.name}, Цена: ${this.price} руб, Калорийность: ${this.calorie} Ккал`;
+            }
+        }
+
+        class Loaf extends FoodItem {
+            constructor(name, price, calorie) {
+                super(name, price, calorie)
+            }
+
+            render(querySelector) {
+                document.querySelector(querySelector).innerHTML += `
+                <div>
+                    <input type="radio" name="Loaf" value="${this.name}">
+                    <label for="${this.name}">${this.name}, Цена: ${this.price} руб, Калорийность: ${this.calorie} Ккал</label>
+                </div>
+                `;
+
+                //  <div><input type="checkbox" id="subscribeNews" name="subscribe" value="newsletter"><label for="subscribeNews">Subscribe to newsletter?</label></div>
+            }
+        }
+
+        class Filling extends FoodItem {
+            constructor(name, price, calorie) {
+                super(name, price, calorie)
+            }
+        }
+
+        class Topping extends FoodItem {
+            constructor(name, price, calorie) {
+                super(name, price, calorie)
+            }
+        }
+
+        class BurgerFinal extends FoodItem {
+            constructor(burgerBase) {
+                this.Ingredients = [];
+                addIngredient(burgerBase)
+            }
+
+            addIngredient(foodItem) {
+                if (!(foodItem instanceof FoodItem)) {
+                    console.log('неверный ингредиент')
+                    return;
+                }
+                this.Ingredients.push(foodItem);
+                updateState();
+            }
+
+            updateState() {
+                let nameBuilder = 'Гамбургер ';
+                let priceBuilder = 0;
+                let calorieBuilder = 0;
+
+                Ingredients.forEach(item => {
+                    nameBuilder += item.name.toLower() + " ";
+                    priceBuilder += item.price;
+                    calorieBuilder += item.calorie;
+                });
+
+                this.name = nameBuilder;
+                this.price = priceBuilder;
+                this.calorie = calorieBuilder;
+            }
+
+            updateDescription() {
+                let nameBuilder = 'Гамбургер ';
+                Ingredients.forEach(item => nameBuilder += item.name.toLowerCase() + " ");
+                this.name = nameBuilder;
+            }
+
+            calculatePrice() {
+                let priceBuilder = 0;
+                Ingredients.forEach(item => priceBuilder += item.price);
+                this.price = priceBuilder;
+            }
+
+            calculateCalories() {
+                let calorieBuilder = 0;
+                Ingredients.forEach(item => calorieBuilder += item.calorie);
+                this.calorie = calorieBuilder;
+            }
+
+        }
+
+
+
+        class BurgerFactory {
+            constructor(loafSelector, toppingSelector, fillingSelector) {
+                this.loafSelector = loafSelector
+                this.toppingSelector = toppingSelector
+                this.fillingSelector = fillingSelector
+            }
+
+            create() {
+                let burgerBase = new Loaf()
+                let burgerFinal = new BurgerFinal()
+
+
+
+            }
+        }
+
+        //function RenderFood
+    </script>
+</body>
+
+</html>
