@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <button class="cart-button" type="button">Корзина</button>
+    </header>
+    <main>
+        <div class="goods-list"></div>
+    </main>
+
+    <script>
+        const goods = [
+            { title: 'Shirt', price: 150 },
+            { title: 'Socks', price: 50 },
+            { title: 'Jacket', price: 350 },
+            { title: 'Shoes', price: 250 },
+        ]
+
+        class Products {
+            constructor (array) {
+                this.products = array
+                this.container = null
+                this._init ()
+            }
+
+            _init () {
+                this.container = document.querySelector('.goods-list')
+                //render
+                this.render ()
+            }
+            render () {
+                let str = ''
+                this.products.forEach(element => {
+                  str += this.createProduct (element)  
+                })
+                //str = '<div /><div /><div /><div /><div /><div />'
+                this.container.innerHTML = str //произойдет рендер
+            }
+            createProduct (prod) {
+                return `
+                <div class="goods-item">
+                    <h3>${prod.title}</h3>
+                    <p>${prod.price}</p>
+                </div>
+                `
+            }
+        }
+        
+        let catalog = new Products (goods)
+        // class Human {
+        //     constructor (name, age) {
+        //         this.Name = name
+        //         this.Age = age
+        //         this._init (this.Name)
+        //     }
+
+        //     goWork () {
+        //         console.log (`${this.Name} goes work.`)
+        //         this._init ('Рабочий процесс ')
+        //     }
+
+        //     _init (param) {
+        //         console.log (`${param} инициализирован.`)
+        //     }
+        // }
+
+        // class Male extends Human {}
+
+        // class Female extends Human {
+        //     constructor (name, age, children = 0) {
+        //         super (name, age)
+        //         this.Children = children
+        //     }
+        //     getChild () {
+        //         console.log (`${this.Name} got pregnant.`)
+        //         this.Children++
+        //         this._init ('Ребенок')
+        //     }
+        // }
+    </script>
+</body>
+</html>

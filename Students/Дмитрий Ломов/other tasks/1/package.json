@@ -1,0 +1,14 @@
+{
+  "name": "hw_1",
+  "version": "1.0.0",
+  "description": "test npm",
+  "main": "index.js",
+  "scripts": {
+    "test": "lol"
+  },
+  "keywords": [
+    "azaza"
+  ],
+  "author": "Dmitriy Lomov",
+  "license": "ISC"
+}
