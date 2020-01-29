@@ -19,6 +19,8 @@ let goodsList = new GoodsList(image, prices, ids, items);
 
 
 goodsList.renderProducts( );
+console.log(goodsList.goodsListPrice());
+
 
 //CART
 

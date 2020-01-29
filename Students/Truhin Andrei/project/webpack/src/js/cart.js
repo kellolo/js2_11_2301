@@ -1,7 +1,10 @@
+import CartItem from "./cartItem";
+
 export default class Cart {
     constructor(userCart, cartImage) {
         this.userCart = userCart;
         this.cartImage = cartImage;
+        this.totalSum = 0;
     }
     // Добавление продуктов в корзину
 addProduct (product) {
@@ -14,9 +17,14 @@ addProduct (product) {
             img: this.cartImage,
             price: +product.dataset['price'],
             quantity: 1
-        })
+        });
+
+        this.totalSum += +product.dataset['price'];
+        
     }  else {
-        find.quantity++
+        find.quantity++;
+        this.totalSum += find.price;
+       
     }
     this.renderCart ()
 }
@@ -27,9 +35,13 @@ addProduct (product) {
     let find = this.userCart.find (element => element.id === productId);
     if (find.quantity > 1) {
         find.quantity--;
+        this.totalSum -= find.price;
+      
     } else {
+        this.totalSum -= find.price;
         this.userCart.splice(this.userCart.indexOf(find), 1);
-        document.querySelector(`.cart-item[data-id="${productId}"]`).remove()
+        document.querySelector(`.cart-item[data-id="${productId}"]`).remove();
+        
     }
     this.renderCart ();
 }
@@ -39,22 +51,15 @@ addProduct (product) {
  renderCart () {
     let allProducts = '';
     for (let el of this.userCart) {
-        allProducts += `<div class="cart-item" data-id="${el.id}">
-                            <div class="product-bio">
-                                <img src="${el.img}" alt="Some image">
-                                <div class="product-desc">
-                                    <p class="product-title">${el.name}</p>
-                                    <p class="product-quantity">Quantity: ${el.quantity}</p>
-                                    <p class="product-single-price">$${el.price} each</p>
-                                </div>
-                            </div>
-                            <div class="right-block">
-                                <p class="product-price">${el.quantity * el.price}</p>
-                                <button class="del-btn" data-id="${el.id}">&times;</button>
-                            </div>
-                        </div>`
+        const newCartItem = new CartItem(el);
+        allProducts += newCartItem.createItem();
     }
+    this.renderSumCart();
 
     document.querySelector(`.cart-block`).innerHTML = allProducts;
+}
+
+renderSumCart(){
+    console.log(this.totalSum);
 }
 }
