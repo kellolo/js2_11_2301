@@ -61,5 +61,6 @@ addProduct (product) {
 
 renderSumCart(){
     console.log(this.totalSum);
+
 }
 }

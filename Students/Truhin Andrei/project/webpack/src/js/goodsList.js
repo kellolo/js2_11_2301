@@ -33,10 +33,7 @@ renderProducts () {
 };
 
 goodsListPrice(){
-    console.log(this.prices);
-   return this.prices.reduce(function (acc, price){acc += +price;
-    //console.log(acc);
+   return this.prices.reduce(function (acc, price){return acc + price;
 }, 0);
 }
-
 }
