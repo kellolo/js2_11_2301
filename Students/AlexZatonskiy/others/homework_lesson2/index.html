@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script type="text/javascript" src="main.js"></script>
+    <title>Document</title>
+    <style>
+        form {
+            width: 300px
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<!--
+
+*Некая сеть фастфуда предлагает несколько видов гамбургеров:
+
+    ### Маленький (50 рублей, 20 калорий).
+    ### Большой (100 рублей, 40 калорий).
+
+    ### Гамбургер может быть с одним из нескольких видов начинок (обязательно):
+        ### С сыром (+10 рублей, +20 калорий).
+        ### С салатом (+20 рублей, +5 калорий).
+        ### С картофелем (+15 рублей, +10 калорий).
+
+    ### Дополнительно гамбургер можно посыпать приправой (+15 рублей, +0 калорий)
+    и полить майонезом (+20 рублей, +5 калорий).
+
+    ### 3Напишите программу, рассчитывающую стоимость и калорийность гамбургера.
+    Можно использовать примерную архитектуру класса из методички, но можно использовать и свою.
+
+class GoodsList {
+  constructor() {
+    this.goods = [];
+  }
+  fetchGoods() {
+    this.goods = [
+      { title: 'Shirt', price: 150 },
+      { title: 'Socks', price: 50 },
+      { title: 'Jacket', price: 350 },
+      { title: 'Shoes', price: 250 },
+    ];
+  }
+  render() {
+    let listHtml = '';
+    this.goods.forEach(good => {
+      const goodItem = new GoodsItem(good.title, good.price);
+      listHtml += goodItem.render();
+    });
+    document.querySelector('.goods-list').innerHTML = listHtml;
+  }
+}
+-->
+<body>
+    <form action="#" id="uForm">
+        <fieldset>
+            <label>
+                <input type="text" name="Name"> Enter Name
+            </label>
+            <label>
+                <input type="text" name="Age"> Enter Age
+            </label>
+        </fieldset>
+        <fieldset>
+            <label>
+                <input type="radio" name="Gender" value="male" data-mother="0"> male
+            </label>
+            <label>
+                <input type="radio" name="Gender" value="female" data-mother="1"> female
+            </label>
+        </fieldset>
+        <fieldset>
+            <label>
+                <input type="checkbox" name="Hobbies" value="eat"> Еда
+            </label>
+            <label>
+                <input type="checkbox" name="Hobbies" value="gym"> Качалка
+            </label>
+            <label>
+                <input type="checkbox" name="Hobbies" value="tv-show"> Сериалы
+            </label>
+            <label>
+                <input type="checkbox" name="Hobbies" value="walk"> Гулять
+            </label>
+        </fieldset>
+    </form>
+
+    <button id="okBtn">Add user</button>
+    <script>
+        let form = document.querySelector ('#uForm')
+        let btn = document.querySelector ('#okBtn')
+        let users = []
+
+        btn.addEventListener ('click', addUser)
+
+        function addUser () {
+            let newUser = new User ('Name', 'Age', 'Gender', 'Hobbies')
+            users.push (newUser)
+        }
+
+        class User {
+            constructor (name, age, gender, hobbies) {
+                this.Name = this._text (name)
+                this.Age = this._text (age)
+                this.Gender = this._check (gender)
+                this.Hobbies = this._getArray (hobbies)
+                this.canBeMother = this._checkMom (gender)
+            }
+            _text (attrName) {
+                let obj = document.querySelector (`input[name=${attrName}]`)
+                return obj.value
+            }
+            _check (attrName) {
+                let obj = document.querySelector (`input[name=${attrName}]:checked`)
+                return obj.value
+            }
+            _getArray (attrName) {
+                let objArr = [...document.querySelectorAll (`input[name=${attrName}]:checked`)]
+                let arr = []
+                objArr.forEach (el => {
+                    arr.push (el.value)
+                })
+                return arr
+            }
+            _checkMom (attrName) {
+                let obj = document.querySelector (`input[name=${attrName}]:checked`)
+                console.dir (obj)
+                return +obj.dataset['mother'] ? true : false
+            }
+        }
+
+        class Human {
+            constructor (nam, ag, gen) {
+                this.name = nam
+                this.age = ag
+                this.gender = gen ? 'male' : 'female'
+                this.married = false
+                this.partner = null
+            }
+            goWork () {
+                console.log (`${this.name} goes work.`)
+            }
+            getMarried (pers) {
+                if (!this.married && !pers.married) {
+                    this.married = true
+                    this.partner = pers
+                    pers.getMarried (this)
+                } else {
+                    console.log (`${this.name} is already married with ${this.partner.name}`)
+                }
+            }
+        }
+
+        let oleg = new Human ('Oleg', 23, 1)
+        let sopha = new Human ('Sophia', 22, 0)
+
+    </script>
+</body>
+</html>
