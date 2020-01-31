@@ -1,5 +1,6 @@
 var Hamburger = {
 
+    
     price: 0,
     calories: 0,
 
