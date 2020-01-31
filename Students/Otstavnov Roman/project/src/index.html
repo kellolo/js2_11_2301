@@ -1,15 +1,27 @@
-<!doctype html>
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>eShop</title>
+  <title>Интернет-магазин</title>
 </head>
 <body>
 <header>
-  <button class="cart-button" type="button">Корзина</button>
+  <div class="logo">E-shop</div>
+  <div class="cart">
+    <form action="#" class="search-form">
+      <input type="text" class="search-field">
+      <button class="btn-search" type="submit">
+        <i class="fas fa-search"></i>
+      </button>
+    </form>
+    <button class="btn-cart" type="button">Корзина</button>
+    <div class="cart-block invisible"></div>
+  </div>
 </header>
 <main>
-  <div class="goods-list"></div>
+  <div class="products"></div>
 </main>
+
+<script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js" integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP" crossorigin="anonymous"></script>
 </body>
 </html>
