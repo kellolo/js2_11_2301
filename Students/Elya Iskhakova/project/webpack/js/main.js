@@ -200,3 +200,5 @@ class InCart {
 }// здесь будет что-нибудь
 
 let catalog = new Products (goods);
+
+// test test
