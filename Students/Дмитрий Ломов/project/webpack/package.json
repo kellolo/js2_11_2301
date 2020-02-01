@@ -4,12 +4,14 @@
     "description": "GeekBrains_education project",
     "main": "index.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "build": "webpack --mode development"
     },
     "keywords": [],
     "author": "Dmitriy Lomov",
     "license": "ISC",
     "devDependencies": {
+        "css-loader": "^3.4.2",
+        "html-webpack-plugin": "^3.2.0",
         "webpack": "^4.41.5",
         "webpack-cli": "^3.3.10"
     }
