@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        form {
+            width: 350px
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form class="burger-form">
+        
+        <fieldset>
+            <legend>Оформление заказа</legend>
+            <label>
+                <input type="text" name="Name"> Enter Name
+            </label>
+        </fieldset>
+
+        <fieldset>
+            <legend>Выберите подходящий бургер</legend>
+            <label>
+                <input type="radio" name="burger" value={"money":50,"calories":20}> Маленький (50 рублей, 20 калорий)
+            </label>
+            <label>
+                <input type="radio" name="burger" value={"money":100,"calories":40}> Большой (100 рублей, 40 калорий)
+            </label>
+        </fieldset>
+
+        <fieldset>
+            <legend>Выберите одну из начинок </legend>
+            <label>
+                <input type="radio" name="filling" value={"money":10,"calories":20}> С сыром (+10 рублей, +20 калорий)
+            </label>
+            <label>
+                <input type="radio" name="filling" value={"money":20,"calories":5}> С салатом (+20 рублей, +5 калорий)
+            </label>
+            <label>
+                <input type="radio" name="filling" value={"money":15,"calories":10}> С картофелем (+15 рублей, +10 калорий)
+            </label>
+        </fieldset>
+
+        <fieldset>
+            <legend>Дополнения</legend>
+                <input type="checkbox" class="checkbox-cl" name="addition" value={"money":15,"calories":0}> посыпать приправой (+15 рублей, +0 калорий) </br>
+                <input type="checkbox" class="checkbox-cl" name="addition" value={"money":20,"calories":5}> полить майонезом (+20 рублей, +5 калорий)
+        </fieldset>
+        <fieldset>
+            <div class="div-sum"><p class="rubles-p">Рублей: 0</p> <p class="calories-p">Калорий: 0</p></div>
+        </fieldset>
+    </form>
+    <button class="button">Оформить заказ</button>
+
+
+    <script>
+        class Form{
+            constructor(){
+                this.form = document.querySelector('form'),
+                this.checkboxs = document.querySelectorAll('.checkbox-cl')
+                this._addEventListeners();
+            }
+
+            _addEventListeners(){
+                document.querySelector('form').addEventListener('click', () => {
+                    this._createFillAndBurg();
+                    this._createArrayWithSumColoriesAndMoney();
+                });
+            }
+            _createFillAndBurg(){
+                this.fillings = this.form.elements.filling.value;
+                this.burgers = this.form.elements.burger.value;
+                
+            }
+            _createArrayWithSumColoriesAndMoney(){
+                this.sumColoriesMoney = [];
+                this.checkboxs.forEach(element => this._addValueCheckboxInArray(element));
+                this.sumColoriesMoney.push(this.fillings);
+                this.sumColoriesMoney.push(this.burgers);
+                this._sumOfTheArray();
+                this._renderRublesAndCalories();
+            }
+            _addValueCheckboxInArray(element){
+                if(element.checked){
+                    this.sumColoriesMoney.push(element.value)
+                }
+            }
+            _sumOfTheArray(){
+                this.sumMoney = 0;
+                this.sumCalories = 0;
+                this.sumColoriesMoney.forEach(function(element){
+                    if(!element==''){
+                        let obj = JSON.parse(element);
+                        form1.sumMoney += obj.money;
+                        form1.sumCalories += obj.calories;
+                    }
+                });
+            }
+            _renderRublesAndCalories(){
+                document.querySelector('.rubles-p').innerHTML = `Рублей: ${this.sumMoney}`;
+                document.querySelector('.calories-p').innerHTML = `Калорий: ${this.sumCalories}`;
+            }
+        }
+
+        let form1 = new Form();
+    </script>
+</body>
+</html>
