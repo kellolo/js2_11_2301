@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Задание 3. Вариант 1</title>
+    <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+<!--
+Некая сеть фастфудов предлагает несколько видов гамбургеров:
+
+маленький (50 рублей, 20 калорий)
+большой (100 рублей, 40 калорий)
+
+Гамбургер может быть с одним из нескольких видов начинок (обязательно):
+
+сыром (+ 10 рублей, + 20 калорий)
+салатом (+ 20 рублей, + 5 калорий)
+картофелем (+ 15 рублей, + 10 калорий)
+приправа (+ 15 рублей, 0 калорий)
+полить майонезом (+ 20 рублей, + 5 калорий).
+
+Напиши программу, расчиытвающую стоимость и калорийность гамбургера.
+-->
+
+<form name="" action="" id="form">
+    <fieldset>
+        <legend>Создать гамбургер</legend>
+        <div class="row">
+            <p>Выбрать размер:</p>
+            <div class="radio-variant">
+                <input type="radio" name="size" id="small" value="small" checked/>
+                <label for="small">Маленький</label>
+            </div>
+            <div class="radio-variant">
+                <input type="radio" name="size" id="large" value="large" />
+                <label for="large">Большой</label>
+            </div>
+        </div>
+        <div class="row additions">
+            <p>Добавки</p>
+            <div class="checkbox-variant">
+                <input type="checkbox" name="add" id="cheese" value="cheese"/>
+                <label for="cheese">Сыр</label>
+            </div>
+            <div class="checkbox-variant">
+                <input type="checkbox" name="add" id="salad" value="salad"/>
+                <label for="salad">Салат</label>
+            </div>
+            <div class="checkbox-variant">
+                <input type="checkbox" name="add" id="potato" value="potato"/>
+                <label for="potato">Картофель</label>
+            </div>
+            <div class="checkbox-variant">
+                <input type="checkbox" name="add" id="sauce" value="sauce"/>
+                <label for="sauce">Приправа</label>
+            </div>
+            <div class="checkbox-variant">
+                <input type="checkbox" name="add" id="mayonnaise" value="mayonnaise"/>
+                <label for="mayonnaise">Майонез</label>
+            </div>
+        </div>
+        <div class="submit">
+            <input type="submit" value="Make Order" />
+        </div>
+    </fieldset>
+    <br />
+    <div id="result">
+        <div><b>Стоимость:</b> <span id="price">0</span> рублей</div>
+        <div><b>Калорийность:</b> <span id="calories">0</span> калорий</div>
+    </div>
+</form>
+<script src="js/main.js"></script>
+</body>
+</html>
