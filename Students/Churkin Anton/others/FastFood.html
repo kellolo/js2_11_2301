@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Гамбургерная</title>
+</head>
+
+<body>
+    <h1>Гамбургерная</h1>
+
+    <p>Выберите размер</p>
+    <div class="loafList"></div>
+
+    <p>Выберите одну из начинок</p>
+    <div class="fillingList"></div>
+
+    <p>Дополнительные добавки</p>
+    <div class="toppingList"></div>
+    <br>
+    <div><button id="finalizeBtn">Оформить</button></div>
+    <br>
+    <div class="orderList"></div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', InitPage);
+
+        const ExternalFoodItems = [{
+                type: 'loaf',
+                name: 'Маленький',
+                price: 50,
+                calorie: 20
+            },
+            {
+                type: 'loaf',
+                name: 'Большой',
+                price: 100,
+                calorie: 40
+            },
+            {
+                type: 'filling',
+                name: 'С сыром',
+                price: 10,
+                calorie: 20
+            },
+            {
+                type: 'filling',
+                name: 'С салатом',
+                price: 20,
+                calorie: 5
+            },
+            {
+                type: 'filling',
+                name: 'С картофелем',
+                price: 15,
+                calorie: 10
+            },
+            {
+                type: 'topping',
+                name: 'посыпать приправой',
+                price: 15,
+                calorie: 0
+            },
+            {
+                type: 'topping',
+                name: 'полить майонезом',
+                price: 20,
+                calorie: 5
+            }
+        ];
+
+        var FoodClasses = [];
+
+        function InitPage() {
+            document.querySelector('#finalizeBtn').addEventListener('click', CalculateBurger);
+            FetchData(ExternalFoodItems);
+        };
+
+        function FetchData(externalFoodStorage) {
+            externalFoodStorage.filter(element => element.type.toLowerCase() === 'loaf').forEach(item => {
+                let foodUnit = new Loaf(item.name, item.price, item.calorie);
+                foodUnit.render('.loafList');
+                FoodClasses.push(foodUnit);
+            });
+            externalFoodStorage.filter(element => element.type.toLowerCase() === 'filling').forEach(item => {
+                let foodUnit = new Filling(item.name, item.price, item.calorie);
+                foodUnit.render('.fillingList');
+                FoodClasses.push(foodUnit);
+            });
+            externalFoodStorage.filter(element => element.type.toLowerCase() === 'topping').forEach(item => {
+                let foodUnit = new Topping(item.name, item.price, item.calorie);
+                foodUnit.render('.toppingList');
+                FoodClasses.push(foodUnit);
+            });
+        }
+
+        function CalculateBurger() {
+            let foodUnits =  
+                [
+                    ...document.getElementsByName('loaf'), 
+                    ...document.getElementsByName('filling'), 
+                    ...document.getElementsByName('topping')
+                ]
+                .flat()
+                .filter(x=>x.checked===true);
+
+            let summaryContainer = '.orderList'; 
+
+            if(ValidateInput(foodUnits)) {
+                let burger = new BurgerFactory(FoodClasses).create(foodUnits.map(x=>x.value));
+                burger.render(summaryContainer);
+            } else {
+                document.querySelector(summaryContainer).innerHTML = '<span style="color: red">Выберите ингредиенты для гамбургера</span>';
+            }
+        }
+
+        function ValidateInput(foodUnits) {
+            if (foodUnits.filter(x => x.name == 'loaf').length != 1) {
+                return false;
+            } else if (foodUnits.filter(x => x.name == 'filling').length != 1) {
+                return false;
+            } else { 
+                return true;
+            }
+        }
+
+        class FoodItem {
+            constructor(name, price, calorie) {
+                this.name = name;
+                this.price = price;
+                this.calorie = calorie;
+            }
+
+            render(querySelector) {
+                document.querySelector(querySelector).innerHTML +=
+                    `${this.name}, Цена: ${this.price} руб, Калорийность: ${this.calorie} Ккал`;
+            }
+        }
+
+        class Loaf extends FoodItem {
+            constructor(name, price, calorie) {
+                super(name, price, calorie)
+            }
+
+            render(querySelector) {
+                document.querySelector(querySelector).innerHTML += `
+                <div>
+                    <label>
+                        <input type="radio" name="loaf" value="${this.name}">
+                        ${this.name} (${this.price} рублей, ${this.calorie} калорий)
+                    </label>
+                </div>
+                `;
+            }
+        }
+
+        class Filling extends FoodItem {
+            constructor(name, price, calorie) {
+                super(name, price, calorie)
+            }
+
+            render(querySelector) {
+                document.querySelector(querySelector).innerHTML += `
+                <div>
+                    <label>
+                        <input type="radio" name="filling" value="${this.name}">
+                        ${this.name} (+${this.price} рублей, +${this.calorie} калорий)
+                    </label>
+                </div>
+                `;
+            }
+        }
+
+        class Topping extends FoodItem {
+            constructor(name, price, calorie) {
+                super(name, price, calorie)
+            }
+
+            render(querySelector) {
+                document.querySelector(querySelector).innerHTML += `
+                <div>
+                    <label>
+                        <input type="checkbox" name="topping" value="${this.name}">
+                        ${this.name} (+${this.price} рублей, +${this.calorie} калорий)
+                    </label>
+                </div>
+                `;
+            }
+        }
+
+        class BurgerFinal extends FoodItem {
+            constructor() {
+                super();
+                this.Ingredients = [];
+            }
+
+            addIngredient(foodItem) {
+                if (!(foodItem instanceof FoodItem)) {
+                    console.log('неверный ингредиент')
+                    return;
+                }
+                this.Ingredients.push(foodItem);
+                this.updateState();
+            }
+
+            updateState() {
+                this.updateDescription();
+                this.calculatePrice();
+                this.calculateCalories();
+            }
+
+            updateDescription() {
+                let nameBuilder = 'Гамбургер ';
+                this.Ingredients.forEach(item => nameBuilder += item.name.toLowerCase() + " ");
+                this.name = nameBuilder;
+            }
+
+            calculatePrice() {
+                let priceBuilder = 0;
+                this.Ingredients.forEach(item => priceBuilder += item.price);
+                this.price = priceBuilder;
+            }
+
+            calculateCalories() {
+                let calorieBuilder = 0;
+                this.Ingredients.forEach(item => calorieBuilder += item.calorie);
+                this.calorie = calorieBuilder;
+            }
+
+            render(querySelector) {
+                document.querySelector(querySelector).innerHTML =
+                    `${this.name}<br>
+                    Цена: ${this.price} руб,<br>
+                    Калорийность: ${this.calorie} Ккал`;
+            }
+        }
+
+        class BurgerFactory {
+            constructor(availableFoodClasses) {
+                this.availableFoodItems = availableFoodClasses;
+            }
+
+            create(selectedFoodNames) {
+                let burgerFinal = new BurgerFinal();
+                let selectedFoodItems = this.availableFoodItems.filter(item => selectedFoodNames.includes(item.name))
+                selectedFoodItems.forEach(ingredient => burgerFinal.addIngredient(ingredient))
+                return burgerFinal;
+            }
+        }
+    </script>
+</body>
+
+</html>
