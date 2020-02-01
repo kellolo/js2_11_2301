@@ -169,3 +169,13 @@ img {
     border: none;
     border-bottom: 2px solid #fafafa;
 }
+
+.d-flex {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.d-block {
+    display: block
+}
