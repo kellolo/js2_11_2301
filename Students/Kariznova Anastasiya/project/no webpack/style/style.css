@@ -33,6 +33,10 @@ button:focus{
 .btn-cart, .logo{
     align-self: center;
 }
+
+.binSum {
+    text-align: center;
+}
 /*.products {*/
 /*display: flex;*/
 /*justify-content: space-between;*/
