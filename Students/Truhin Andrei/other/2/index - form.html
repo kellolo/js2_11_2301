@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        form {
+            width: 300px
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form action="#" id="uForm">
+        <fieldset>
+            <label>
+                <input type="text" name="name" required> Введите имя
+            </label>
+        </fieldset>
+        <fieldset>
+            <h4>Размер гамбургера</h4>
+            <label>
+                <input type="radio" name="size" value="small" checked> Маленький
+            </label>
+            <label>
+                <input type="radio" name="size" value="big" > Большой
+            </label>
+        </fieldset>
+        <fieldset>
+            <h4>Начинка</h4>
+            <label>
+                <input type="radio" name="filling" value="cheese" checked> Сыр
+            </label>
+            <label>
+                <input type="radio" name="filling" value="salad" > Салат
+            </label>
+            <label>
+                <input type="radio" name="filling" value="potato" > Картошка
+            </label>
+        </fieldset>
+        <fieldset>
+            <h4>Дополнительно</h4>
+            <label>
+                <input type="checkbox" name="dressing" value="spice"> Приправа
+            </label>
+            <label>
+                <input type="checkbox" name="dressing" value="sauce"> Майонез
+            </label>
+          
+        </fieldset>
+    </form>
+
+    <button  id="okBtn">Заказать</button >
+    <script>
+        let form = document.querySelector ('#uForm')
+        let btn = document.querySelector ('#okBtn')
+        let users = []
+
+        btn.addEventListener ('click', makeOrder)
+
+        function makeOrder () {
+            let hamburgerOrder = new HamburgerOrder ();
+            console.log(hamburgerOrder.getSum());
+            hamburgerOrder.showOrder();
+            
+        }
+
+        const size = {small: {price: 50, calories: 20}, big: {price: 100, calories: 40}};
+        const filling = {cheese: {price: 10, calories: 20}, salad: {price: 20, calories: 5}, potato: {price: 15, calories: 10}};
+        const dressing = {spice: {price: 15, calories: 0}, sauce: {price: 20, calories: 5}};
+        
+
+        class HamburgerOrder {
+            constructor () {
+                this.name = this._text ('name');
+                this.size = this._check ('size');
+                this.filling = this._check ('filling');
+                this.dressing = this._getArray ('dressing');
+                this.priceOrder = 0;
+                this.caloriesOrder = 0;
+                this._init();
+            };
+
+            _text (attrName) {
+                let obj = document.querySelector (`input[name=${attrName}]`)
+                return obj.value
+            };
+
+            _check (attrName) {
+                let obj = document.querySelector (`input[name=${attrName}]:checked`)
+                return obj.value
+            };
+
+            _getArray (attrName) {
+                let objArr = [...document.querySelectorAll (`input[name=${attrName}]:checked`)]
+                let arr = []
+                objArr.forEach (el => {
+                    arr.push (el.value)
+                })
+                return arr
+            };
+
+            getSum(){
+                //console.log(this.dressing)
+                return size[this.size].price + filling[this.filling].price
+                 + (this.dressing.reduce((acc,item) => acc+dressing[item].price, 0));
+            };
+
+            getCalories(){
+                return size[this.size].calories + filling[this.filling].calories
+                 + (this.dressing.reduce((acc,item) => acc+dressing[item].calories, 0));
+            };
+
+            _init(){
+                this.priceOrder = this.getSum();
+                this.caloriesOrder = this.getCalories();
+            }
+
+            showOrder() {
+                alert(`${this.name || 'Гость'}, Вы заказали гамбургер стоимостью ${this.priceOrder} руб. с калорийностью ${this.caloriesOrder} ккал!`);
+            }
+        }
+
+    </script>
+</body>
+</html>
