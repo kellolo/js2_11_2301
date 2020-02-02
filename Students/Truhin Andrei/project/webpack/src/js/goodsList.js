@@ -18,7 +18,7 @@ export default class GoodsList{
         const newItem = new GoodsItem(this.image, this.prices[i], this.ids[i], this.items[i])
         arr.push(newItem.createProduct());
     }
-    return arr
+    return arr;
 };
    
 

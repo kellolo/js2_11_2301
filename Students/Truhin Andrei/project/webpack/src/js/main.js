@@ -1,6 +1,8 @@
 import GoodsList from './goodsList';
 import Cart from './cart';
 
+import ServerData from './serverData';
+
 //заглушки (имитация базы данных)
 const image = 'https://placehold.it/200x150';
 const cartImage = 'https://placehold.it/100x80';
@@ -16,10 +18,10 @@ var userCart = [];
 
 let goodsList = new GoodsList(image, prices, ids, items);
 
-
+let serverData = new ServerData();
 
 goodsList.renderProducts( );
-console.log(goodsList.goodsListPrice());
+console.log(serverData.getAllGoods());
 
 
 //CART
