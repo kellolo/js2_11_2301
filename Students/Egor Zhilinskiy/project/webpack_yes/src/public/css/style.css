@@ -1,0 +1,40 @@
+body {
+    font-family: 'SF Pro Display', sans-serif;
+}
+
+header {
+border-bottom: 1px solid grey;
+}
+.header-inner{
+    width: 200px;
+    float: left;
+    margin: 20px;
+    font-weight: bold
+    
+}
+.cart-button {
+    float: right;
+    padding: 10px 20px;
+    margin: 20px 40px;   
+    outline: none;
+    cursor: pointer;
+}
+
+.goods-list {
+    padding: 20px;
+    display: flex;   
+    justify-content: space-between;
+    
+}
+
+.goods-item{
+    padding: 5%;;
+    text-align: center;
+
+}
+
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
