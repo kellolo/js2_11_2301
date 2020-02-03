@@ -14,10 +14,11 @@ window.addEventListener('load', () => {
     Hamburger.hamburgers.forEach(hamburger => {
       hamsHtml.insertAdjacentHTML(
         'afterbegin',
-        `<div>${hamburger.id}. ${hamburger.size.name}-${hamburger.stuff.name} (+${hamburger.toppings.length} добавки)
-       Калл: ${hamburger.calculateCalories()} Цена: ${hamburger.calculatePrice()}</div>`
+        `<div>${hamburger.id}. ${hamburger.size.name}-${hamburger.stuff.name} 
+          (+${hamburger.toppings.length} доп)
+          Ккал: ${hamburger.calculateCalories()} Цена: ${hamburger.calculatePrice()} р.</div>`
       )
     });
     document.querySelector('.basket .content').innerHTML = hamsHtml.innerHTML;
   })
-})
+});
