@@ -1,5 +1,5 @@
 {
-  "name": "others",
+  "name": "webpack",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -8,9 +8,5 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "cli": "^1.0.1",
-    "webpack": "^4.41.5"
-  }
+  "license": "ISC"
 }

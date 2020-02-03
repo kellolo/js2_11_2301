@@ -5,7 +5,13 @@ body {
 header {
 border-bottom: 1px solid grey;
 }
-
+.header-inner{
+    width: 250px;
+    float: left;
+    margin: 20px;
+    font-weight: bold
+    
+}
 .cart-button {
     float: right;
     padding: 10px 20px;
