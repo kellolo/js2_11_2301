@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Gamburger</title>
+</head>
+<body>
+    <header>
+
+    </header>
+    <div class="container">
+        <div class="gamb">
+            <h2>Гамбургеры</h2>
+            <div class="gamb-list"></div>
+        </div>
+    </div>
+    <footer></footer>
+    <script>
+        class getGamburger {
+            constructor (elem) {
+                this.elem = elem
+            }
+            render () {
+                return `<div class="gamb-item"><h3>${this.elem.size}</h3><p>${this.elem.price}руб. ${this.elem.calories}</p></div>`    
+            }
+        }
+
+        class listGamburgers {
+            constructor () {
+                this.list = []
+            }
+            getListGamburgers () {
+                this.list = [
+                    {size:'Большой', price:'100', calories:'40 калорий'},
+                    {size:'Маленький', price:'50', calories:'20 калорий'}
+                ]
+            }
+            render () {
+                let listHtml = ""
+                this.list.forEach(item => {
+                    const itemlist = new getGamburger(item)
+                    listHtml += itemlist.render()
+                })    
+                document.querySelector('.gamb-list').innerHTML = listHtml
+            }
+        }
+
+        gamburger = new listGamburgers()
+        gamburger.getListGamburgers ()
+        gamburger.render ()
+
+    </script>
+</body>
+</html>

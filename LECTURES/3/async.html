@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        // способы передачи инф
+        // 1 html   ==      XML//XSD
+        // 2 text   ==      JSON
+        // 3 binary
+
+        // let ob = {
+        //     a: 100,
+        //     b: false,
+        //     c: 'qwert',
+        //     d: [
+        //         {a: 12}, {a: 10}
+        //     ]
+        // }
+
+        // // js >> json
+        // console.log (JSON.stringify(ob))
+        // json >> object
+        // JSON.parse (/json/)
+
+
+        // ASYNCRONOUS
+
+        //1) sync === fail 
+        // let a
+
+        //                                             setTimeout(() => {
+        //                                                 a = 10 
+        //                                             }, 0)
+
+        // console.log (a)//undefined
+                                                    // a = 10
+
+        // callback
+
+        // let a 
+
+        // function asyncGet (cb) {
+        //     setTimeout(() => {
+        //         a = 10
+        //         //here
+        //         cb ()
+        //     }, 2000);
+        // }
+
+        // asyncGet (() => {
+        //     a = a + 500
+        //     console.log (a)
+        // })
+
+
+        // PROMISE
+        // let a
+        // function promiseAsync (val) {
+        //     return new Promise ((resolve, reject) => {
+        //         //async
+        //         setTimeout(() => {
+        //             a = 10 + val
+
+        //             if (a >= 10) {
+        //                 console.log ('Promise resolved')
+        //                 resolve ({status: 200, data: a})
+        //             } else {
+        //                 console.log ('Promise rejected')
+        //                 reject ({status: 500, data: undefined})
+        //             }
+        //         }, 2000)
+        //         //async
+        //     })
+        // }
+
+        // promiseAsync()
+        //     .then(resolvedData => {
+        //         console.log (resolvedData)
+        //     })
+        //     .catch(rejectedData => {
+        //         console.log ('ERROR')
+        //         console.log (rejectedData)
+        //     })
+        //     .finally(() => {
+        //         console.log ('Promise completed')
+        //     })
+
+        //ЗАПРОС
+        // function makeGETRequest(url) {
+        //     let xhr
+        //     xhr = new XMLHttpRequest()
+
+        //     xhr.onreadystatechange = function () {
+        //         if (xhr.readyState === 4) {
+        //             //
+        //             console.log (xhr)
+        //             console.log (JSON.parse(xhr.responseText))
+        //         }
+        //     }
+
+        //     xhr.open('GET', url, true)
+        //     xhr.send()
+        // }
+
+        function makeGETRequest(url) {
+            return new Promise ((res, rej) => {
+                let xhr
+                xhr = new XMLHttpRequest()
+
+                xhr.onreadystatechange = function () {
+                    if (xhr.readyState === 4) {
+                        console.log (xhr.status)
+                        if (xhr.status === 200) {
+                            res ({data: xhr.responseText, msg:'status OK'})
+                        } else {
+                            rej ('Error occured')
+                        }
+                    }
+                }
+
+                xhr.open('GET', url, true)
+                xhr.send()
+            })
+        }
+
+        let url = 'https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/catalogData.json'
+
+        makeGETRequest (url)
+            .then (data => {
+                console.log (data.msg)
+                console.log (JSON.parse (data.data))
+            })
+            .catch (err => {
+                console.log (err)
+            })
+            
+    </script>
+</body>
+</html>
