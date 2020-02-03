@@ -1,0 +1,19 @@
+.menu-list {
+  max-width: 800px;
+  margin: auto;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid #eee;
+  padding: 20px;
+}
+
+.basket {
+  margin-left: 50px;
+  padding-left: 50px;
+  border-left: 1px solid #eee;
+  width: 40%;
+}
+
+.actions {
+  margin-top: 20px;
+}
