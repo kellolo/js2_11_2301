@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="css/main.css">
+    <title>Сеть фастфуда</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="left">
+            <form action="#" id="order-form" class="order-form">
+                <h2 class="order-form__title">Выберите ваш любимый бургер!</h2>
+                <fieldset>
+                    <legend class="order-form__subtitle">Ваш размер?</legend>
+                    <label>
+                        <input type="radio" name="size" data-name="small-burger" data-price="50" data-calories="20"> Маленький бургер
+                        <p>( 50 руб. / 20 калорий )</p>
+                    </label>
+                    <label>
+                        <input type="radio" name="size" data-name="big-burger" data-price="100" data-calories="40"> Большой бургер
+                        <p>( 100 руб. / 40 калорий )</p>
+                    </label>
+                </fieldset>
+                <fieldset>
+                    <legend class="order-form__subtitle">Ваша начинка?</legend>
+                    <label>
+                        <input type="radio" name="filling" data-name="cheese" data-price="10" data-calories="20"> С сыром
+                        <p>( +10 руб. / +20 калорий )</p>
+                    </label>
+                    <label>
+                        <input type="radio" name="filling" data-name="salad" data-price="20" data-calories="5"> С салатом
+                        <p>( +20 руб. / +5 калорий )</p>
+                    </label>
+                    <label>
+                        <input type="radio" name="filling" data-name="potato" data-price="15" data-calories="10"> С картофелем
+                        <p>( +15 руб. / +10 калорий )</p>
+                    </label>
+                </fieldset>
+                <fieldset>
+                    <legend class="order-form__subtitle">Что добавим?</legend>
+                    <label>
+                        <input type="checkbox" name="additive" data-name="spice" data-price="15" data-calories="0"> Приправу
+                        <p>( +15 руб. / 0 калорий )</p>
+                    </label>
+                    <label>
+                        <input type="checkbox" name="additive" data-name="mayonnese" data-price="20" data-calories="5"> Майонез
+                        <p>( +20 руб. / +5 калорий )</p>
+                    </label>
+                </fieldset>
+            </form>
+        </div>
+        <div class="right">
+            <button class="btn" id="calculateBtn">Рассчитать</button>
+            <div class="total-output">
+
+            </div>
+        </div>
+    </div>
+    <script src="js/main.js"></script>
+</body>
+
+</html>

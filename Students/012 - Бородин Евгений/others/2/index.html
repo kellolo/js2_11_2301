@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Burger calculator</title>
+    <style>
+        form {
+            width: 300px
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form action="#" id="uForm">
+        <fieldset>
+            <legend>Choose your size</legend>
+            <label>
+                <input type="radio" name="Size" value="Small" checked>Small
+            </label>
+            <label>
+                <input type="radio" name="Size" value="Large">Large
+            </label>
+        </fieldset>
+        <fieldset>
+            <legend>Choose your topping</legend>
+            <label>
+                <input type="checkbox" name="Topping" value="Cheese" checked> Cheese
+            </label>
+            <label>
+                <input type="checkbox" name="Topping" value="Salad" > Salad
+            </label>
+            <label>
+                <input type="checkbox" name="Topping" value="Potato"> Potato
+            </label>
+        </fieldset>
+        <fieldset>
+            <legend>Choose your spices</legend>
+            <label>
+                <input type="checkbox" name="Spices" value="Spices"> Add spices
+            </label>
+            <label>
+                <input type="checkbox" name="Spices" value="Sauce"> Add sauce
+            </label>
+        </fieldset>
+    </form>
+    <button id="calcBtn">Calculate it!</button>
+    <p class="message"></p>
+    <script>
+        let form = document.querySelector ('#uForm')
+        let btn = document.querySelector ('#calcBtn')
+        const SPECS = [
+            ["Small", 50, 20],
+            ["Large", 100, 40],
+            ["Cheese", 10, 20],
+            ["Salad", 20, 5],
+            ["Potato", 15, 10],
+            ["Spices", 15, 0],
+            ["Sauce", 20, 5]
+        ]
+        const COST_INDEX = 1
+        const CALS_INDEX = 2
+
+        class Burger  {
+            constructor (size, topping, spices) {
+                this.Size = this._radio (size)
+                this.Topping = this._getArray (topping)
+                this.Spices = this._getArray (spices)
+                this.messageCreate (this._toppingCheck () ? `Choose your topping first!` : `Total cost: ${this.sumSpecs(this, COST_INDEX)} rub. Calories: ${this.sumSpecs(this, CALS_INDEX)}.`)
+                console.log(this)
+            }
+
+            _radio (attrName) {
+                let obj = document.querySelector (`input[name=${attrName}]:checked`)
+                return obj.value
+            }
+            _getArray (attrName) {
+                let objArr = [...document.querySelectorAll (`input[name=${attrName}]:checked`)]
+                let arr = []
+                objArr.forEach (el => {
+                    arr.push (el.value)
+                })
+                return arr
+            }
+            _toppingCheck () {
+                return this.Topping.length == 0
+            }
+            getSpecsArr (article) {
+                return SPECS.find(elem => elem.includes(article))
+            }
+            getSpecs (article,index) {
+                return this.getSpecsArr (article) [index]
+            }
+            sumSpecs (obj, index) {
+                let specTotal = 0
+                for (var el in obj) {
+                    if (typeof(obj[el]) === 'object') {
+                        obj[el].forEach (elem => {
+                            specTotal += obj.getSpecs(elem, index)
+                        })
+                    } else {
+                        specTotal += obj.getSpecs(obj[el], index)
+                    }
+                }
+                return specTotal
+            }
+            messageCreate (msgText) {
+                let obj = document.querySelector ('.message')
+                obj.innerText = msgText
+            }
+        }
+        
+        btn.addEventListener ('click', calcBurger)
+
+        function calcBurger () {
+            let burger = new Burger ('Size', 'Topping', 'Spices')
+        }
+    </script>
+</body>
+</html>

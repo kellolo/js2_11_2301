@@ -5,41 +5,40 @@ const PRICES = [100, 120, 1000, 15, 18, 30]
 const IDS = [0, 1, 2, 3, 4, 5]
 
 // ------------------------------ ===================================== ------------------------------
+class Catalog {
+    items = []
+    cart = null
 
-let catalog = {
-    items: [],
-    cart: null,
+    container = document.querySelector('.products')
 
-    container: document.querySelector('.products'),
-
-    construct() {
+    constructor() {
         this.cart = cart
         this._init()
-    },
+    }
     _init() {
         this._handleData()
         this.render()
         this._handleEvents()
-    },
+    }
     _handleData() {
         for (let i = 0; i < IDS.length; i++) {
             this.items.push(this._createNewProduct(i))
         }
-    },
+    }
     _handleEvents() {
         this.container.addEventListener('click', (evt) => {
             if (evt.target.name === 'buy-btn') {
                 this.cart.addProduct(evt.target)
             }
         })
-    },
+    }
     _createNewProduct(index) {
         return {
             product_name: PRODUCTS_NAMES[index],
             price: PRICES[index],
             id_product: IDS[index]
         }
-    },
+    }
     render() {
         let str = ''
         this.items.forEach(item => {
@@ -62,23 +61,23 @@ let catalog = {
     }
 }
 
-let cart = {
-    items: [],
-    total: 0,
-    sum: 0,
+class Cart {
+    items = []
+    total = 0
+    sum = 0
 
-    container: document.querySelector('.cart'),
-    priceBlock: document.querySelector('#price'),
-    qtyBlock: document.querySelector('#quantity'),
-    cartBtn: document.querySelector('#cart-main-btn'),
-    cartWrapper: document.querySelector('#cartWrapper'),
+    container = document.querySelector('.cart')
+    priceBlock = document.querySelector('#price')
+    qtyBlock = document.querySelector('#quantity')
+    cartBtn = document.querySelector('#cart-main-btn')
+    cartWrapper = document.querySelector('#cartWrapper')
 
-    construct() {
+    constructor() {
         this._init()
-    },
+    }
     _init() {
         this._handleEvents()
-    },
+    }
     _handleEvents() {
         this.cartBtn.addEventListener('click', this._showCart)
         this.container.addEventListener('click', (evt) => {
@@ -86,7 +85,7 @@ let cart = {
                 this.deleteProduct(evt.target)
             }
         })
-    },
+    }
 
     addProduct(product) {
         let id = product.dataset['id']
@@ -101,7 +100,7 @@ let cart = {
         this._checkTotal()
         this._calculateSum()
         this.render()
-    },
+    }
     _createNewProduct(prod) {
         return {
             product_name: prod.dataset['name'],
@@ -109,7 +108,7 @@ let cart = {
             id_product: prod.dataset['id'],
             quantity: 1
         }
-    },
+    }
     deleteProduct(product) {
         let id = product.dataset['id']
         let find = this.items.find(product => product.id_product === id)
@@ -122,7 +121,7 @@ let cart = {
         this._checkTotal()
         this._calculateSum()
         this.render()
-    },
+    }
     _calculateSum() {
         let sumResult = 0
         let sumNums = []
@@ -132,7 +131,7 @@ let cart = {
         for (let i = 0; i < sumNums.length; i++) sumResult += sumNums[i]
 
         this.sum = sumResult
-    },
+    }
     _checkTotal() {
         let totalSum = 0
         let totalNums = []
@@ -142,10 +141,10 @@ let cart = {
         for (let i = 0; i < totalNums.length; i++) totalSum += totalNums[i]
 
         this.total = totalSum
-    },
+    }
     _showCart() {
         cart.cartWrapper.classList.contains('visible') ? cart.cartWrapper.classList.remove('visible') : cart.cartWrapper.classList.add('visible')
-    },
+    }
     render() {
         let str = ''
         this.items.forEach(item => {
@@ -171,6 +170,5 @@ let cart = {
         this.qtyBlock.innerHTML = this.total
     }
 }
-
-catalog.construct(cart)
-cart.construct()
+let cart = new Cart()
+let catalog = new Catalog()
