@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Burger calculator</title>
+    <style>
+        form {
+            width: 300px
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form action="#" id="uForm">
+        <fieldset>
+            <legend>Choose your size</legend>
+            <label>
+                <input type="radio" name="Size" value="Small" data-price="50" data-calories="20" checked>Small
+            </label>
+            <label>
+                <input type="radio" name="Size" value="Large" data-price="100" data-calories="40">Large
+            </label>
+        </fieldset>
+        <fieldset>
+            <legend>Choose your topping</legend>
+            <label>
+                <input type="checkbox" name="Topping" value="Cheese" data-price="10" data-calories="20" checked> Cheese
+            </label>
+            <label>
+                <input type="checkbox" name="Topping" value="Salad" data-price="20" data-calories="5"> Salad
+            </label>
+            <label>
+                <input type="checkbox" name="Topping" value="Potato" data-price="15" data-calories="10"> Potato
+            </label>
+        </fieldset>
+        <fieldset>
+            <legend>Choose your spices</legend>
+            <label>
+                <input type="checkbox" name="Spices" value="Spices" data-price="15" data-calories="0"> Add spices
+            </label>
+            <label>
+                <input type="checkbox" name="Spices" value="Sauce" data-price="20" data-calories="5"> Add sauce
+            </label>
+        </fieldset>
+    </form>
+    <button id="calcBtn">Calculate it!</button>
+    <p class="message"></p>
+    <script>
+        let form = document.querySelector ('#uForm')
+        let btn = document.querySelector ('#calcBtn')
+
+        class Burger {
+            constructor (size, topping, spices) {
+                this.Size = new Param (this._selectRadio (size))
+                this.Topping = this._handleCollection (topping)
+                this.Spices = this._handleCollection (spices)
+                this.messageCreate (this._toppingCheck () ? `Choose your topping first!` : `Total cost: ${this.sumSpecs("Price")} rub. Calories: ${this.sumSpecs("Calories")}.`)
+                console.log(this)
+            }
+
+            _selectRadio (attrName) {
+                return document.querySelector (`input[name=${attrName}]:checked`)
+            }
+            _selectCheckboxesCollection (attrName) {
+                return [...document.querySelectorAll (`input[name=${attrName}]:checked`)]
+            }
+            _handleCollection (attrName) {
+                let objArr = this._selectCheckboxesCollection(attrName)
+                let collectionParams = []
+                objArr.forEach (el => {
+                    collectionParams.push (new Param (el))
+                })
+                return collectionParams
+            }
+            _toppingCheck () {
+                return this.Topping.length == 0
+            }
+            sumSpecs (paramProp) {
+                let sum = 0
+                for (let el in this) {
+                    if (el !== 'Size') {
+                        this[el].forEach (elem => {
+                            sum += elem[paramProp]
+                        })
+                    } else {
+                        sum += this[el][paramProp]
+                    }
+                }
+                return sum
+            }
+            messageCreate (msgText) {
+                let obj = document.querySelector ('.message')
+                obj.innerText = msgText
+            }
+        }
+
+        class Param {
+            constructor (selectedFormElement) {
+                this.Name = selectedFormElement.value
+                this.Price = +selectedFormElement.dataset.price
+                this.Calories = +selectedFormElement.dataset.calories
+            }
+        }
+        
+        btn.addEventListener ('click', calcBurger)
+
+        function calcBurger () {
+            let burger = new Burger ('Size', 'Topping', 'Spices')
+        }
+    </script>
+</body>
+</html>
