@@ -1,11 +1,5 @@
 
-export default class ServerData{
-
-  constructor(){
-
-  };
-
-  _makeGETRequest(url) {
+function makeGETRequest(url_request) {
     return new Promise ((res, rej) => {
         let xhr;
         xhr = new XMLHttpRequest();
@@ -19,41 +13,11 @@ export default class ServerData{
                 }
             }
         }
+        //console.log(777, url_request)
 
-        xhr.open('GET', url, true)
+        xhr.open('GET', `https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/${url_request}`, true)
         xhr.send()
     })
 }
 
-  _getDataFromRequest() {
-    let url = 'https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/catalogData.json';
-    let r;
- 
-    return this._makeGETRequest (url)
-      .then (data => {
-        console.log (JSON.parse(data))
-         //result = ;
-        //res(JSON.parse(data));
-        r= JSON.parse(data);
-      })
-      .catch (err => {
-
-          console.log (2, err);
-          rej(err);
-      })
-    
-    console.log (5, r);
-    return r;
-   
-  }
-
-  getAllGoods(){
-    
-    return this._getDataFromRequest();
-
-  };
-
-  getItem(id) {
-
-  };
-}
+export default makeGETRequest;

@@ -18,11 +18,16 @@ var userCart = [];
 
 let goodsList = new GoodsList(image, prices, ids, items);
 
-let serverData = new ServerData();
+//let serverData = new ServerData();
 
-goodsList.renderProducts( );
-console.log(serverData.getAllGoods());
-
+//goodsList.renderProducts( );
+//console.log(serverData.getAllGoods());
+goodsList.fetchData()
+.then(
+    console.log (7);
+    goodsList.renderProducts();
+  );
+  
 
 //CART
 
