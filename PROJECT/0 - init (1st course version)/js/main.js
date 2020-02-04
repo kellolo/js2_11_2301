@@ -69,7 +69,7 @@ function createProduct (i) {
 function renderProducts () {
     //let arr = [];
     let str = ''
-    for (item of list) {
+    for (let item of list) {
         str += item.createTemplate()
     }
     document.querySelector('.products').innerHTML = str;
@@ -113,7 +113,7 @@ function removeProduct (product) {
 //перерендер корзины
 function renderCart () {
     let allProducts = '';
-    for (el of userCart) {
+    for (let el of userCart) {
         allProducts += `<div class="cart-item" data-id="${el.id}">
                             <div class="product-bio">
                                 <img src="${el.img}" alt="Some image">
