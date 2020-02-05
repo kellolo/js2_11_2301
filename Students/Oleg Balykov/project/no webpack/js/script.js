@@ -1,33 +1,25 @@
+window.addEventListener('load', () => {
+    // 
+    const products = new products();
+    const bin = new cart();
+
+
+    cart.init(products);
+
+    products.renderProducts();
+
+});
 //заглушки (имитация базы данных)
 const image = 'https://placehold.it/200x150';
 const cartImage = 'https://placehold.it/100x80';
 const items = ['Notebook', 'Display', 'Keyboard', 'Mouse', 'Phones', 'Router', 'USB-camera', 'Gamepad'];
 const prices = [1000, 200, 20, 10, 25, 30, 18, 24];
 const ids = [1, 2, 3, 4, 5, 6, 7, 8];
-
+  
 
 //глобальные сущности корзины и каталога (ИМИТАЦИЯ! НЕЛЬЗЯ ТАК ДЕЛАТЬ!)
 var userCart = [];
 var list = fetchData ();
-
-//кнопка скрытия и показа корзины
-document.querySelector('.btn-cart').addEventListener('click', () => {
-    document.querySelector('.cart-block').classList.toggle('invisible');
-});
-//кнопки удаления товара (добавляется один раз)
-document.querySelector('.cart-block').addEventListener ('click', (evt) => {
-    if (evt.target.classList.contains ('del-btn')) {
-        removeProduct (evt.target);
-    }
-})
-//кнопки покупки товара (добавляется один раз)
-document.querySelector('.products').addEventListener ('click', (evt) => {
-    if (evt.target.classList.contains ('buy-btn')) {
-        addProduct (evt.target);
-    }
-})
-
-//создание массива объектов - имитация загрузки данных с сервера
 function fetchData () {
     let arr = [];
     for (let i = 0; i < items.length; i++) {
@@ -65,8 +57,11 @@ function createProduct (i) {
     }
 };
 
+
+class products {
+
 //рендер списка товаров (каталога)
-function renderProducts () {
+renderProducts () {
     //let arr = [];
     let str = ''
     for (item of list) {
@@ -75,12 +70,40 @@ function renderProducts () {
     document.querySelector('.products').innerHTML = str;
 }
 
-renderProducts ();
 
-//CART
 
-// Добавление продуктов в корзину
-function addProduct (product) {
+}
+
+
+
+class cart {
+ constructor(){
+//кнопка скрытия и показа корзины
+document.querySelector('.btn-cart').addEventListener('click', () => {
+    document.querySelector('.cart-block').classList.toggle('invisible');
+});
+//кнопки удаления товара (добавляется один раз)
+document.querySelector('.cart-block').addEventListener ('click', (evt) => {
+    if (evt.target.classList.contains ('del-btn')) {
+        removeProduct (evt.target);
+    }
+})
+//кнопки покупки товара (добавляется один раз)
+document.querySelector('.products').addEventListener ('click', (evt) => {
+    if (evt.target.classList.contains ('buy-btn')) {
+        addProduct (evt.target);
+    }
+})
+
+ 
+}
+ init(products) {
+        this.products = products;
+    }
+ 
+
+ // Добавление продуктов в корзину
+  addProduct (product) {
     let productId = +product.dataset['id']; //data-id="1"
     let find = userCart.find (element => element.id === productId); //товар или false
     if (!find) {
@@ -97,8 +120,8 @@ function addProduct (product) {
     renderCart ()
 }
 
-//удаление товаров
-function removeProduct (product) {
+ //удаление товаров
+   removeProduct (product) {
     let productId = +product.dataset['id'];
     let find = userCart.find (element => element.id === productId);
     if (find.quantity > 1) {
@@ -109,9 +132,9 @@ function removeProduct (product) {
     }
     renderCart ();
 }
-
+    
 //перерендер корзины
-function renderCart () {
+    renderCart () {
     let allProducts = '';
     for (el of userCart) {
         allProducts += `<div class="cart-item" data-id="${el.id}">
@@ -132,3 +155,9 @@ function renderCart () {
 
     document.querySelector(`.cart-block`).innerHTML = allProducts;
 }
+
+
+
+
+}
+
