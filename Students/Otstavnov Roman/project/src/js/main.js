@@ -1,13 +1,10 @@
 //заглушки (имитация базы данных)
 const image = 'https://placehold.it/200x150'
 const cartImage = 'https://placehold.it/100x80'
-const items = ['Notebook', 'Display', 'Keyboard', 'Mouse', 'Phones', 'Router', 'USB-camera', 'Gamepad']
-const prices = [1000, 200, 20, 10, 25, 30, 18, 24]
-const ids = [1, 2, 3, 4, 5, 6, 7, 8]
+
 
 //глобальные сущности корзины и каталога (ИМИТАЦИЯ! НЕЛЬЗЯ ТАК ДЕЛАТЬ!)
-var userCart = []
-var list = fetchData()
+var userCart = [];
 
 //кнопка скрытия и показа корзины
 document.querySelector('.btn-cart').addEventListener('click', () => {
@@ -31,21 +28,20 @@ document.querySelector('.products').addEventListener('click', (evt) => {
 }
 })
 
+
 //создание массива объектов - имитация загрузки данных с сервера
-function fetchData () {
-  let arr = []
-  for (let i = 0; i < items.length; i++) {
-    arr.push(createProduct(i))
-  }
-  return arr
+const fetchData = async () => {
+  const response = await fetch('https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/catalogData.json');
+  const products = await response.json();
+  return products.map(createProduct)
 }
 
 //создание товара
-function createProduct (i) {
+function createProduct ({id_product, product_name, price}) {
   return {
-    id: ids[i],
-    name: items[i],
-    price: prices[i],
+    id: id_product,
+    name: product_name,
+    price: price,
     img: image,
     quantity: 0,
     createTemplate: function () {
@@ -70,16 +66,13 @@ function createProduct (i) {
 }
 
 //рендер списка товаров (каталога)
-function renderProducts () {
-  //let arr = [];
-  let str = ''
-  for (item of list) {
-    str += item.createTemplate()
-  }
+const renderProducts = async () => {
+  const list = await fetchData();
+  const str = list.reduce((result, item) => result + item.createTemplate(), '');
   document.querySelector('.products').innerHTML = str
 }
 
-renderProducts()
+renderProducts();
 
 //CART
 
