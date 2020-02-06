@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        form {
+            width: 300px
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="#" id="uForm">
+        <fieldset class="uDishList">
+        </fieldset>
+        <fieldset class="uModifList">
+        </fieldset>
+        <fieldset class="uDopList">
+        </fieldset>
+    </form>
+    <button id="okBtn">Итого</button>
+    <div id="total"></div>
+
+    <script>
+        class DishList {
+            constructor() {
+                this.dish = this._fetchList()
+            }
+            _fetchList() {
+                let arr = []
+                return arr = [{
+                    name: 'Гамбургер маленький',
+                    price: 50,
+                    calories: 20
+                }, {
+                    name: 'Гамбургер большой',
+                    price: 100,
+                    calories: 40
+                }]
+            }
+            render() {
+                let listHtml = ''
+                this.dish.forEach(list => {
+                    listHtml += `
+                     <label>
+                       <input type="radio" name="Dish" value="${list.name}" data-hambprice="${list.price}" data-hambcalories="${list.calories}"> ${list.name} (ц:${list.price}) (к:${list.calories})
+                     </label>
+                    `
+                })
+                document.querySelector(`.uDishList`).innerHTML = 'Блюда ' + listHtml
+            }
+        }
+        class ModifierList {
+            constructor() {
+                this.modifier = this._fetchList()
+            }
+            _fetchList() {
+                let arr = []
+                return arr = [{
+                    name: 'Сыр',
+                    price: 10,
+                    calories: 20
+                }, {
+                    name: 'Салат',
+                    price: 20,
+                    calories: 5
+                }, {
+                    name: 'Картофель',
+                    price: 15,
+                    calories: 10
+                }]
+            }
+            render() {
+                let listHtml = ''
+                this.modifier.forEach(list => {
+                    listHtml += `
+                     <label>
+                       <input type="checkbox" name="Modifier" value="${list.name}" data-modifprice="${list.price}" data-modifcalories="${list.calories}"> ${list.name} (ц:${list.price}) (к:${list.calories})
+                     </label>
+                    `
+                })
+                document.querySelector(`.uModifList`).innerHTML = 'Модификатор блюда ' + listHtml
+            }
+        }
+        class DopList {
+            constructor() {
+                this.dop = this._fetchList()
+            }
+            _fetchList() {
+                let arr = []
+                return arr = [{
+                    name: 'Приправа',
+                    price: 15,
+                    calories: 0
+                }, {
+                    name: 'Майонез',
+                    price: 20,
+                    calories: 5
+                }]
+            }
+            render() {
+                let listHtml = ''
+                this.dop.forEach(list => {
+                    listHtml += `
+                     <label>
+                       <input type="checkbox" name="Dop" value="${list.name}" data-dopprice="${list.price}" data-dopcalories="${list.calories}"> ${list.name} (ц:${list.price}) (к:${list.calories})
+                     </label>
+                    `
+                })
+                document.querySelector(`.uDopList`).innerHTML = 'Дополнения к блюду ' + listHtml
+            }
+        }
+
+
+        let dishList = new DishList()
+        dishList.render()
+        let modifierList = new ModifierList()
+        modifierList.render()
+        let dopList = new DopList()
+        dopList.render()
+
+        let form = document.querySelector('#uForm')
+        let btn = document.querySelector('#okBtn')
+        let check = []
+
+        btn.addEventListener('click', addCheck)
+
+        function addCheck() {
+            let newCheck = new Check('Dish', 'Modifier', 'Dop')
+            check.push(newCheck)
+            let total = document.getElementById('total')
+            let str = ''
+            check.forEach((el, index) => {
+                str += `
+                        <br><b>${index + 1} # ${el.Dish}</b>
+                        
+                `
+                check[index].Modifier.forEach(mo => {
+                    str += `
+                        <br>&nbsp;&nbsp;&nbsp;${mo}
+                `
+                })
+
+                check[index].Dop.forEach(dop => {
+                    str += `
+                        <br>&nbsp;&nbsp;&nbsp;${dop}
+                `
+                })
+
+                str += `<br>Итого по чеку: Сумма: ${el.TotalPrice}, Калорийность: ${el.TotalCalories} 
+                <br>######################################
+                `
+            })
+            total.innerHTML = str
+        }
+        class Check {
+            constructor(dish, modifier, dop) {
+                this.Dish = this._nameDish(dish)
+                this.Modifier = this._getArray(modifier)
+                this.Dop = this._getArray(dop)
+                this.TotalPrice = this._getTotal(dish, modifier, dop)
+                this.TotalCalories
+            }
+            _nameDish(attrName) {
+                let obj = document.querySelector(`input[name=${attrName}]:checked`)
+                return obj.value
+            }
+            _getArray(attrName) {
+                let objArr = [...document.querySelectorAll(`input[name=${attrName}]:checked`)]
+                let arr = []
+                objArr.forEach(el => {
+                    arr.push(el.value)
+                })
+                return arr
+            }
+            _getTotal(attrName, attrName1, attrName2) {
+                let price = 0
+                let calories = 0
+                let obj = document.querySelector(`input[name=${attrName}]:checked`)
+                price += +obj.dataset['hambprice']
+                calories += +obj.dataset['hambcalories']
+
+                let objArr = [...document.querySelectorAll(`input[name=${attrName1}]:checked`)]
+                objArr.forEach(el => {
+                    let obj = document.querySelector(`input[name=${attrName1}]:checked`)
+                    price += +el.dataset['modifprice']
+                    calories += +el.dataset['modifcalories']
+                })
+
+                objArr = [...document.querySelectorAll(`input[name=${attrName2}]:checked`)]
+                objArr.forEach(el => {
+                    let obj = document.querySelector(`input[name=${attrName2}]:checked`)
+                    price += +el.dataset['dopprice']
+                    calories += +el.dataset['dopcalories']
+                })
+                this.TotalCalories = calories
+                return price
+            }
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Ресторан лучший и хороший</title>
+    <style>
+        form {
+            width: 500px
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form action="#" id="uForm">
+        <fieldset>
+            <label>
+                <input type="text" name="Stol"> Стол
+            </label>
+            <label>
+                <input type="text" name="Col-vo"> Сколько
+            </label>
+        </fieldset>
+        <fieldset>
+            <label>
+                <input type="radio" name="libbi" value="mal" data-paid="50" data-colory="20"> Маленький (50 рублей, 20 калорий).
+            </label>
+            <label>
+                <input type="radio" name="libbi" value="big" data-paid="100" data-colory="40"> Большой (100 рублей, 40 калорий).
+            </label>
+        </fieldset>
+        <fieldset>
+            Добавки, обязательно впихнуть им в стоимость, с хлебом.
+            <label>
+                <input type="checkbox" name="add" value="cheese" data-paid="10" data-colory="20"> С сыром (+10 рублей, +20 калорий).
+            </label>
+            <label>
+                <input type="checkbox" name="add" value="salad" data-paid="20" data-colory="5"> С салатом (+20 рублей, +5 калорий).
+            </label>
+            <label>
+                <input type="checkbox" name="add" value="potatoes" data-paid="15" data-colory="10"> С картофелем (+15 рублей, +10 калорий).
+            </label>
+            <label>
+                <input type="checkbox" name="add" value="hell" data-paid="15" data-colory="0"> "Остро должно быть дважды"о (+15 рублей, +0 калорий)
+            </label>
+            <label>
+                <input type="checkbox" name="add" value="mayonnaise" data-paid="20" data-colory="5"> Полить майонезом жирбас? (+20 рублей, +5 калорий).
+            </label>
+        </fieldset>
+    </form>
+
+    <button id="okOrder">Отправить заказ на кухню</button>
+    <script>
+        let form = document.querySelector ('#uForm')
+        let btn = document.querySelector ('#okOrder')
+        let order = []
+
+        btn.addEventListener ('click', addOrder)
+
+        function addOrder () {
+           let newOrders = new newOrder ('Stol', 'Col_vo', 'libbi', 'Add')
+            order.push (newOrders)
+        }
+        class newOrder {
+            constructor (stol, count, libbi, add) {
+                this.Stol = this._text (stol),
+                this.Col_vo = this._text (count),
+                this.libbi = this._check (libbi),
+                this.Add = add
+            }
+            _text (attrName) {
+                let obj = document.querySelector (`input[name=${attrName}]`);
+                return obj.value
+            }
+            _check (attValue) {
+                let obg = document.querySelector (`input[name=${attValue}]:checked`);
+                return obg.value
+            }
+        }
+
+       /* class Order {
+            constructor (stol, count, size, add) {
+                this.Stol = this.text (stol)
+                this.Count = this.text (count)
+                this.Size = this._check (size)
+                this.Add = this._getArray (add)
+            }
+            text (attrName) {
+                let obj = document.querySelector (`input[name=${attrName}]`)
+                return obj.value
+            }
+            _check (attValue) {
+                let obj = document.querySelector (`input[name=${attValue}]:checked`)
+                return obj.value
+            }
+            _getArray (attrAdd) {
+                let objArr = [...document.querySelectorAll (`input[name=${attrAdd}]:checked`)]
+                let arr = []
+                objArr.forEach (el => {
+                    arr.push (el.value)
+                })
+                return arr
+            }
+        } */
+
+
+    </script>
+</body>
+</html>
