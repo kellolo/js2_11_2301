@@ -20,31 +20,31 @@
         <fieldset>
             <legend>Choose your size</legend>
             <label>
-                <input type="radio" name="Size" value="Small" checked>Small
+                <input type="radio" name="Size" value="Small" data-price="50" data-calories="20" checked>Small
             </label>
             <label>
-                <input type="radio" name="Size" value="Large">Large
+                <input type="radio" name="Size" value="Large" data-price="100" data-calories="40">Large
             </label>
         </fieldset>
         <fieldset>
             <legend>Choose your topping</legend>
             <label>
-                <input type="checkbox" name="Topping" value="Cheese" checked> Cheese
+                <input type="checkbox" name="Topping" value="Cheese" data-price="10" data-calories="20" checked> Cheese
             </label>
             <label>
-                <input type="checkbox" name="Topping" value="Salad" > Salad
+                <input type="checkbox" name="Topping" value="Salad" data-price="20" data-calories="5"> Salad
             </label>
             <label>
-                <input type="checkbox" name="Topping" value="Potato"> Potato
+                <input type="checkbox" name="Topping" value="Potato" data-price="15" data-calories="10"> Potato
             </label>
         </fieldset>
         <fieldset>
             <legend>Choose your spices</legend>
             <label>
-                <input type="checkbox" name="Spices" value="Spices"> Add spices
+                <input type="checkbox" name="Spices" value="Spices" data-price="15" data-calories="0"> Add spices
             </label>
             <label>
-                <input type="checkbox" name="Spices" value="Sauce"> Add sauce
+                <input type="checkbox" name="Spices" value="Sauce" data-price="20" data-calories="5"> Add sauce
             </label>
         </fieldset>
     </form>
@@ -53,64 +53,57 @@
     <script>
         let form = document.querySelector ('#uForm')
         let btn = document.querySelector ('#calcBtn')
-        const SPECS = [
-            ["Small", 50, 20],
-            ["Large", 100, 40],
-            ["Cheese", 10, 20],
-            ["Salad", 20, 5],
-            ["Potato", 15, 10],
-            ["Spices", 15, 0],
-            ["Sauce", 20, 5]
-        ]
-        const COST_INDEX = 1
-        const CALS_INDEX = 2
 
-        class Burger  {
+        class Burger {
             constructor (size, topping, spices) {
-                this.Size = this._radio (size)
-                this.Topping = this._getArray (topping)
-                this.Spices = this._getArray (spices)
-                this.messageCreate (this._toppingCheck () ? `Choose your topping first!` : `Total cost: ${this.sumSpecs(this, COST_INDEX)} rub. Calories: ${this.sumSpecs(this, CALS_INDEX)}.`)
+                this.Size = new Param (this._selectRadio (size))
+                this.Topping = this._handleCollection (topping)
+                this.Spices = this._handleCollection (spices)
+                this.messageCreate (this._toppingCheck () ? `Choose your topping first!` : `Total cost: ${this.sumSpecs("Price")} rub. Calories: ${this.sumSpecs("Calories")}.`)
                 console.log(this)
             }
 
-            _radio (attrName) {
-                let obj = document.querySelector (`input[name=${attrName}]:checked`)
-                return obj.value
+            _selectRadio (attrName) {
+                return document.querySelector (`input[name=${attrName}]:checked`)
             }
-            _getArray (attrName) {
-                let objArr = [...document.querySelectorAll (`input[name=${attrName}]:checked`)]
-                let arr = []
+            _selectCheckboxesCollection (attrName) {
+                return [...document.querySelectorAll (`input[name=${attrName}]:checked`)]
+            }
+            _handleCollection (attrName) {
+                let objArr = this._selectCheckboxesCollection(attrName)
+                let collectionParams = []
                 objArr.forEach (el => {
-                    arr.push (el.value)
+                    collectionParams.push (new Param (el))
                 })
-                return arr
+                return collectionParams
             }
             _toppingCheck () {
                 return this.Topping.length == 0
             }
-            getSpecsArr (article) {
-                return SPECS.find(elem => elem.includes(article))
-            }
-            getSpecs (article,index) {
-                return this.getSpecsArr (article) [index]
-            }
-            sumSpecs (obj, index) {
-                let specTotal = 0
-                for (var el in obj) {
-                    if (typeof(obj[el]) === 'object') {
-                        obj[el].forEach (elem => {
-                            specTotal += obj.getSpecs(elem, index)
+            sumSpecs (paramProp) {
+                let sum = 0
+                for (let el in this) {
+                    if (el !== 'Size') {
+                        this[el].forEach (elem => {
+                            sum += elem[paramProp]
                         })
                     } else {
-                        specTotal += obj.getSpecs(obj[el], index)
+                        sum += this[el][paramProp]
                     }
                 }
-                return specTotal
+                return sum
             }
             messageCreate (msgText) {
                 let obj = document.querySelector ('.message')
                 obj.innerText = msgText
+            }
+        }
+
+        class Param {
+            constructor (selectedFormElement) {
+                this.Name = selectedFormElement.value
+                this.Price = +selectedFormElement.dataset.price
+                this.Calories = +selectedFormElement.dataset.calories
             }
         }
         
