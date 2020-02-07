@@ -2,9 +2,7 @@
 const image = 'https://placehold.it/200x150';
 const cartImage = 'https://placehold.it/100x80';
 const API = 'https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses'
-// const items = ['Notebook', 'Display', 'Keyboard', 'Mouse', 'Phones', 'Router', 'USB-camera', 'Gamepad'];
-// const prices = [1000, 200, 20, 10, 25, 30, 18, 24];
-// const ids = [1, 2, 3, 4, 5, 6, 7, 8];
+
 
 
 class List {
@@ -81,12 +79,13 @@ class Catalog extends List {
 class Cart extends List {
     constructor (url = '/getBasket.json', container = '.cart-block') {
         super (url, container)
+        this.totalSum = 0
     }
 
     _init () {
         this.getData(API + this.url)
             .then(parsedData => { this.items = parsedData.contents })
-            .then(() => { this._render() })
+            .then(() => { this._render(); this.getTotalSum(); })
             .finally(() => { this._addListeners() })
     }
 
@@ -120,13 +119,14 @@ class Cart extends List {
                         quantity: 1
                     });
 
-                   // this.totalSum += +product.dataset["price"];
+                    this.totalSum += +product.dataset["price"];
                     } else {
                     find.quantity++;
-                   // this.totalSum += find.price;
+                    this.totalSum += find.price;
                     }
                    
                     this._render()
+                    this.getTotalSum()
                     console.log (`Товар ${prod.dataset.name} добавлен в корзину`)
                 }
             })
@@ -140,20 +140,33 @@ class Cart extends List {
                 if (serverResponse200) {
                     let productId = +prod.dataset["id"];
                     let find = this.items.find(element => element.id_product === productId);
-                    console.log(1, find)
+                   
                     if (find.quantity > 1) {
-                        console.log(1, find)
+                     
                     find.quantity--;
-                   // this.totalSum -= find.price;
+                    this.totalSum -= find.price;
                     } else {
-                    //this.totalSum -= find.price;
+                    this.totalSum -= find.price;
                     this.items.splice(this.items.indexOf(find), 1);
                     document.querySelector(`.cart-item[data-id="${productId}"]`).remove();
                     }
                     this._render()
+                    this.getTotalSum()
                     console.log (`Товар ${prod.dataset.id} удален из корзины`)
                 }
             })
+    }
+
+    renderTotalSum(sum){
+        let div = document.createElement('div');
+        div.innerText = `Total: ${sum}`
+        document.body.append(div);
+        document.querySelector('.cart-block').append(div);
+    }
+
+    getTotalSum(){
+        let sum = this.items.reduce((acc, item) => acc + item.price * item.quantity, 0)
+        this.renderTotalSum(sum)
     }
 }
 
