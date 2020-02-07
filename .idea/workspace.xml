@@ -2,7 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="de3a5103-c45d-4e6c-8e87-d7dcfb610572" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/Students/Воронин Дмитрий/project/no webpack/js/script.js" beforeDir="false" afterPath="$PROJECT_DIR$/Students/Воронин Дмитрий/project/no webpack/js/script.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Students/Воронин Дмитрий/project/webpack/dist/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Students/Воронин Дмитрий/project/webpack/dist/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Students/Воронин Дмитрий/project/webpack/dist/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/Students/Воронин Дмитрий/project/webpack/dist/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Students/Воронин Дмитрий/project/webpack/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/Students/Воронин Дмитрий/project/webpack/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Students/Воронин Дмитрий/project/webpack/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/Students/Воронин Дмитрий/project/webpack/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Students/Воронин Дмитрий/project/webpack/webpack.config.js" beforeDir="false" afterPath="$PROJECT_DIR$/Students/Воронин Дмитрий/project/webpack/webpack.config.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -15,11 +20,72 @@
     <favorites_list name="js2_11_2301" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf>
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Students/Воронин Дмитрий/other/3/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="400">
+              <caret line="20" column="7" lean-forward="true" selection-end-line="20" selection-end-column="7" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="form.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Students/Воронин Дмитрий/other/3/form.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="360">
+              <caret line="18" column="34" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="form.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Students/Воронин Дмитрий/other/3/js/form.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="731">
+              <caret line="43" column="5" selection-start-line="43" selection-start-column="5" selection-end-line="43" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="style.css" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Students/Воронин Дмитрий/other/3/css/style.css">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="300">
+              <caret line="15" column="25" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="25" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="script.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Students/Воронин Дмитрий/other/3/js/script.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="60">
+              <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name=".babelrc" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Students/Воронин Дмитрий/project/webpack/.babelrc">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="package.json" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/Students/Воронин Дмитрий/project/webpack/package.json">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="140">
+              <caret line="7" column="44" selection-start-line="7" selection-start-column="44" selection-end-line="7" selection-end-column="44" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
+        <option value="CSS File" />
         <option value="HTML File" />
         <option value="JavaScript File" />
       </list>
@@ -40,14 +106,20 @@
         <option value="$PROJECT_DIR$/Students/Воронин Дмитрий/project/webpack/index.html" />
         <option value="$PROJECT_DIR$/LECTURES/2/webpack_try/webpack.config.js" />
         <option value="$PROJECT_DIR$/Students/Воронин Дмитрий/project/webpack/dist/index.html" />
-        <option value="$PROJECT_DIR$/Students/Воронин Дмитрий/project/webpack/webpack.config.js" />
         <option value="$PROJECT_DIR$/Students/Воронин Дмитрий/project/webpack/dist/main.js" />
-        <option value="$PROJECT_DIR$/Students/Воронин Дмитрий/project/webpack/package.json" />
         <option value="$PROJECT_DIR$/Students/Воронин Дмитрий/project/webpack/src/public/js/Cart.js" />
         <option value="$PROJECT_DIR$/Students/Воронин Дмитрий/project/webpack/src/public/js/Catalog.js" />
         <option value="$PROJECT_DIR$/Students/Воронин Дмитрий/project/webpack/src/index.js" />
         <option value="$PROJECT_DIR$/Students/Воронин Дмитрий/project/webpack/src/public/index.html" />
         <option value="$PROJECT_DIR$/Students/Воронин Дмитрий/project/no webpack/js/script.js" />
+        <option value="$PROJECT_DIR$/PROJECT/4/package.json" />
+        <option value="$PROJECT_DIR$/Students/Воронин Дмитрий/project/webpack/webpack.config.js" />
+        <option value="$PROJECT_DIR$/Students/Воронин Дмитрий/project/webpack/package.json" />
+        <option value="$PROJECT_DIR$/Students/Воронин Дмитрий/other/3/js/script.js" />
+        <option value="$PROJECT_DIR$/Students/Воронин Дмитрий/other/3/index.html" />
+        <option value="$PROJECT_DIR$/Students/Воронин Дмитрий/other/3/form.html" />
+        <option value="$PROJECT_DIR$/Students/Воронин Дмитрий/other/3/css/style.css" />
+        <option value="$PROJECT_DIR$/Students/Воронин Дмитрий/other/3/js/form.js" />
       </list>
     </option>
   </component>
@@ -65,12 +137,14 @@
       <path value="$PROJECT_DIR$/LECTURES/1/package.json" />
       <path value="$PROJECT_DIR$/LECTURES/2/webpack_try/package.json" />
       <path value="$PROJECT_DIR$/PROJECT/2/package.json" />
+      <path value="$PROJECT_DIR$/PROJECT/4/package.json" />
       <path value="$PROJECT_DIR$/Students/000 - Акаккий Акаккиевич/project/webpack/package.json" />
       <path value="$PROJECT_DIR$/Students/000 - Фёдор Липень/project/webpack/package.json" />
       <path value="$PROJECT_DIR$/Students/012 - Бородин Евгений/others/1/package.json" />
       <path value="$PROJECT_DIR$/Students/012 - Бородин Евгений/project/webpack/package.json" />
       <path value="$PROJECT_DIR$/Students/999 - Шевелев Андрей/project/0/webpack/package.json" />
       <path value="$PROJECT_DIR$/Students/999 - Шевелев Андрей/project/1/webpack/package.json" />
+      <path value="$PROJECT_DIR$/Students/999 - Шевелев Андрей/project/2/webpack/package.json" />
       <path value="$PROJECT_DIR$/Students/AlexZatonskiy/others/1/package.json" />
       <path value="$PROJECT_DIR$/Students/AlexZatonskiy/project/webpack/package.json" />
       <path value="$PROJECT_DIR$/Students/Andrey Salnikov/other/lesson1/package.json" />
@@ -79,7 +153,8 @@
       <path value="$PROJECT_DIR$/Students/Churkin Anton/project/webpack/package.json" />
       <path value="$PROJECT_DIR$/Students/Dmitriy Vetlov/others/1/package.json" />
       <path value="$PROJECT_DIR$/Students/Dmitriy Vetlov/project/webpack/webpack-proj/package.json" />
-      <path value="$PROJECT_DIR$/Students/Egor Zhilinskiy/project/webpack_yes/package.json" />
+      <path value="$PROJECT_DIR$/Students/Dmitriy_Lomov/other tasks/1/package.json" />
+      <path value="$PROJECT_DIR$/Students/Dmitriy_Lomov/project/webpack/package.json" />
       <path value="$PROJECT_DIR$/Students/Elya Iskhakova/project/webpack/package.json" />
       <path value="$PROJECT_DIR$/Students/Karina_Fomina/project/webpack/package.json" />
       <path value="$PROJECT_DIR$/Students/Kariznova Anastasiya/others/1/package.json" />
@@ -91,26 +166,23 @@
       <path value="$PROJECT_DIR$/Students/Ukhov Alexey/project/webpack/package.json" />
       <path value="$PROJECT_DIR$/Students/Воронин Дмитрий/other/package.json" />
       <path value="$PROJECT_DIR$/Students/Воронин Дмитрий/project/webpack/package.json" />
-      <path value="$PROJECT_DIR$/Students/Дмитрий Ломов/other tasks/1/package.json" />
-      <path value="$PROJECT_DIR$/Students/Дмитрий Ломов/project/webpack/package.json" />
       <path value="$PROJECT_DIR$/Students/Максименко Игорь/project/webpack/package.json" />
     </packageJsonPaths>
   </component>
   <component name="PhpServers">
     <servers />
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="141" />
-    <option name="y" value="-13" />
-    <option name="width" value="1400" />
-    <option name="height" value="829" />
+  <component name="ProjectFrameBounds" extendedState="7">
+    <option name="x" value="953" />
+    <option name="width" value="974" />
+    <option name="height" value="1057" />
   </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -126,17 +198,17 @@
             <path>
               <item name="js2_11_2301" type="b2602c69:ProjectViewProjectNode" />
               <item name="js2_11_2301" type="462c0819:PsiDirectoryNode" />
-              <item name="LECTURES" type="462c0819:PsiDirectoryNode" />
-              <item name="3" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="js2_11_2301" type="b2602c69:ProjectViewProjectNode" />
-              <item name="js2_11_2301" type="462c0819:PsiDirectoryNode" />
               <item name="PROJECT" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="js2_11_2301" type="b2602c69:ProjectViewProjectNode" />
               <item name="js2_11_2301" type="462c0819:PsiDirectoryNode" />
+              <item name="PROJECT" type="462c0819:PsiDirectoryNode" />
+              <item name="4" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="js2_11_2301" type="b2602c69:ProjectViewProjectNode" />
+              <item name="js2_11_2301" type="462c0819:PsiDirectoryNode" />
               <item name="Students" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -150,23 +222,32 @@
               <item name="js2_11_2301" type="462c0819:PsiDirectoryNode" />
               <item name="Students" type="462c0819:PsiDirectoryNode" />
               <item name="Воронин Дмитрий" type="462c0819:PsiDirectoryNode" />
-              <item name="project" type="462c0819:PsiDirectoryNode" />
+              <item name="other" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="js2_11_2301" type="b2602c69:ProjectViewProjectNode" />
               <item name="js2_11_2301" type="462c0819:PsiDirectoryNode" />
               <item name="Students" type="462c0819:PsiDirectoryNode" />
               <item name="Воронин Дмитрий" type="462c0819:PsiDirectoryNode" />
-              <item name="project" type="462c0819:PsiDirectoryNode" />
-              <item name="no webpack" type="462c0819:PsiDirectoryNode" />
+              <item name="other" type="462c0819:PsiDirectoryNode" />
+              <item name="3" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="js2_11_2301" type="b2602c69:ProjectViewProjectNode" />
               <item name="js2_11_2301" type="462c0819:PsiDirectoryNode" />
               <item name="Students" type="462c0819:PsiDirectoryNode" />
               <item name="Воронин Дмитрий" type="462c0819:PsiDirectoryNode" />
-              <item name="project" type="462c0819:PsiDirectoryNode" />
-              <item name="no webpack" type="462c0819:PsiDirectoryNode" />
+              <item name="other" type="462c0819:PsiDirectoryNode" />
+              <item name="3" type="462c0819:PsiDirectoryNode" />
+              <item name="css" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="js2_11_2301" type="b2602c69:ProjectViewProjectNode" />
+              <item name="js2_11_2301" type="462c0819:PsiDirectoryNode" />
+              <item name="Students" type="462c0819:PsiDirectoryNode" />
+              <item name="Воронин Дмитрий" type="462c0819:PsiDirectoryNode" />
+              <item name="other" type="462c0819:PsiDirectoryNode" />
+              <item name="3" type="462c0819:PsiDirectoryNode" />
               <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -175,7 +256,6 @@
               <item name="Students" type="462c0819:PsiDirectoryNode" />
               <item name="Воронин Дмитрий" type="462c0819:PsiDirectoryNode" />
               <item name="project" type="462c0819:PsiDirectoryNode" />
-              <item name="webpack" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="js2_11_2301" type="b2602c69:ProjectViewProjectNode" />
@@ -184,54 +264,34 @@
               <item name="Воронин Дмитрий" type="462c0819:PsiDirectoryNode" />
               <item name="project" type="462c0819:PsiDirectoryNode" />
               <item name="webpack" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="js2_11_2301" type="b2602c69:ProjectViewProjectNode" />
-              <item name="js2_11_2301" type="462c0819:PsiDirectoryNode" />
-              <item name="Students" type="462c0819:PsiDirectoryNode" />
-              <item name="Воронин Дмитрий" type="462c0819:PsiDirectoryNode" />
-              <item name="project" type="462c0819:PsiDirectoryNode" />
-              <item name="webpack" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="js2_11_2301" type="b2602c69:ProjectViewProjectNode" />
-              <item name="js2_11_2301" type="462c0819:PsiDirectoryNode" />
-              <item name="Students" type="462c0819:PsiDirectoryNode" />
-              <item name="Воронин Дмитрий" type="462c0819:PsiDirectoryNode" />
-              <item name="project" type="462c0819:PsiDirectoryNode" />
-              <item name="webpack" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="public" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="nodejs_package_manager_path" value="npm" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\javaScriptLevel2\js2_11_2301\Students\Воронин Дмитрий\project\webpack\src\public\css" />
-      <recent name="C:\javaScriptLevel2\js2_11_2301\Students\Воронин Дмитрий\project\webpack\src\public" />
-      <recent name="C:\javaScriptLevel2\js2_11_2301\Students\Воронин Дмитрий\project\webpack" />
-    </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\javaScriptLevel2\js2_11_2301\Students\Воронин Дмитрий\project\webpack\src" />
       <recent name="C:\javaScriptLevel2\js2_11_2301\Students\Воронин Дмитрий\project\webpack\src\public" />
       <recent name="C:\javaScriptLevel2\js2_11_2301\Students\Воронин Дмитрий\project\webpack\src\public\js" />
       <recent name="C:\javaScriptLevel2\js2_11_2301\Students\Воронин Дмитрий\project\webpack\dist" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\javaScriptLevel2\js2_11_2301\Students\Воронин Дмитрий\project\webpack" />
+      <recent name="C:\javaScriptLevel2\js2_11_2301\Students\Воронин Дмитрий\project\webpack\src\public\css" />
+      <recent name="C:\javaScriptLevel2\js2_11_2301\Students\Воронин Дмитрий\project\webpack\src\public" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -246,7 +306,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="npm.dev">
     <configuration name="build" type="js.build_tools.npm" factoryName="npm" temporary="true" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/Students/Воронин Дмитрий/project/webpack/package.json" />
       <command value="run" />
@@ -256,8 +316,22 @@
       <node-interpreter value="project" />
       <envs />
     </configuration>
+    <configuration name="dev" type="js.build_tools.npm" factoryName="npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/Students/Воронин Дмитрий/project/webpack/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="dev" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+    </configuration>
+    <list>
+      <item itemvalue="npm.build" />
+      <item itemvalue="npm.dev" />
+    </list>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.dev" />
         <item itemvalue="npm.build" />
       </list>
     </recent_temporary>
@@ -275,25 +349,28 @@
       <workItem from="1580048528685" duration="5928000" />
       <workItem from="1580136799936" duration="888000" />
       <workItem from="1580138100790" duration="21186000" />
+      <workItem from="1581092347848" duration="8620000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="28002000" />
+    <option name="totallyTimeSpent" value="36622000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="-8" y="-8" width="1936" height="1066" extended-state="6" />
+    <frame x="953" y="0" width="974" height="1057" extended-state="0" />
+    <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49839228" visible="true" weight="0.2553305" />
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="7" side_tool="true" />
-      <window_info anchor="right" id="Database" order="3" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.3297414" />
+      <window_info anchor="bottom" id="Terminal" order="7" weight="0.3297414" />
+      <window_info content_ui="combo" id="Project" order="0" sideWeight="0.49839228" weight="0.5295405" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="right" id="Database" order="3" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.3297414" />
       <window_info id="Structure" order="1" sideWeight="0.5016077" side_tool="true" weight="0.25" />
-      <window_info active="true" anchor="bottom" id="Terminal" order="7" visible="true" weight="0.3297414" />
       <window_info id="Favorites" order="2" sideWeight="0.5016077" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -302,7 +379,6 @@
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
-      <window_info anchor="bottom" id="Find" order="1" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -317,18 +393,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/LECTURES/2/1 - index.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LECTURES/2/webpack_try/src/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/LECTURES/2/index - form.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -346,13 +410,7 @@
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/Students/Воронин Дмитрий/project/webpack/src/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/Students/Воронин Дмитрий/project/webpack/dist/index.html">
       <provider selected="true" editor-type-id="text-editor">
@@ -374,23 +432,13 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Students/Karina_Fomina/project/webpack/style/normalize.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Students/Karina_Fomina/project/webpack/index.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Students/Karina_Fomina/project/webpack/style/normalize.css" />
+    <entry file="file://$PROJECT_DIR$/Students/Karina_Fomina/project/webpack/index.html" />
     <entry file="file://$PROJECT_DIR$/LECTURES/2/1 - index.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/LECTURES/2/webpack_try/src/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/LECTURES/2/index - form.html">
       <provider selected="true" editor-type-id="text-editor" />
@@ -415,12 +463,8 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Students/Karina_Fomina/project/webpack/style/normalize.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Students/Karina_Fomina/project/webpack/index.html">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
+    <entry file="file://$PROJECT_DIR$/Students/Karina_Fomina/project/webpack/style/normalize.css" />
+    <entry file="file://$PROJECT_DIR$/Students/Karina_Fomina/project/webpack/index.html" />
     <entry file="file://$PROJECT_DIR$/LECTURES/2/webpack_try/src/public/js/main.js">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -434,11 +478,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/LECTURES/2/webpack_try/dist/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2233">
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
+        <state relative-caret-position="-2233" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/LECTURES/2/webpack_try/webpack.config.js">
@@ -454,13 +494,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/LECTURES/2/webpack_try/src/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#31#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
+      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/LECTURES/2/1 - index.html">
       <provider selected="true" editor-type-id="text-editor" />
@@ -472,17 +506,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="320">
           <caret line="89" column="4" selection-start-line="89" selection-start-column="4" selection-end-line="89" selection-end-column="4" />
-          <folding>
-            <element signature="n#!!block;n#constructor#0;n#Cart#0;n#!!top" />
-            <element signature="n#!!block;n#_init#0;n#Cart#0;n#!!top" />
-            <element signature="n#!!block;n#_handleEvents#0;n#Cart#0;n#!!top" />
-            <element signature="n#!!block;n#addProduct#0;n#Cart#0;n#!!top" />
-            <element signature="n#!!block;n#_createNewProduct#0;n#Cart#0;n#!!top" />
-            <element signature="n#!!block;n#deleteProduct#0;n#Cart#0;n#!!top" />
-            <element signature="n#!!block;n#_checkTotalAndSum#0;n#Cart#0;n#!!top" />
-            <element signature="n#!!block;n#render#0;n#Cart#0;n#!!top" />
-            <element signature="e#553#560#1" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -507,19 +530,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="500">
           <caret line="31" selection-start-line="31" selection-end-line="31" />
-          <folding>
-            <element signature="n#!!block;n#_handleEvents#0;n#Catalog#0" />
-            <element signature="n#!!block;n#_handleData#0;n#Catalog#0" />
-            <element signature="n#!!block;n#_createNewProduct#0;n#Catalog#0" />
-            <element signature="n#!!block;n#render#0;n#Catalog#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Students/Воронин Дмитрий/project/webpack/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="5" column="14" selection-start-line="5" selection-start-column="14" selection-end-line="5" selection-end-column="14" />
         </state>
       </provider>
     </entry>
@@ -527,9 +537,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
           <caret line="7" selection-start-line="7" selection-end-line="7" />
-          <folding>
-            <element signature="e#0#35#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -547,6 +554,18 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/LECTURES/3/async.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="680">
+          <caret line="140" column="14" selection-start-line="110" selection-start-column="8" selection-end-line="140" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Students/Truhin Andrei/other/2/index - form.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1080" />
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Students/Воронин Дмитрий/project/no webpack/js/script.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
@@ -557,17 +576,86 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/LECTURES/3/async.html">
+    <entry file="file://$PROJECT_DIR$/Students/Elya Iskhakova/project/webpack/src/public/js/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="140" column="14" selection-start-line="110" selection-start-column="8" selection-end-line="140" selection-end-column="14" />
+        <state relative-caret-position="-420">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PROJECT/4/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="7" selection-start-line="7" selection-end-line="7" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PROJECT/4/package-lock.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1500" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Students/Воронин Дмитрий/project/webpack/webpack.config.js">
       <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="534">
+          <caret line="38" column="1" lean-forward="true" selection-start-line="38" selection-start-column="1" selection-end-line="38" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PROJECT/4/webpack.config.js">
+      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="160">
-          <caret line="8" column="20" selection-start-line="8" selection-start-column="20" selection-end-line="8" selection-end-column="20" />
+          <caret line="8" column="16" lean-forward="true" selection-end-line="40" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/PROJECT/4/.babelrc">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Students/Воронин Дмитрий/project/webpack/.babelrc">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Students/Воронин Дмитрий/project/webpack/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="7" column="44" selection-start-line="7" selection-start-column="44" selection-end-line="7" selection-end-column="44" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Students/Воронин Дмитрий/other/3/js/script.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Students/Воронин Дмитрий/other/3/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="20" column="7" lean-forward="true" selection-end-line="20" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Students/Воронин Дмитрий/other/3/css/style.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="15" column="25" selection-start-line="15" selection-start-column="25" selection-end-line="15" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Students/Воронин Дмитрий/other/3/form.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="18" column="34" selection-start-line="18" selection-start-column="34" selection-end-line="18" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Students/Воронин Дмитрий/other/3/js/form.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="731">
+          <caret line="43" column="5" selection-start-line="43" selection-start-column="5" selection-end-line="43" selection-end-column="5" />
         </state>
       </provider>
     </entry>
