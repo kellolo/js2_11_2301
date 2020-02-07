@@ -169,6 +169,7 @@ export default app
 /*var userCart = [];
 var list = fetchData ();
 
+
 //кнопка скрытия и показа корзины
 document.querySelector('.btn-cart').addEventListener('click', () => {
     document.querySelector('.cart-block').classList.toggle('invisible');

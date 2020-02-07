@@ -160,6 +160,7 @@ img {
 .search-field:focus{
     outline: none;
 }
+
 .search-field {
     box-sizing: border-box;
     width: 200px;
