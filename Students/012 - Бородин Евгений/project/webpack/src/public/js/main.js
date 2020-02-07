@@ -21,10 +21,12 @@ class List {
         return fetch(url)
                 .then(d => d.json())
     }
-    _render () {
+    _render (filterString = '') {
         let block = document.querySelector(this.container)
         let htmlString = ''
-        this.items.forEach (item => {
+        const regexp = filterString === '' ? /./i : new RegExp(filterString, 'i')
+        let filteredList = this.items.filter (item => regexp.test(item.product_name))
+        filteredList.forEach (item => {
             let newObj = new listsVocabulary[this.constructor.name] (item)
             htmlString += newObj.render()
         })
@@ -73,6 +75,12 @@ class Catalog extends List {
             if (evt.target.classList.contains('buy-btn')) {
                 this.cart.addProduct(evt.target)
             }
+        })
+        //кнопка поиска товаров в каталоге
+        document.querySelector('.btn-search').addEventListener('click', () => {
+            let searchInput = document.querySelector('.search-field')
+            const filterString = searchInput.value
+            this._render(filterString)
         })
     }
 }
