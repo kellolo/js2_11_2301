@@ -108,7 +108,19 @@ class Cart extends List {
             .then (response => { serverResponse200 = response })
             .finally (() => {
                 if (serverResponse200) {
-                    console.log (`Товар ${prod.dataset.name} добавлен в корзину`)
+                    let find = this.items.find (item => item.id_product === +prod.dataset.id )
+                    if (!find) {
+                        this.items.push (new CartItem ({
+                            product_name: prod.dataset.name,
+                            price: prod.dataset.price,
+                            id_product: +prod.dataset.id,
+                            quantity: 1
+                        }, prod.dataset.img))
+                    } else {
+                        find.quantity++
+                    }
+                    this.calcCart()
+                    this._render ()
                 }
             })
     }
@@ -119,7 +131,14 @@ class Cart extends List {
             .then (response => { serverResponse200 = response })
             .finally (() => {
                 if (serverResponse200) {
-                    console.log (`Товар ${prod.dataset.id} удален из корзины`)
+                    let find = this.items.find (item => item.id_product === +prod.dataset.id )
+                    if (find.quantity > 1) {
+                        find.quantity--
+                    } else {
+                        this.items.splice (this.items.indexOf(find), 1)
+                    }
+                    this.calcCart()
+                    this._render()
                 }
             })
     }
