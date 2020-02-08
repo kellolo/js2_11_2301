@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        form {
+            width: 300px
+        }
+        label {
+            display: block;
+        }
+        button {
+            margin-left: 2px;
+            /* width: 30px; */
+        }
+    </style>
+</head>
+<body>
+    <!-- Получение значения из формы и вывод результатана страницу -->
+    <div class="container">
+        <form action="#" id="uForm">
+            <!-- <label id="name2">Выберите размер
+                <input type="text" name="size" id="name">
+            </label> -->
+            <fieldset>
+                <label>Размер бургера</label>
+                <label>
+                    <input type="radio" name="size" value="big" data-calories="30" data-price="100" checked> Big    
+                </label>
+                <label>
+                    <input type="radio" name="size" value="small" data-calories="20" data-price="50" checked> Small    
+                </label>
+            </fieldset>
+            <fieldset>
+                <label>Начинка бургера</label>
+                <label>
+                    <input type="radio" name="nach" value="sur" data-calories="20" data-price="10" checked> Sur    
+                </label>
+                <label>
+                    <input type="radio" name="nach" value="salat" data-calories="5" data-price="20" checked> Salat    
+                </label>
+                <label>
+                    <input type="radio" name="nach" value="kart" data-calories="10" data-price="15" checked> Kart    
+                </label>
+            </fieldset>
+            <fieldset>
+                <label>Приправа бургера</label>
+                <label>
+                    <input type="checkbox" name="pripravs" value="priprava" data-calories="0" data-price="15" checked> Priprava    
+                </label>
+                <label>
+                    <input type="checkbox" name="pripravs" value="maines" data-calories="5" data-price="20"> Maines    
+                </label>
+            </fieldset>
+            
+        </form>
+        <button name="btn">Ok</button>
+        <div class="result">
+
+        </div>
+    </div>
+    <script>
+        
+        let boot = document.querySelector('button[name = "btn"]')
+        let inp = document.querySelector('input[name = "size"]')
+       
+        allBurger = []
+
+        boot.addEventListener ('click', newBurger)
+        function newBurger() {
+            humburger = new burger ('size','nach','pripravs')
+            humburger.render()
+            // allBurger.push(humburger)
+        }
+        
+
+        class burger {
+            constructor (size, nach, pripravs) {
+                this.size = new SnachParams(this._select(size))
+                this.nach = new SnachParams(this._select(nach))
+                this.pripravs = this._selectCollection(pripravs)
+            }
+
+            _select(attrName) {
+                return document.querySelector (`input[name=${attrName}]:checked`)
+            }
+
+            _selectAll(attrName) {
+                return [...document.querySelectorAll (`input[name=${attrName}]:checked`)]
+            }
+
+            _selectCollection(attrName) {
+                let res = []
+                let arr = this._selectAll(attrName)
+                arr.forEach(element => {
+                    res.push(new SnachParams(element))    
+                })
+                return res
+            }
+
+            _summaBurgera () {
+                let summAll = []
+                let summPrice = 0
+                let summCalories = 0
+
+                summPrice = this.size.price + this.nach.price
+                summCalories = this.size.calories + this.nach.calories
+                this.pripravs.forEach (el => {
+                    summPrice += el.price
+                    summCalories += el.calories
+                })
+                summAll = [summPrice, summCalories]
+                return (summAll)
+            }
+
+            render () {
+                let summAll = this._summaBurgera ()
+                let list = `<p>Цена: ${summAll[0]}  руб.</p> <p>Калорийность: ${summAll[1]}</p>`
+                document.querySelector('.result').innerHTML = list
+                 
+            }
+
+        }
+
+        class SnachParams {
+            constructor (params) {
+                this.name = params.value
+                this.price = +params.dataset.price
+                this.calories = +params.dataset.calories
+            }
+        }
+        
+
+    </script>
+</body>
+</html>
