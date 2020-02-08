@@ -21,7 +21,7 @@ class List {
         return fetch(url)
                 .then(d => d.json())
     }
-    _render () {
+    _render (sum, qua) {
         let block = document.querySelector(this.container)
         let htmlString = ''
         this.items.forEach (item => {
@@ -29,6 +29,9 @@ class List {
             htmlString += newObj.render()
         })
         block.innerHTML = htmlString
+        if (sum && qua) {
+            //re-render sum and quantity blocks
+        }
     }
 }
 class Item {
@@ -80,13 +83,17 @@ class Catalog extends List {
 class Cart extends List {
     constructor (url = '/getBasket.json', container = '.cart-block') {
         super (url, container)
+        //this.totalSum = 0
+        //this.totalQuantity = 0
     }
 
     _init () {
         this.getData(API + this.url)
             .then(parsedData => { this.items = parsedData.contents })
             .then(() => { this._render() })
-            .finally(() => { this._addListeners() })
+            .finally(() => { 
+                this._addListeners() 
+            })
     }
 
     _addListeners () {
@@ -112,15 +119,18 @@ class Cart extends List {
                     if (!find) {
                         this.items.push (new CartItem ({
                             product_name: prod.dataset.name,
-                            price: prod.dataset.price,
+                            price: +prod.dataset.price,
                             id_product: +prod.dataset.id,
                             quantity: 1
                         }, prod.dataset.img))
+                        // this.totalSum += prod.dataset.price
+                        // this.totalQuantity ++
                     } else {
                         find.quantity++
+                        // this.totalQuantity ++
+                        // this.totalSum += find.price
                     }
-                    this.calcCart()
-                    this._render ()
+                    this._render (this.totalSum, this.totalQuantity)
                 }
             })
     }
@@ -137,7 +147,6 @@ class Cart extends List {
                     } else {
                         this.items.splice (this.items.indexOf(find), 1)
                     }
-                    this.calcCart()
                     this._render()
                 }
             })
