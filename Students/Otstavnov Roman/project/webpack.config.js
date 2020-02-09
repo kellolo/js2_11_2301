@@ -3,7 +3,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin  = require("mini-css-extract-plugin");
 
 module.exports = {
-  entry: './src/index.js',
+  entry: [
+    '@babel/polyfill',
+    'fetch-polyfill',
+    './src/index.js'
+  ],
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
@@ -11,15 +15,21 @@ module.exports = {
   module: {
     rules: [
       {
+        test: /\.js$/,
+        exclude: /node_modules/,
+        loader: 'babel-loader'
+      },
+      {
         test: /\.css$/,
         use: [
-          MiniCssExtractPlugin.loader,
           {
-            loader: 'css-loader',
+            loader: MiniCssExtractPlugin.loader,
             options: {
               sourceMap: true,
+              hmr: process.env.NODE_ENV === 'development'
             }
-          }
+          },
+          'css-loader',
         ],
       },
     ],
@@ -29,7 +39,8 @@ module.exports = {
       template: __dirname + '/src/index.html',
     }),
     new MiniCssExtractPlugin({
-      filename: './bundle.css',
+      filename: 'style/[name].css',
+      chunkFilename: '[id].css',
     })
   ],
   devServer: {
