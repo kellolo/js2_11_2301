@@ -7,36 +7,65 @@
     <link rel="stylesheet" href="style/style.css"> -->
 </head>
 <body>
+    <div class="container" id="app">
     <header>
         <div class="logo">E-shop</div>
         <div class="cart">
             <form action="#" class="search-form">
-                <input type="text" class="search-field">
-                <button class="btn-search" type="submit">
+                <input type="text" class="search-field" v-model="filterString">
+                <button class="btn-search" type="submit" @click="">
                     <i class="fas fa-search"></i>
                 </button>
             </form>
-            <button class="btn-cart" type="button">Корзина</button>
-            <div class="cart-block invisible">
+            <button class="btn-cart" type="button" @click="toggleCart">Корзина</button>
+            <div class="cart-block" v-show="cart.visible">
                 <div class="d-flex">
-                    <strong class="d-block">Всего товаров</strong> <div id="quantity"></div>
+                    <strong class="d-block">Всего товаров</strong> <div id="quantity">{{ cart.countGoods }}</div>
                 </div>
                 <hr>
                 <div class="cart-items">
-                    
+                    <div class="cart-item" v-for="el of cart.items" :data-id="el.id_product">
+                        <div class="product-bio">
+                            <img :src="el.img" alt="Some image">
+                            <div class="product-desc">
+                                <p class="product-title"> {{ el.product_name }} </p>
+                                <p class="product-quantity">Quantity: {{ el.quantity }}</p>
+                                <p class="product-single-price">${{ el.price }} each</p>
+                            </div>
+                        </div>
+                        <div class="right-block">
+                            <p class="product-price">{{ el.quantity * el.price }}</p>
+                            <button class="del-btn" @click="cart.removeProduct (el)" :data-id="el.id_product">&times;</button>
+                        </div>
+                    </div>
                 </div>
                 <hr>
                 <div class="d-flex">
-                    <strong class="d-block">Общая ст-ть:</strong> <div id="price"></div>
+                    <strong class="d-block">Общая ст-ть:</strong> <div id="price">{{ cart.amount }}</div>
                 </div>
             </div>
         </div>
     </header>
     <main>
-        <div class="products"></div>
+        <div class="products">
+            <div class="product-item"  v-for="el of catalog.items" :data-id="el.id_product" v-show="filteredItem ( filterString, el.product_name )">
+                <img :src="el.img" alt="Some img">
+                <div class="desc">
+                    <h3>{{ el.product_name }}</h3>
+                    <p>{{ el.price }} $</p>
+                    <button class="buy-btn" @click="cart.addProduct (el)"
+                    :data-id="el.id_product"
+                    :data-name="el.product_name"
+                    :data-image="el.img"
+                    :data-price="el.price">Купить</button>
+                </div>
+            </div>
+        </div>
     </main>
-
+    </div>
     <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js" integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <!-- <script src="js/main.js"></script> -->
     <!--<script src="main.js"></script>-->
 </body>
 </html>

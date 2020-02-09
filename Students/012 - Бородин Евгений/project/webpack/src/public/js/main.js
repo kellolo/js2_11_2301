@@ -30,7 +30,7 @@ class List {
             let newObj = new listsVocabulary[this.constructor.name] (item)
             htmlString += newObj.render()
         })
-        block.innerHTML = htmlString
+        // block.innerHTML = htmlString
     }
 }
 class Item {
@@ -65,98 +65,108 @@ class Catalog extends List {
     }
     _init () {
         this.getData(API + this.url)
-            .then(parsedData => { this.items = parsedData })
-            .then(() => { this._render() })
+            .then(parsedData => { 
+                parsedData.forEach (el => {
+                    this.items.push (new CatalogItem (el))
+                })
+                //this.items = parsedData 
+            })
+            //.then(() => { this._render() })
             .finally(() => { this._addListeners() })
     }
 
     _addListeners () {
-        document.querySelector(this.container).addEventListener('click', (evt) => {
-            if (evt.target.classList.contains('buy-btn')) {
-                this.cart.addProduct(evt.target)
-            }
-        })
+        // document.querySelector(this.container).addEventListener('click', (evt) => {
+        //     if (evt.target.classList.contains('buy-btn')) {
+        //         this.cart.addProduct(evt.target)
+        //     }
+        // })
         //кнопка поиска товаров в каталоге
-        document.querySelector('.btn-search').addEventListener('click', () => {
-            let searchInput = document.querySelector('.search-field')
-            const filterString = searchInput.value
-            this._render(filterString)
-        })
+        // document.querySelector('.btn-search').addEventListener('click', () => {
+        //     let searchInput = document.querySelector('.search-field')
+        //     const filterString = searchInput.value
+        //     // this._render(filterString)
+        // })
     }
 }
 
 class Cart extends List {
     constructor (url = '/getBasket.json', container = '.cart-items') {
         super (url, container)
+        this.visible = false
     }
 
     _init () {
         this.getData(API + this.url)
             .then(parsedData => { 
-                this.items = parsedData.contents
+                parsedData.contents.forEach (el => {
+                    this.items.push (new CartItem (el))     
+                })
+                //this.items = parsedData.contents
                 this.amount = parsedData.amount
                 this.countGoods = parsedData.countGoods
             })
             .then(() => { 
                 this.calcCart()
-                this._render() 
+                //this._render() 
             })
             .finally(() => { this._addListeners() })
     }
 
     _addListeners () {
-        //кнопка скрытия и показа корзины
-        document.querySelector('.btn-cart').addEventListener('click', () => {
-            document.querySelector('.cart-block').classList.toggle('invisible')
-        })
-        //кнопки удаления товара (добавляется один раз)
-        document.querySelector(this.container).addEventListener('click', (evt) => {
-            if (evt.target.classList.contains('del-btn')) {
-                this.removeProduct(evt.target)
-            }
-        })
+        // //кнопка скрытия и показа корзины
+        // document.querySelector('.btn-cart').addEventListener('click', () => {
+        //     document.querySelector('.cart-block').classList.toggle('invisible')
+        // })
+        // //кнопки удаления товара (добавляется один раз)
+        // document.querySelector(this.container).addEventListener('click', (evt) => {
+        //     if (evt.target.classList.contains('del-btn')) {
+        //         this.removeProduct(evt.target)
+        //     }
+        // })
     }
 
-    addProduct (prod) {
+    // addProduct (prod) {
+    addProduct (selectedItem) {
         let serverResponse200
         this.getData(API + '/addToBasket.json')
             .then (response => { serverResponse200 = response })
             .finally (() => {
                 if (serverResponse200) {
-                    console.log (`Товар ${prod.dataset.name} добавлен в корзину`)
+                    console.log (`Товар ${selectedItem.product_name} добавлен в корзину`)
+                    // console.log (`Товар ${prod.dataset.name} добавлен в корзину`)
+                    let find = this.items.find (item => item.id_product === +selectedItem.id_product )
+                    // let find = this.items.find (item => item.id_product === +prod.dataset.id )
+                    if (!find) {
+                        this.items.push (new CartItem ({...selectedItem, quantity: 1}))
+                    } else {
+                        find.quantity++
+                    }
+                    this.calcCart()
+                    //this._render ()
                 }
-                let cartElem = this.items.find (item => item.id_product === +prod.dataset.id )
-                if (!cartElem) {
-                    this.items.push (new CartItem ({
-                        product_name: prod.dataset.name,
-                        price: prod.dataset.price,
-                        id_product: +prod.dataset.id,
-                        quantity: 1
-                    }, prod.dataset.img))
-                } else {
-                    cartElem.quantity++
-                }
-                this.calcCart()
-                this._render ()
             })
     }
 
-    removeProduct (prod) {
+    // removeProduct (prod) {
+    removeProduct (selectedItem) {
         let serverResponse200
         this.getData(API + '/deleteFromBasket.json')
             .then (response => { serverResponse200 = response })
             .finally (() => {
                 if (serverResponse200) {
-                    console.log (`Товар ${prod.dataset.id} удален из корзины`)
+                    console.log (`Товар ${selectedItem.product_name} удален из корзины`)
+                    // console.log (`Товар ${prod.dataset.id} удален из корзины`)
+                    let find = this.items.find (item => item.id_product === +selectedItem.id_product )
+                    // let find = this.items.find (item => item.id_product === +prod.dataset.id )
+                    if (find.quantity > 1) {
+                        find.quantity--
+                    } else {
+                        this.items.splice (this.items.indexOf(find), 1)
+                    }
+                    this.calcCart()
+                    //this._render()
                 }
-                let find = this.items.find (item => item.id_product === +prod.dataset.id )
-                if (find.quantity > 1) {
-                    find.quantity--
-                } else {
-                    this.items.splice (this.items.indexOf(find), 1)
-                }
-                this.calcCart()
-                this._render()
             })
     }
 
@@ -169,10 +179,9 @@ class Cart extends List {
         })
         this.amount = cost
         this.countGoods = count
-        document.getElementById('price').innerText = cost
-        document.getElementById('quantity').innerText = count
+        //document.getElementById('price').innerText = cost
+        //document.getElementById('quantity').innerText = count
     }
-
 }
 
 class CatalogItem extends Item {}
@@ -207,12 +216,41 @@ let listsVocabulary = {
     Cart: CartItem
 }
 
-function app () {
+function appFun () {
     let cart = new Cart ()
     let catalog = new Catalog (cart)
 }
 
-export default app
+let app = new Vue ({
+    el: '#app',
+    data: {
+        filterString: '',
+        cart: {},
+        catalog: {}
+    },
+    methods: {
+        toggleCart () {
+            this.cart.visible = !this.cart.visible
+        },
+        filteredItem (filterString, testString) {
+            filterRegExp = new RegExp (filterString, 'i')            
+            return filterRegExp.test( testString )
+        }
+    },
+    computed: {
+        // filteredItem2 (filterString, testString) {
+        //     filterRegExp = new RegExp (filterString, 'i')            
+        //     return filterRegExp.test( testString )
+        // }
+    },
+    mounted () {
+        this.cart = new Cart ()
+        this.catalog = new Catalog (this.cart)
+    }
+})
+
+
+// export default app
 
 
 //глобальные сущности корзины и каталога (ИМИТАЦИЯ! НЕЛЬЗЯ ТАК ДЕЛАТЬ!)
