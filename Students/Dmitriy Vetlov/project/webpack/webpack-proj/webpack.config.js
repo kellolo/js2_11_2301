@@ -2,6 +2,9 @@ let HtmlPlugin = require('html-webpack-plugin');
 let MiniCssPlugin = require('mini-css-extract-plugin');
 
 module.exports = {
+    devServer: {
+        port: 3000,
+    },
     module: {
         rules: [
             {
