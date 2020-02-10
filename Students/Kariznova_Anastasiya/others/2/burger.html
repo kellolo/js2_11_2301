@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form action="#" id="uForm">
+        <fieldset>
+            <label>
+                <input type="radio" name="size" value="small" data-price="50" data-calories="20"> small
+            </label>
+            <label>
+                <input type="radio" name="size" value="big" data-price="100" data-calories="40"> big
+            </label>
+        </fieldset>
+        <fieldset>
+            <label>
+                <input type="radio" name="filling" value="wCheese" data-price="10" data-calories="20"> with Cheese
+            </label>
+            <label>
+                <input type="radio" name="filling" value="wSalad" data-price="20" data-calories="5"> with Salad
+            </label>
+            <label>
+                <input type="radio" name="filling" value="wPotato" data-price="15" data-calories="10"> with Potato
+            </label>
+        </fieldset>
+        <fieldset>
+            <label>
+                <input type="checkbox" name="addition" value="flavoring" data-price="15" data-calories="0"> flavoring
+            </label>
+            <label>
+                <input type="checkbox" name="addition" value="mayonnaise" data-price="20" data-calories="5"> mayonnaise
+            </label>
+            
+        </fieldset>
+    </form>
+
+    <button id="okBtn">Add burger</button>
+
+    <script src="app.js"></script>
+</body>
