@@ -12,13 +12,13 @@
         <div class="logo">E-shop</div>
         <div class="cart">
             <form action="#" class="search-form">
-                <input type="text" class="search-field">
-                <button class="btn-search" type="submit">
+                <input type="text" class="search-field" v-model="searchLine">
+                <button class="btn-search" type="submit" @click="filterGoods">
                     <i class="fas fa-search"></i>
                 </button>
             </form>
             <button class="btn-cart" type="button" @click="toggleCartVisibility">Корзина</button>
-            <div class="cart-block invisible" >
+            <div class="cart-block invisibleq" v-show="isCartVisible">
                 <div class="cart-item" v-for='item of cart' :data-id="item.id_product">
                     <div class="product-bio">
                         <img :src="cartImage" alt="Some image">
@@ -30,20 +30,22 @@
                     </div>
                     <div class="right-block">
                         <p class="product-price">{{item.quantity * item.price}}</p>
-                        <button class="del-btn" :data-id="item.id_product">&times;</button>
+                        <button class="del-btn" @click="removeItem(item)" :data-id="item.id_product">&times;</button>
                     </div>
                 </div>
+                <span>Total: {{totalSum}}</span>
             </div>
         </div>
     </header>
     <main >
         <div class="products" >
-            <div class="product-item" v-for="item of items" v-bind:data-id="item.id_product">
+            <div class="product-item" v-for="item of filteredItems" v-bind:data-id="item.id_product">
                 <img v-bind:src='img' alt="Some img">
                 <div class="desc">
                     <h3>{{item.product_name}}</h3>
                     <p>{{item.price}} $</p>
                     <button class="buy-btn" 
+                    @click='addItem(item)'
                     v-bind:data-id="item.id_product"
                     v-bind:data-name="item.product_name"
                     v-bind:data-image='img'
