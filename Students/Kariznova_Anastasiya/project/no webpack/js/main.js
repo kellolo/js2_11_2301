@@ -5,10 +5,35 @@ window.addEventListener('load', () => {
 
     
     bin.init(products);
-    
-    products.renderProducts();
-
 });
+
+function makeGETRequest(url) {
+    return new Promise((resolve, reject) => {
+        var xhr;
+
+        if (window.XMLHttpRequest) {
+        xhr = new XMLHttpRequest();
+        } else if (window.ActiveXObject) { 
+        xhr = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+
+        xhr.open('GET', url, true);
+        xhr.send();
+
+        xhr.onreadystatechange = function () {
+            if (xhr.readyState === 4) {
+              resolve(xhr.responseText);
+            }
+          }        
+    })    
+}
+
+
+
+
+const API_URL = 'https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses';
+
+  
 
 //заглушки (имитация базы данных)
 const image = 'https://placehold.it/200x150';
@@ -20,59 +45,52 @@ const ids = [1, 2, 3, 4, 5, 6, 7, 8];
 
 //глобальные сущности корзины и каталога (ИМИТАЦИЯ! НЕЛЬЗЯ ТАК ДЕЛАТЬ!)
 var userCart = [];
-var list = fetchData ();
-//создание массива объектов - имитация загрузки данных с сервера
-function fetchData () {
-    let arr = [];
-    for (let i = 0; i < items.length; i++) {
-        arr.push (createProduct (i));
-    }
-    return arr
-};
 
-
-
-//создание товара
-function createProduct (i) {
-    return {
-        id: ids[i],
-        name: items[i],
-        price: prices[i],
-        img: image,
-        quantity: 0,
-        createTemplate: function () {
-            return `<div class="product-item" data-id="${this.id}">
-                        <img src="${this.img}" alt="Some img">
-                        <div class="desc">
-                            <h3>${this.name}</h3>
-                            <p>${this.price} $</p>
-                            <button class="buy-btn" 
-                            data-id="${this.id}"
-                            data-name="${this.name}"
-                            data-image="${this.img}"
-                            data-price="${this.price}">Купить</button>
-                        </div>
-                    </div>`
-        },
-
-        add: function() {
-            this.quantity++
-        }
-    }
-};
 
 class Products {
+    constructor() {
+        this.fetchGoods();
+    }
+    fetchGoods() {
+        makeGETRequest(`${API_URL}/catalogData.json`)
+        .then((goods) => {
+            this.goods = JSON.parse(goods);
+            this.renderProducts();
+          })    
+      }
     //рендер списка товаров (каталога)
     renderProducts () {
         //let arr = [];
         let str = '';
-        console.log(list);
-        list.forEach(function (item) {
-            str += item.createTemplate();
+        this.goods.forEach((item) => {            
+            str += this.createProduct(item).createTemplate();
         });
         document.querySelector('.products').innerHTML = str;
     }
-
+    //создание товара
+    createProduct (good) {
+        return {
+            id: good.id_product,
+            name: good.product_name,
+            price: good.price,
+            quantity: 0,
+            createTemplate: function () {
+                return `<div class="product-item" data-id="${this.id}">
+                            <div class="desc">
+                                <h3>${this.name}</h3>
+                                <p>${this.price} $</p>
+                                <button class="buy-btn" 
+                                data-id="${this.id}"
+                                data-name="${this.name}"
+                                data-price="${this.price}">Купить</button>
+                            </div>
+                        </div>`
+            },
+            add: function() {
+                this.quantity++
+            }
+        }
+    };
 
 }
 
