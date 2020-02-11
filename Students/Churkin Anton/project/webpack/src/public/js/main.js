@@ -163,11 +163,9 @@ class CatalogItem extends Item {}
 class CartItem extends Item {
     constructor (obj, img = cartImage) {
         super (obj, img)
-        if(obj.hasOwnProperty('quantity')) {
-            this.quantity = Number(obj.quantity)
-        } else {
-            this.quantity = 1
-        }
+        this.quantity = obj.hasOwnProperty('quantity')
+            ? Number(obj.quantity)
+            : 1;
     }
 
     render () {
