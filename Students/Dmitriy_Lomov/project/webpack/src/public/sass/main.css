@@ -62,8 +62,48 @@ body {
   text-shadow: none;
 }
 
-.search-input {
+.search-form {
   width: 20%;
+}
+
+.search-form__relative {
+  position: relative;
+}
+
+.search-form__btn {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  top: 50%;
+  right: -18px;
+  -webkit-transform: translateY(-15px);
+          transform: translateY(-15px);
+  background: transparent;
+  border: none;
+  color: #aaa;
+  border-radius: 0 10px 0 10px;
+  cursor: pointer;
+  -webkit-transition: all ease .2s;
+  transition: all ease .2s;
+  outline: none;
+}
+
+.search-form__btn:focus {
+  color: #07bbb5;
+}
+
+.search-form__btn:hover {
+  color: #09fff7;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+.search-form__btn:active {
+  color: #555;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+}
+
+.search-form__input {
+  width: 100%;
   padding: 10px;
   background: transparent;
   border-top: 1px solid #fff;
@@ -76,44 +116,44 @@ body {
   outline: none;
 }
 
-.search-input:focus::-webkit-input-placeholder {
+.search-form__input:focus::-webkit-input-placeholder {
   text-indent: 500px;
 }
 
-.search-input:focus:-ms-input-placeholder {
+.search-form__input:focus:-ms-input-placeholder {
   text-indent: 500px;
 }
 
-.search-input:focus::-ms-input-placeholder {
+.search-form__input:focus::-ms-input-placeholder {
   text-indent: 500px;
 }
 
-.search-input:focus::placeholder {
+.search-form__input:focus::placeholder {
   text-indent: 500px;
 }
 
-.search-input::-webkit-input-placeholder {
+.search-form__input::-webkit-input-placeholder {
   color: #555;
   text-indent: 0;
   -webkit-transition: text-indent ease .5s;
   transition: text-indent ease .5s;
 }
 
-.search-input:-ms-input-placeholder {
+.search-form__input:-ms-input-placeholder {
   color: #555;
   text-indent: 0;
   -webkit-transition: text-indent ease .5s;
   transition: text-indent ease .5s;
 }
 
-.search-input::-ms-input-placeholder {
+.search-form__input::-ms-input-placeholder {
   color: #555;
   text-indent: 0;
   -webkit-transition: text-indent ease .5s;
   transition: text-indent ease .5s;
 }
 
-.search-input::placeholder {
+.search-form__input::placeholder {
   color: #555;
   text-indent: 0;
   -webkit-transition: text-indent ease .5s;
@@ -273,6 +313,7 @@ body {
 }
 
 .cart-wrapper {
+  opacity: 0;
   width: 320px;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -301,6 +342,10 @@ body {
   top: -20px;
   border: 10px solid transparent;
   border-bottom: 10px solid #fff;
+}
+
+.visible {
+  opacity: 1;
 }
 
 .cart {
