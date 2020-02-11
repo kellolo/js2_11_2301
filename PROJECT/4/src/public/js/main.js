@@ -21,7 +21,7 @@ class List {
         return fetch(url)
                 .then(d => d.json())
     }
-    _render () {
+    _render (sum, qua) {
         let block = document.querySelector(this.container)
         let htmlString = ''
         this.items.forEach (item => {
@@ -29,6 +29,9 @@ class List {
             htmlString += newObj.render()
         })
         block.innerHTML = htmlString
+        if (sum && qua) {
+            //re-render sum and quantity blocks
+        }
     }
 }
 class Item {
@@ -80,13 +83,17 @@ class Catalog extends List {
 class Cart extends List {
     constructor (url = '/getBasket.json', container = '.cart-block') {
         super (url, container)
+        //this.totalSum = 0
+        //this.totalQuantity = 0
     }
 
     _init () {
         this.getData(API + this.url)
             .then(parsedData => { this.items = parsedData.contents })
             .then(() => { this._render() })
-            .finally(() => { this._addListeners() })
+            .finally(() => { 
+                this._addListeners() 
+            })
     }
 
     _addListeners () {
@@ -108,7 +115,22 @@ class Cart extends List {
             .then (response => { serverResponse200 = response })
             .finally (() => {
                 if (serverResponse200) {
-                    console.log (`Товар ${prod.dataset.name} добавлен в корзину`)
+                    let find = this.items.find (item => item.id_product === +prod.dataset.id )
+                    if (!find) {
+                        this.items.push (new CartItem ({
+                            product_name: prod.dataset.name,
+                            price: +prod.dataset.price,
+                            id_product: +prod.dataset.id,
+                            quantity: 1
+                        }, prod.dataset.img))
+                        // this.totalSum += prod.dataset.price
+                        // this.totalQuantity ++
+                    } else {
+                        find.quantity++
+                        // this.totalQuantity ++
+                        // this.totalSum += find.price
+                    }
+                    this._render (this.totalSum, this.totalQuantity)
                 }
             })
     }
@@ -119,7 +141,13 @@ class Cart extends List {
             .then (response => { serverResponse200 = response })
             .finally (() => {
                 if (serverResponse200) {
-                    console.log (`Товар ${prod.dataset.id} удален из корзины`)
+                    let find = this.items.find (item => item.id_product === +prod.dataset.id )
+                    if (find.quantity > 1) {
+                        find.quantity--
+                    } else {
+                        this.items.splice (this.items.indexOf(find), 1)
+                    }
+                    this._render()
                 }
             })
     }

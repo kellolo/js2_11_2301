@@ -1,9 +1,9 @@
 //заглушки (имитация базы данных)
-const image = 'https://placehold.it/200x150';
-const cartImage = 'https://placehold.it/100x80';
-const items = ['Notebook', 'Display', 'Keyboard', 'Mouse', 'Phones', 'Router', 'USB-camera', 'Gamepad'];
-const prices = [1000, 200, 20, 10, 25, 30, 18, 24];
-const ids = [1, 2, 3, 4, 5, 6, 7, 8];
+// const image = 'https://placehold.it/200x150';
+ const cartImage = 'https://placehold.it/100x80';
+// const items = ['Notebook', 'Display', 'Keyboard', 'Mouse', 'Phones', 'Router', 'USB-camera', 'Gamepad'];
+// const prices = [1000, 200, 20, 10, 25, 30, 18, 24];
+// const ids = [1, 2, 3, 4, 5, 6, 7, 8];
 
 
 //глобальные сущности корзины и каталога (ИМИТАЦИЯ! НЕЛЬЗЯ ТАК ДЕЛАТЬ!)
@@ -31,55 +31,72 @@ document.querySelector('.products').addEventListener ('click', (evt) => {
 class fetchData {
     constructor () {
         this.arr = []
+        this.API_URL = 'https://raw.githubusercontent.com/midavp/geekbrains/master/packages'
         }    
     construct() {
-        for (let i = 0; i < items.length; i++) {
-            this.arr.push (new createProduct (i)) //
-            
-        }
-        return this.arr
+        this._GoodsList()
     }    
         
     //рендер списка товаров (каталога)
-    renderProducts () {
+    _renderProducts () {
         let str = ''
         for (let item of this.arr) {
-            str += item.createTemplate()
+           str += this.createTemplate(item)
         }
         document.querySelector('.products').innerHTML = str;
     }
-}
 
-class createProduct {
-    constructor (i) {
-        this.id = ids[i]
-        this.name = items[i]
-        this.price = prices[i]
-        this.img = image
-        this.quantity = 0
-        // this.createTemplate ()
-        // this.add()
-    }    
-            
-    createTemplate () {
-        return `<div class="product-item" data-id="${this.id}">
-                    <img src="${this.img}" alt="Some img">
-                    <div class="desc">
-                        <h3>${this.name}</h3>
-                        <p>${this.price} $</p>
-                        <button class="buy-btn" 
-                        data-id="${this.id}"
-                        data-name="${this.name}"
-                        data-image="${this.img}"
-                        data-price="${this.price}">Купить</button>
-                    </div>
-                </div>`
+    makeGETRequest(url) {
+        return new Promise ((respon, reject) => {
+            let xhr
+            xhr = new XMLHttpRequest()
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4) {
+                    if (xhr.status === 200) {
+                        respon ({data: xhr.responseText, msg: "OK"})
+                    } else {
+                        reject ("Error")
+                    }   
+                }
+            }
+
+            xhr.open('GET', url, true);
+            xhr.send();
+            })
+        }
+    
+        _GoodsList () {
+            this.makeGETRequest(`${this.API_URL}/catalogData.json`)
+            .then (responData => {
+                this.arr = [...JSON.parse(responData.data)]
+                this._renderProducts ()
+            })
+            .catch (rejectData => {
+                console.log(rejectData)
+            })
+        }
+
+    createTemplate (item) {
+        return `<div class="product-item" data-id="${item.id}">
+                <img src="${item.img}" alt="Some img">
+                <div class="desc">
+                    <h3>${item.name}</h3>
+                    <p>${item.price} $</p>
+                    <button class="buy-btn" 
+                    data-id="${item.id}"
+                    data-name="${item.name}"
+                    data-image="${item.img}"
+                    data-price="${item.price}">Купить</button>
+                </div>
+            </div>`
     }
     
     add () {
         this.quantity++
     }
-}        
+}   
+// }        
    
 // //CART
 
@@ -95,7 +112,7 @@ class cart {
             this.userCart.push ({
                 name: product.dataset ['name'],
                 id: productId,
-                img: cartImage,
+                img: cartImage,//product.dataset ['image'],
                 price: +product.dataset['price'],
                 quantity: 1
             })
@@ -145,6 +162,7 @@ class cart {
             this.userCart.splice(this.userCart.indexOf(find), 1);
             document.querySelector(`.cart-item[data-id="${productId}"]`).remove()
         }
+        this.sum = this.calculateSum ()
         this.renderCart ()
     }
 
@@ -152,5 +170,6 @@ class cart {
 
 let list = new fetchData()
 list.construct ()
-list.renderProducts ()
+
+// list.renderProducts ()
 let mcart = new cart()
