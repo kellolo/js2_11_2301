@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Form</title>
+    <style>
+        body {
+            margin: 0 auto;
+            width: 800px;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 14px;
+        }
+        fieldset {
+            display: flex;
+            flex-flow: column wrap;
+            align-items: center;
+            width: 500px;
+            padding: 20px;
+        }
+        label {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        input {
+            width: 70%;
+        }
+        button {
+            width: 150px;
+            text-align: center;
+            margin: 0 auto;
+        }
+        .red-outline {
+            outline: 1px solid red;
+        }
+        #error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <form>
+            <fieldset>
+                <legend>Feedback</legend>
+                <label>Name
+                    <input type="text" name="name" id="username" placeholder="Enter your name (only letters)">
+                </label>
+                <label>Phone number
+                    <input type="text" name="phone" id="phone" placeholder="Enter your phone number +7(900)XXX-XXXX">
+                </label>
+                <label>Email
+                    <input type="text" name="email" id="email" placeholder="Enter your email ">
+                </label>
+                <label>Message
+                    <input type="text" name="message" id="message" placeholder="Enter your message">
+                </label>
+                <button type="submit" name="btn">Submit</button>
+            </fieldset>
+            <p id="error"></p>
+        </form>
+    </main>
+    <script>
+        const regExp = {
+            Name: /^[a-zA-Z][a-z]+$/,
+            Phone: /^\+\d\(\d{3}\)\d{3}\-\d{4}$/,
+            Email: /^[a-z]+\.?\-?[a-z]+\@[a-z]+\.ru$/i,
+            Message: /.+/
+        }
+        const container = {
+            Name: document.getElementById('username'),
+            Phone: document.getElementById('phone'),
+            Email: document.getElementById('email'),
+            Message: document.getElementById('message') 
+        }
+
+        class User {
+            constructor (obj) {
+                this.Name = obj.name
+                this.Phone = obj.phone
+                this.Email = obj.email
+                this.Message = obj.message
+            }
+
+            validate () {
+                let result = true
+                for (let prop in this) {
+                    this.unhighlightInput (container[prop])
+                    if (!regExp[prop].test(this[prop])) {
+                        this.highlightInput (container[prop])
+                        result = false
+                    }
+                }
+                if (!result) {
+                    document.getElementById('error').innerText = 'Error(s) in highlighted field(s)!'
+                } else {
+                    document.getElementById('error').innerText = ''
+                }
+                return result
+            }
+
+            highlightInput (container) {
+                container.classList.add ('red-outline')
+            }
+            unhighlightInput (container) {
+                container.classList.remove ('red-outline')
+            }
+        }
+
+        document.querySelector('form').onsubmit = () => {
+            let anonymous = new User ({
+                name: container.Name.value,
+                phone: container.Phone.value,
+                email: container.Email.value,
+                message: container.Message.value,
+            })
+            return anonymous.validate ()
+        }
+    </script>
+</body>
+</html>
