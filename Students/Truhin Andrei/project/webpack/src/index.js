@@ -1,5 +1,5 @@
-import './style/normalize.css'
-import './style/style.css';
+import './public/css/style.css'
+import './public/css/normalize.css'
+import app from './public/js/main.js'
 
-import './js/main';
-
+app ()

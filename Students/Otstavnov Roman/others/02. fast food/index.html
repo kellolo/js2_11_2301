@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link href="./style.css" rel="stylesheet" />
+</head>
+<body>
+  <div class="menu-list">
+    <form action="" class="add-hamburger-form">
+      <h2>Добавить гамбургер</h2>
+      <fieldset>
+        <legend>Размер</legend>
+        <label><input type="radio" checked name="size" value="small" data-price="50" data-calories="20" />Small</label>
+        <label><input type="radio" name="size" value="big" data-price="100" data-calories="40" />Big</label>
+      </fieldset>
+      <fieldset>
+        <legend>Начинка</legend>
+        <label><input type="radio" checked name="stuff" value="cheese" data-price="10" data-calories="20" />cheese</label>
+        <label><input type="radio" name="stuff" value="salad" data-price="20" data-calories="5" />salad</label>
+        <label><input type="radio" name="stuff" value="potatoes" data-price="15" data-calories="10" />potatoes</label>
+      </fieldset>
+      <fieldset>
+        <legend>Добавки</legend>
+        <label><input type="checkbox" checked name="topping" value="seasoning" data-price="15" data-calories="0" />seasoning</label>
+        <label><input type="checkbox" name="topping" value="mayonnaise" data-price="20" data-calories="5" />mayonnaise</label>
+      </fieldset>
+
+      <div class="actions">
+        <input type="submit" value="Добавить">
+        <input type="reset" value="Сбросить">
+      </div>
+    </form>
+    <div class="basket">
+      <h2>Корзина</h2>
+      <div class="content"></div>
+    </div>
+  </div>
+  <script src="./hamburger.js"></script>
+  <script src="./main.js"></script>
+</body>
+</html>

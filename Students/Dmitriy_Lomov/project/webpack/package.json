@@ -4,9 +4,9 @@
     "description": "GeekBrains_education project",
     "main": "index.js",
     "scripts": {
-        "dev": "webpack --mode development",
-        "build": "webpack --mode production"
-    },
+        "build": "webpack --mode development",
+        "dev": "webpack-dev-server --hot --open"
+      },
     "keywords": [],
     "author": "Dmitriy Lomov",
     "license": "ISC",
@@ -28,7 +28,8 @@
         "sass-loader": "^8.0.2",
         "style-loader": "^1.1.3",
         "webpack": "^4.41.5",
-        "webpack-cli": "^3.3.10"
+        "webpack-cli": "^3.3.10",
+        "webpack-dev-server": "^3.10.3"
     },
     "browserslist": [
         "> 1%",
