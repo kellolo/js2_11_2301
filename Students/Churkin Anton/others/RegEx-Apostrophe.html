@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Regex</title>
+</head>
+
+<body>
+    <h1>Исходный текст</h1>
+    <p class="sourceText">
+        'Дан большой текст, в котором для оформления прямой речи используются одинарные
+        кавычки. Придумать шаблон, который заменяет одинарные кавычки на двойные. в конструкциях типа aren't одинарная кавычка не заменялась на
+        двойную'
+    </p>
+    <br>
+    <h1>Текст после обработки</h1>
+    <p class="targetText"></p>
+
+    <script>
+        let sourceTxt = document.querySelector('.sourceText').innerText;
+        const regexQuoteFull = /^\'?.*\'?$/gm; //проверка что текст подходит под условие
+        const regexQuoteStart = /^\'?/gm; //первый апостроф
+        const regexQuoteEnd = /\'?$/gm; //последний апостроф
+
+        if(regexQuoteFull.test(sourceTxt)) {
+            let targetTxt = sourceTxt
+                .replace(regexQuoteStart, '"')
+                .replace(regexQuoteEnd, '"')
+            document.querySelector('.targetText').innerText = targetTxt;
+        }
+    </script>
+</body>
+</html>
