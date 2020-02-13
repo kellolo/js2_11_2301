@@ -3,6 +3,10 @@ let MiniCssPlugin = require ('mini-css-extract-plugin')
 
 module.exports = {
     module: {
+        /*devServer: {
+            port: 8080,
+            hot: true,
+        },*/
         rules: [
             {
                 test: /\.js$/,

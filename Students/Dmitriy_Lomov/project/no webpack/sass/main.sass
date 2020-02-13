@@ -1,0 +1,321 @@
+$color-darkblue: #01233f
+$color-black: #000
+$color-white: #fff
+
+$font-orbitron: 'Orbitron', sans-serif
+$font-montserrat: 'Montserrat', sans-serif
+
+body
+    margin: 0
+    padding: 0
+    font-family: $font-orbitron
+
+.container 
+    margin: 0 auto
+    background: #f5f5f5
+
+
+.main-header 
+    display: flex
+    flex-flow: row wrap
+    justify-content: space-around
+    align-items: center
+    box-sizing: border-box
+    background: url('../images/header_bg.jpg') no-repeat 50%
+    background-size: cover
+    width: 100%
+    position: relative
+    box-shadow: 0 3px 10px $color-black
+    outline: none
+
+    .logo
+        padding: 30px
+
+        &__link
+            text-transform: uppercase
+            text-decoration: none
+            font-size: 28px
+            font-weight: bold
+            color: $color-white
+            text-shadow: 1px 1px 3px $color-black
+            transition: all ease .3s
+            outline: none
+
+            &:focus
+                color: #07bbb5
+
+            &:hover
+                color: #09fff7 
+                text-shadow: 1px 2px 5px $color-black
+
+            &:active
+                text-shadow: none
+
+
+.search-input
+    width: 20%
+    padding: 10px
+    background: transparent
+    border-top: 1px solid $color-white
+    border-bottom: 1px solid $color-white
+    border-left: none
+    border-right: none
+    color: $color-white
+    border-radius: 0 10px 0 10px 
+    text-shadow: 1px 1px 3px $color-black
+    outline: none
+    
+    &:focus::placeholder
+        text-indent: 500px
+
+    &::placeholder
+        color: #555
+        text-indent: 0
+        transition: text-indent ease .5s
+            
+        
+.main-nav
+    padding: 30px
+
+    &__list
+        display: flex
+        flex-flow: row wrap
+        list-style: none
+        padding: 15px
+        box-sizing: border-box
+
+    &__btn
+        font-family: $font-orbitron
+        background: transparent
+        border: none
+        box-sizing: border-box
+        letter-spacing: 2px
+        font-size: 18px
+        padding: 10px
+        text-decoration: none
+        color: $color-white
+        text-shadow: 1px 1px 2px $color-darkblue
+        transition: all ease .3s
+        cursor: pointer
+        outline: none
+        text-shadow: 1px 1px 3px $color-black
+
+        &:focus
+            color: #07bbb5
+
+        &:hover
+            color: #09fff7 
+            text-shadow: 1px 2px 5px $color-black
+
+        &:active
+            text-shadow: none
+
+
+.main
+    text-align: center
+    background: #eee
+
+.products
+    padding: 80px
+    display: flex
+    flex-flow: row wrap 
+    justify-content: space-evenly
+    transition: opacity ease .3s
+
+    .product
+        display: flex
+        flex-direction: column
+        align-items: center
+        font-family: $font-montserrat
+        border: 1px solid $color-darkblue
+        padding: 0
+        margin-bottom: 40px
+        box-shadow: 1px 2px 5px $color-black
+        border-radius: 10px
+        overflow: hidden
+        transition: all ease .2s
+
+        &:hover
+            box-shadow: 2px 3px 8px $color-black
+
+        &__title
+            width: 100%
+            text-align: center
+            background: $color-darkblue
+            font-size: 20px
+            color: $color-white
+            margin: 0
+            padding: 10px 0
+        
+        &__price
+            font-family: $font-orbitron
+            width: 100%
+            text-align: center
+            color: $color-black
+            text-shadow: 1px 1px 2px $color-darkblue
+            font-size: 28px
+            font-weight: 600
+            padding: 20px 0
+        
+.buy-btn
+    width: 100% 
+    padding: 10px 0
+    background: $color-darkblue
+    color: $color-white
+    border: 1px solid $color-darkblue
+    cursor: pointer
+    text-transform: uppercase
+    letter-spacing: 2px
+    font-weight: 600
+    transition: all ease .2s
+    text-shadow: 1px 1px 2px $color-black
+    outline: none
+
+    &:focus
+        border: 1px solid $color-white
+
+    &:hover
+        background: darken($color-darkblue, 2)
+        box-shadow: 1px 1px 2px $color-black
+
+    &:active
+        box-shadow: none
+        background: darken($color-darkblue, 5)
+
+
+.cart-wrapper
+    width: 320px
+    display: flex
+    align-items: center
+    flex-direction: column
+    position: absolute
+    top: 120px
+    right: 10px
+    border: 1px solid $color-white
+    border-radius: 10px
+    background: rgba(0, 0, 0, 0.6)
+    transition: all ease .3s
+
+    &::after    
+        content: ''
+        position: absolute
+        left: 130px
+        top: -20px
+        border: 10px solid transparent
+        border-bottom: 10px solid $color-white
+        
+
+
+.cart
+    display: flex
+    justify-content: center
+    flex-direction: column
+    padding: 20px
+
+    &__item
+        display: flex
+        justify-content: space-around
+        font-size: 12px
+        border: 1px solid $color-darkblue
+        padding: 10px
+        background: $color-darkblue
+        color: $color-white
+        border-radius: 10px
+        margin-bottom: 10px
+        transition: all ease .2s
+
+        &:hover
+            box-shadow: 2px 3px 8px $color-black
+
+    &__pic
+        margin-right: 10px
+
+    &__description
+        display: flex
+        flex-direction: column
+        padding: 10px
+        font-family: $font-montserrat
+        border-left: 1px solid $color-white
+        border-bottom: 1px solid $color-white
+        border-radius: 10px
+
+    &__title
+        margin: 0 0 5px 0
+
+.del-btn
+    width: 30px
+    height: 30px
+    font-size: 20px
+    font-weight: bold
+    align-self: center
+    background: #f00
+    color: $color-white
+    border: 1px solid #f00
+    border-radius: 50%
+    margin-left: 10px
+    cursor: pointer
+    transition: all ease .2s
+    outline: none
+
+    &:focus
+        border: 1px solid $color-white  
+
+    &:hover
+        box-shadow: 1px 1px 1px $color-black
+
+    &:active
+        background: darken(red, 10)
+        box-shadow: none
+
+.cart-total
+    box-sizing: border-box
+    width: 100%
+    font-size: 14px
+    letter-spacing: 1.5px
+    padding: 10px
+    display: flex
+    flex-direction: column
+    justify-content: center
+    align-items: center
+    align-self: flex-end
+    color: $color-white
+    border-top: 2px solid $color-white
+    border-radius: 15px 0 10px 10px
+    background: rgba(0, 0, 0, 0.9)
+
+
+.footer
+    box-shadow: 0 -3px 10px $color-black
+    display: flex
+    justify-content: space-between
+    padding: 50px
+    background: $color-darkblue
+    font-family: $font-montserrat
+
+    .highlight
+        color: $color-white
+        margin-left: 10px
+        font-family: $font-orbitron
+        text-transform: uppercase
+
+    &__list
+        font-size: 12px
+        display: flex
+        list-style: none
+
+    &__item:not(:first-child)
+        margin-left: 10px
+
+    &__link
+        color: $color-white
+        transition: text-shadow ease .2s
+        text-decoration: none
+        padding: 2px
+        transition: all ease .1s
+
+        &:hover
+            text-shadow: 1px 1px 2px $color-black
+            text-decoration: underline
+            
+        &:active
+            color: $color-black
