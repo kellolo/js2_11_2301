@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Интернет-магазин</title>
+    <link rel="stylesheet" href="./normalize.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+    <div class="" id="app">
+    <header>
+        <div class="logo">E-shop</div>
+        <div class="cart">
+            <form action="#" class="search-form">
+                <input type="text" class="search-field" v-model="searchLine">
+                <button class="btn-search" type="submit" @click="filterGoods">
+                    <i class="fas fa-search"></i>
+                </button>
+            </form>
+            <button class="btn-cart" type="button" @click="toggleCartVisibility">Корзина</button>
+            <div class="cart-block invisibleq" v-show="isCartVisible">
+                <div class="cart-item" v-for='item of cart' :data-id="item.id_product">
+                    <div class="product-bio">
+                        <img :src="cartImage" alt="Some image">
+                        <div class="product-desc">
+                            <p class="product-title">{{item.product_name}}</p>
+                            <p class="product-quantity">Quantity: {{item.quantity}}</p>
+                            <p class="product-single-price">${{item.price}} each</p>
+                        </div>
+                    </div>
+                    <div class="right-block">
+                        <p class="product-price">{{item.quantity * item.price}}</p>
+                        <button class="del-btn" @click="removeItem(item)" :data-id="item.id_product">&times;</button>
+                    </div>
+                </div>
+                <span>Total: {{totalSum}}</span>
+            </div>
+        </div>
+    </header>
+    <main >
+        <div class="products" >
+            <div class="product-item" v-for="item of filteredItems" v-bind:data-id="item.id_product">
+                <img v-bind:src='img' alt="Some img">
+                <div class="desc">
+                    <h3>{{item.product_name}}</h3>
+                    <p>{{item.price}} $</p>
+                    <button class="buy-btn" 
+                    @click='addItem(item)'
+                    v-bind:data-id="item.id_product"
+                    v-bind:data-name="item.product_name"
+                    v-bind:data-image='img'
+                    v-bind:data-price="item.price">Купить</button>
+                </div>
+            </div>
+        </div>
+    </main>
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js" integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP" crossorigin="anonymous"></script>
+    <script src="./index.js"></script>
+</body>
+</html>

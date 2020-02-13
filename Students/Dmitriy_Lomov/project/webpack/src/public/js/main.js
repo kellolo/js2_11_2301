@@ -1,5 +1,5 @@
-import Cart from './cart'
-import GoodsList from './goodsList' 
+import Cart from './Cart'
+import Catalog from './Catalog' 
 
 let cart = new Cart()
-let goodsList = new GoodsList(cart)
+let catalog = new Catalog(cart)
