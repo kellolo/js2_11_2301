@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Интернет магазин на Vue</title>
+    <link rel="stylesheet" href="style/normalize.css">
+    <link rel="stylesheet" href="style/style.css">
+</head>
+<body>
+    <div class="container" id="app1">
+        <header>
+            <div class="logo">E-shop</div>
+            <div class="cart">
+                <form action="#" class="search-form">
+                    <input type="text" class="search-field">
+                    <button class="btn-search" type="submit">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
+                <button class="btn-cart" type="button" @click="btn_cartClick">Корзина</button>
+                <div class="cart-block" v-show="isVisibleCart" > <!-- ранее скрытие козины производилось через invisible= -->
+                    <div class="cart-item" v-for="el of cartitems">
+                        <div class="product-bio">
+                            <img v-bind:src="cartImg" alt="Some image">
+                            <div class="product-desc">
+                                <p class="product-title">{{el.product_name}}</p>
+                                <p class="product-quantity">Quantity: {{el.quantity}}</p>
+                                <p class="product-single-price">${{el.price}} each</p>
+                            </div>
+                        </div>
+                        <div class="right-block">
+                            <p class="product-price">${{el.quantity*el.price}}</p>
+                            <button class="del-btn" @click="del_btnClick(el)">&times;</button>
+                        </div>
+                    </div>
+                    <hr><p class="product-title">Сумма товаров: ${{cart_summa}}</p>
+                </div>
+            </div>
+        </header>
+        <main>
+            <div class="products">
+                <div class="product-item" v-for="el of items">
+                    <img v-bind:src="img" alt="Some img">
+                    <div class="desc">
+                        <h3>{{el.product_name}}</h3>
+                        <p>{{el.price}} $</p>
+                        <button class="buy-btn" @click="add_btnClick(el)">Купить</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        const API = 'https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses'
+        let app = new Vue ({
+            el: '#app1',
+            data: {
+                items: [],
+                cartitems: [],
+                img: 'https://placehold.it/200x150',
+                cartImg: 'https://placehold.it/100x80',
+                isVisibleCart: false,
+                cart_summa: 0
+            },
+
+            methods: {
+                getData (url) {
+                return fetch(url)
+                        .then(d => d.json())
+                },
+
+                init () {
+                    this.getData(API + '/catalogData.json')
+                        .then(parsedData => { this.items = parsedData })
+                    this.getData(API + '/getBasket.json')
+                        .then(parsedData => { this.cartitems = parsedData.contents })    
+                    },
+                
+                btn_cartClick () {
+                    this.isVisibleCart = !this.isVisibleCart
+                    this.calculateSum ()
+                },
+
+                del_btnClick(el) {
+                    let productId = +el.id_product
+                    let serverResponse200
+                    this.getData(API + '/deleteFromBasket.json')
+                        .then (response => { serverResponse200 = response })
+                        .finally (() => {
+                            if (serverResponse200) {
+                                let find = this.cartitems.find (element => element.id_product === productId)
+                                if (find && find.quantity > 1) {
+                                    find.quantity--
+                                } else if (find){
+                                    this.cartitems.splice(this.cartitems.indexOf(find), 1);
+                                }
+                                this.calculateSum ()
+                            }
+                        })
+                },
+
+                add_btnClick(el) {
+                    let productId = +el.id_product
+                    let serverResponse200
+                    this.getData(API + '/addToBasket.json')
+                        .then (response => { serverResponse200 = response })
+                        .finally (() => {
+                            if (serverResponse200) {
+                                let find = this.cartitems.find (element => element.id_product === productId) //товар или false
+                                if (!find) {
+                                    this.cartitems.push ({
+                                        product_name: el.product_name,
+                                        id_product: productId,
+                                        img: this.cartImg,//product.dataset ['image'],
+                                        price: +el.price,
+                                        quantity: 1
+                                    })
+                                }  else {
+                                    find.quantity++
+                                }
+                                this.calculateSum ()
+                            }
+                        })
+                },
+
+                calculateSum () {
+                    this.cart_summa = 0
+                    this.cartitems.forEach(el => this.cart_summa += el.price*el.quantity)
+                }
+            },
+
+            computed: {},
+            mounted () {
+                this.init ()
+            },
+            
+            
+        })
+
+    </script>
+</body>
+</html>
