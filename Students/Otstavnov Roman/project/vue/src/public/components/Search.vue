@@ -9,9 +9,6 @@
 
 <script>
   export default {
-    props: {
-      visible: {type: Boolean},
-    },
     data () {
       return {
         searchLine: '',
@@ -26,6 +23,5 @@
         })
       },
     },
-    mounted () {}
   }
 </script>
