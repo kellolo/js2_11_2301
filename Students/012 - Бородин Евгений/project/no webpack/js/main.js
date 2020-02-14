@@ -1,67 +1,9 @@
-//заглушки (имитация базы данных)
-
-// class List {
-//     constructor (url) {
-//         this.url = url
-//         this.items = []
-//         this._init()
-//     }
-//     _init () {
-//         return false
-//     }
-    
-// }
-
-// class Item {
-//     constructor (obj, img = image) {
-//         this.product_name = obj.product_name
-//         this.price = obj.price
-//         this.id_product = obj.id_product
-//         this.img = img
-//     }
-// }
-
-// class Catalog extends List {
-//     constructor (cart, url = '/catalogData.json') {
-//         super (url)
-//         this.cart = cart
-//     }
-    
-// }
-
-// class Cart extends List {
-//     constructor (url = '/getBasket.json') {
-//         super (url)
-//         this.visible = false
-//     }
-
-    
-
-    
-
-    
-// }
-
-// class CatalogItem extends Item {}
-// class CartItem extends Item {
-//     constructor (obj, img = cartImage) {
-//         super (obj, img)
-//         this.quantity = obj.quantity
-//     }
-// }
-
-// let 
-
 let app = new Vue ({
     el: '#app',
     data: {
         image: 'https://placehold.it/200x150',
         cartImage: 'https://placehold.it/100x80',
         API: 'https://raw.githubusercontent.com/bor1eu/online-store-api/master/responses',
-        // listsVocabulary: {
-        //     Catalog: CatalogItem,
-        //     Cart: CartItem
-        // },
         
         filterString: '',
         cart: {
