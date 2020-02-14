@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/main.css">
+</head>
+<body>
+    <div id="app">
+        <header>
+            <div class="logo">E-shop</div>
+            <div class="totalSum">Суммарная стоимость товаров: {{ totalSum() }} $</div>
+            <div class="cart">
+                
+                <form action="#" class="search-form">
+                    <input type="text" class="search-field" v-model="searchLine">
+                    <button class="btn-search" type="submit" @click="filterGoods">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
+                <button @click="toggleClick" class="btn-cart" type="button">Корзина</button>
+                <div class="cart-block" v-show="isVisibleCart"></div>
+            </div>
+        </header>
+        <main>
+            <div class="goods-list">
+                <div class="product-item"  v-for="item in items" :data-id="item.id_product">
+                    <div class="desc">
+                        <img v-bind:src = "item.image">
+                        <h3>{{ item.product_name }}</h3>
+                        <p>{{ item.price }} $</p>
+                        <button class="buy-btn" @click=""
+                        :data-id="item.id_product" 
+                        :data-name="item.product_name"
+                        :data-img="item.image"  
+                        :data-price="item.price">Купить</button>
+                    </div>
+                </div>
+            </div>
+        </main>
+    
+    </div>
+
+    <script defer src="https://use.fontawesome.com/releases/v5.7.2/js/all.js" integrity="sha384-0pzryjIRos8mFBWMzSSZApWtPl/5++eIfzYmTgBBmXYdhvxPc+XcFEk+zJwDgWbP" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

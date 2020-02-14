@@ -40,6 +40,9 @@ button:focus{
 /*padding: 40px 80px;*/
 /*}*/
 .products{
+
+}
+.products .list{
     column-gap: 30px;
     display: grid;
     grid-template-columns: repeat(auto-fit, 200px);
@@ -118,6 +121,9 @@ img {
 }
 .cart-item:not(:last-child){
     margin-bottom: 20px;
+}
+.cart-total {
+  margin-top: 10px;
 }
 .product-bio{
     display: flex;
