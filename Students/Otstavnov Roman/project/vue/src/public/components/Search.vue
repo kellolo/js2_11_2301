@@ -19,13 +19,12 @@
     },
     methods: {
       onInputSearchField (el) {
-            this.searchLine = el.target.value;
-            const regExp = new RegExp(this.searchLine, 'i');
-            console.log(regExp);
-            this.$parent.products.forEach(product => {
-              this.$set(product, 'isVisible', regExp.test(product.name))
-            });
-        },
+        this.searchLine = el.target.value
+        const regExp = new RegExp(this.searchLine, 'i')
+        this.$parent.products.forEach(product => {
+          this.$set(product, 'isVisible', regExp.test(product.name))
+        })
+      },
     },
     mounted () {}
   }
