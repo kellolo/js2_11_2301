@@ -21,7 +21,7 @@ class List {
         return fetch(url)
                 .then(d => d.json())
     }
-    _render () {
+    _render (sum, qua) {
         let block = document.querySelector(this.container)
         let htmlString = ''
         this.items.forEach (item => {
@@ -29,6 +29,9 @@ class List {
             htmlString += newObj.render()
         })
         block.innerHTML = htmlString
+        if (sum && qua) {
+            
+        }
     }
 }
 class Item {
@@ -103,24 +106,45 @@ _addListeners () {
     }
 
    addProduct (prod) {
-       let serverResponse200
-       this.getData(API + '/addToBasket.json')
-            .then (response => { serverResponse200 = response })
-            .finally (() => {
-                if (serverResponse200) {
-                    console.log (`Товар ${prod.dataset.name} добавлен в корзину`)
+    let serverResponse200
+    this.getData(API + '/addToBasket.json')
+        .then (response => { serverResponse200 = response })
+        .finally (() => {
+            if (serverResponse200) {
+                let find = this.items.find (item => item.id_product === +prod.dataset.id )
+                if (!find) {
+                    this.items.push (new CartItem ({
+                        product_name: prod.dataset.name,
+                        price: +prod.dataset.price,
+                        id_product: +prod.dataset.id,
+                        quantity: 1
+                    }, prod.dataset.img))
+                    // this.totalSum += prod.dataset.price
+                    // this.totalQuantity ++
+                } else {
+                    find.quantity++
+                    // this.totalQuantity ++
+                    // this.totalSum += find.price
                 }
+                this._render (this.totalSum, this.totalQuantity)
+            }
             })
    }
 
    removeProduct (prod) {
     let serverResponse200
-    this.getData(API + '/deleteFromBasket.json')
-         .then (response => { serverResponse200 = response })
-         .finally (() => {
-             if (serverResponse200) {
-                 console.log (`Товар ${prod.dataset.id} удалён из корзины`)
-             }
+        this.getData(API + '/deleteFromBasket.json')
+            .then (response => { serverResponse200 = response })
+            .finally (() => {
+                if (serverResponse200) {
+                    let find = this.items.find (item => item.id_product === +prod.dataset.id )
+                    if (find.quantity > 1) {
+                        find.quantity--
+                    } else {
+                        this.items.splice (this.items.indexOf(find), 1)
+                    }
+                    this._render()
+                }
          })
    }
 }
