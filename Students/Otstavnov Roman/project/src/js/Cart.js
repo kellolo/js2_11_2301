@@ -17,6 +17,7 @@ class Cart extends List {
             name: item.product_name,
             price: +item.price,
             id: +item.id_product,
+            img: item.img,
           });
         });
       })
@@ -51,8 +52,9 @@ class Cart extends List {
               product_name: prod.name,
               price: +prod.price,
               id_product: +prod.id,
+              img: prod.img,
               quantity: 1
-            }, prod.img));
+            }));
           } else {
             find.quantity++
           }

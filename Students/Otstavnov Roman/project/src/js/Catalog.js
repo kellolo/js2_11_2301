@@ -7,7 +7,7 @@ class Catalog extends List {
     this.cart = cart
   }
   _init () {
-    this.getData(SETTINGS.API + this.url)
+    this.getData(SETTINGS.API2 + this.url)
       .then(parsedData => { this.items = parsedData })
       .then(() => { this._render() })
       .finally(() => { this._addListeners() })
