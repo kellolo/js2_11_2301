@@ -20,7 +20,7 @@
                     </button>
                 </form>
             <button class="btn-cart" type="button" @click="toggleCartVisible">Корзина</button>
-            <div class="cart-block" v-if="cart.isVisible">
+            <div class="cart-block" v-show="cart.isVisible">
                 <div class="list">
                     <div
                         class="cart-item"
@@ -41,7 +41,7 @@
                         </div>
                     </div>
                 </div>
-                <div v-if="cart.count" class="cart-total">
+                <div v-show="cart.count" class="cart-total">
                     В корзине <b>{{ cart.count }} товаров</b> на сумму <b>{{ getAmount }} р.</b>
                 </div>
             </div>
