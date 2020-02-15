@@ -2,8 +2,9 @@ import Item from './Item'
 import SETTINGS from './settings'
 
 export class CatalogItem extends Item {
-  constructor (obj, img = SETTINGS.image) {
-    super (obj, img)
+  constructor (obj) {
+    obj.img = obj.img ? obj.img : SETTINGS.image;
+    super (obj)
   }
 
   render () {
@@ -16,7 +17,7 @@ export class CatalogItem extends Item {
                     <button class="buy-btn" 
                     data-id="${this.id_product}"
                     data-name="${this.product_name}"
-                    data-image="${this.img}"
+                    data-img="${this.img}"
                     data-price="${this.price}">Купить</button>
                 </div>
             </div>

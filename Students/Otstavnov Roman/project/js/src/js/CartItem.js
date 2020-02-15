@@ -2,8 +2,9 @@ import Item from './Item';
 import SETTINGS from './settings';
 
 export class CartItem extends Item {
-  constructor (obj, img = SETTINGS.cartImage) {
-    super (obj, img)
+  constructor (obj) {
+    obj.img = obj.img ? obj.img : SETTINGS.cartImage;
+    super (obj)
     this.quantity = obj.quantity;
     this.id = obj.id;
   }

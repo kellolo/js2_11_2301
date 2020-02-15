@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style/normalize.css">
+    <link rel="stylesheet" href="./style/style.css">
+</head>
+<body>
+    <div class="" id="app">
+        <header>
+            <div class="logo">E-shop</div>
+            <div class="cart">
+                <form action="#" class="search-form">
+                    <input @input="toggleSearchInput" type="text" class="search-field">
+                    <button class="btn-search" type="submit">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </form>
+            <button class="btn-cart" type="button" @click="toggleCartVisible">Корзина</button>
+            <div class="cart-block" v-show="cart.isVisible">
+                <div class="list">
+                    <div
+                        class="cart-item"
+                        :id="product.id"
+                        v-for="product of cart.items"
+                    >
+                        <div class="product-bio">
+                            <img :src="product.img" alt="Some image">
+                            <div class="product-desc">
+                                <p class="product-title">{{ product.name }}</p>
+                                <p class="product-quantity">Quantity: {{ product.quantity }}</p>
+                                <p class="product-single-price">{{ product.price }}р. each</p>
+                            </div>
+                        </div>
+                        <div class="right-block">
+                            <p class="product-price">{{product.quantity * product.price}} р.</p>
+                            <button class="del-btn">&times;</button>
+                        </div>
+                    </div>
+                </div>
+                <div v-show="cart.count" class="cart-total">
+                    В корзине <b>{{ cart.count }} товаров</b> на сумму <b>{{ getAmount }} р.</b>
+                </div>
+            </div>
+            </div>
+        </header>
+        <main>
+            <div class="products">
+                <div class="list" v-if="isProductListNotEmpty">
+                    <div
+                        class="product-item"
+                        :id="product.id"
+                        v-for="product of products"
+                        v-if="product.isVisible"
+                    >
+                        <img :src="product.img" alt="Some img">
+                        <div class="desc">
+                            <h3>{{product.name}}</h3>
+                            <p>{{product.price}} р.</p>
+                            <button class="buy-btn">Купить</button>
+                        </div>
+                    </div>
+                </div>
+                <div v-else class="list-empty">Нет данных</div>
+            </div>
+        </main>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>
