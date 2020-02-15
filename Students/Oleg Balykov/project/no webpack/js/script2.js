@@ -74,7 +74,7 @@ class Catalog extends List {
     _addListeners () {
         document.querySelector(this.container).addEventListener('click', (evt) => {
             if (evt.target.classList.contains('buy-btn')) {
-                this.cart.addProduct(evt.target)
+                this.cart.addProduct(evt.target);
             }
         })
     }
@@ -83,8 +83,8 @@ class Catalog extends List {
 class Cart extends List {
     constructor (url = '/getBasket.json', container = '.cart-block') {
         super (url, container)
-        //this.totalSum = 0
-        //this.totalQuantity = 0
+        this.totalSum = 0
+        this.totalQuantity = 0
     }
 
     _init () {
@@ -123,12 +123,13 @@ class Cart extends List {
                             id_product: +prod.dataset.id,
                             quantity: 1
                         }, prod.dataset.img))
-                        // this.totalSum += prod.dataset.price
-                        // this.totalQuantity ++
+                         this.totalSum += prod.dataset.price
+                         this.totalQuantity ++
                     } else {
+                        console.log(find.quantity)
                         find.quantity++
-                        // this.totalQuantity ++
-                        // this.totalSum += find.price
+                         this.totalQuantity ++
+                         this.totalSum += find.price
                     }
                     this._render (this.totalSum, this.totalQuantity)
                 }
@@ -189,5 +190,4 @@ function app () {
     let cart = new Cart ()
     let catalog = new Catalog (cart)
 }
-
-
+app();
