@@ -12,7 +12,8 @@ export default {
         return {
             name: 'cart',
             items: [],
-            urlGetData: 'https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/',
+            urlGetData: '/api/cart',
+            // urlGetData: 'https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/',
         }
     },
     
@@ -63,7 +64,7 @@ export default {
     },
 
     mounted() {
-        this.$parent.getData(this.urlGetData + '/getBasket.json')
+        this.$parent.getData(this.urlGetData)
             .then (data => {
                 this.items = data.contents
         })

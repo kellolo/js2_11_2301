@@ -13,7 +13,8 @@ export default {
         return {
             items: [],
             filtered: [],
-            urlGetData: 'https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/catalogData.json',
+            urlGetData: '/api/catalog',
+            //urlGetData: 'https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/catalogData.json',
         }
     },
     mounted() {
