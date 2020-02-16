@@ -21,7 +21,7 @@ export default {
     },
     methods: {
         addProduct (item) {
-            this.$parent.$parent.$children[0].addProduct (item)
+            this.$root.$children[0].$refs.cart.addProduct (item)
         }
     }
 }
