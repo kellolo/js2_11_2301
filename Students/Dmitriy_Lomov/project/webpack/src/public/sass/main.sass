@@ -52,58 +52,26 @@ body
                 text-shadow: none
 
 
-.search-form
+.search-input
     width: 20%
+    padding: 10px
+    background: transparent
+    border-top: 1px solid $color-white
+    border-bottom: 1px solid $color-white
+    border-left: none
+    border-right: none
+    color: $color-white
+    border-radius: 0 10px 0 10px 
+    text-shadow: 1px 1px 3px $color-black
+    outline: none
+    
+    &:focus::placeholder
+        text-indent: 500px
 
-    &__relative
-        position: relative
-
-    &__btn
-        position: absolute
-        width: 30px
-        height: 30px
-        top: 50%
-        right: -18px
-        transform: translateY(-15px)   
-        background: transparent
-        border: none
-        color: #aaa
-        border-radius: 0 10px 0 10px
-        cursor: pointer
-        transition: all ease .2s
-        outline: none
-
-        &:focus
-            color:#07bbb5
-
-        &:hover
-            color: #09fff7 
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5)
-
-        &:active
-            color: #555
-            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5)
-
-    &__input
-        width: 100%
-        padding: 10px
-        background: transparent
-        border-top: 1px solid $color-white
-        border-bottom: 1px solid $color-white
-        border-left: none
-        border-right: none
-        color: $color-white
-        border-radius: 0 10px 0 10px 
-        text-shadow: 1px 1px 3px $color-black
-        outline: none
-        
-        &:focus::placeholder
-            text-indent: 500px
-
-        &::placeholder
-            color: #555
-            text-indent: 0
-            transition: text-indent ease .5s
+    &::placeholder
+        color: #555
+        text-indent: 0
+        transition: text-indent ease .5s
             
         
 .main-nav
@@ -174,7 +142,7 @@ body
             width: 100%
             text-align: center
             background: $color-darkblue
-            font-size: 20px
+            font-size: 18px
             color: $color-white
             margin: 0
             padding: 10px 0
@@ -185,9 +153,9 @@ body
             text-align: center
             color: $color-black
             text-shadow: 1px 1px 2px $color-darkblue
-            font-size: 28px
+            font-size: 26px
             font-weight: 600
-            padding: 20px 0
+            padding: 15px 0
         
 .buy-btn
     width: 100% 
@@ -216,7 +184,6 @@ body
 
 
 .cart-wrapper
-    opacity: 0
     width: 320px
     display: flex
     align-items: center
@@ -227,6 +194,7 @@ body
     border: 1px solid $color-white
     border-radius: 10px
     background: rgba(0, 0, 0, 0.6)
+    overflow: hidden
     transition: all ease .3s
 
     &::after    
@@ -237,8 +205,7 @@ body
         border: 10px solid transparent
         border-bottom: 10px solid $color-white
         
-.visible
-    opacity: 1
+
 
 .cart
     display: flex
