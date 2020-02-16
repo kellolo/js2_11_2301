@@ -5,12 +5,12 @@
       <div class="cart">
         <searchForm />
         <button class="btn-cart" type="button" @click="isCartVisible = !isCartVisible">Корзина</button>
-        <cart v-show="isCartVisible" />
+        <cart v-show="isCartVisible" ref="cart"/>
         <!--Cart-->
       </div>
     </header>
     <main>
-      <catalog />
+      <catalog ref="catalog" />
       <!--Catalog-->
     </main>
   </div>
