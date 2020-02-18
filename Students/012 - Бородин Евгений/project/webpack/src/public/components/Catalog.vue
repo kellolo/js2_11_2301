@@ -12,7 +12,8 @@ export default {
         return {
             items: [],
             filtered: [],
-            urlGetData: 'https://raw.githubusercontent.com/bor1eu/online-store-api/master/responses/catalogData.json'
+            // urlGetData: 'https://raw.githubusercontent.com/bor1eu/online-store-api/master/responses/catalogData.json'
+            urlGetData: '/api/catalog'
         }
     },
     methods: {
