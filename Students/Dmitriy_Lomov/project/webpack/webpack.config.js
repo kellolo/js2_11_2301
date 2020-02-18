@@ -1,6 +1,8 @@
 const path = require('path')
 const HtmlPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const VueLoaderPlugin = require ('vue-loader/lib/plugin')
+
 const devMode = process.env.NODE_ENV !== 'production'
 
 module.exports = {
@@ -11,7 +13,13 @@ module.exports = {
         filename: '[name].js'
     },
     module: {
-        rules: [{
+        rules: [
+            {
+                test: /\.vue$/, 
+                exclude: /node_modules/,
+                loader: 'vue-loader'
+            },
+            {
                 test: /\.js$/,
                 exclude: /node_modules/,
                 loader: 'babel-loader'
@@ -72,6 +80,7 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: devMode ? '[name].css' : '[name].[hash].css',
             chunkFilename: devMode ? '[id].css' : '[id].[hash].css',
-        })
+        }),
+        new VueLoaderPlugin ()
     ]
 }
