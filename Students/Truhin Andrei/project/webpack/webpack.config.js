@@ -5,6 +5,17 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const VueLoaderPlugin = require ('vue-loader/lib/plugin');
 
 module.exports = {
+  devServer: {
+    port: 3000,
+    proxy: {
+        '/api': {
+            target: 'http://localhost:8080/',
+            pathRewrite: { '^/api': '' },
+            secure: false,
+            changeOrigin: true,
+        }
+    }
+},
   entry: { main: './src/index.js' },
   output: {
     path: path.resolve(__dirname, 'dist'),

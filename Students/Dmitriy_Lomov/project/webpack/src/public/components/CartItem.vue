@@ -7,7 +7,7 @@
                 <span class="cart__price">$: <b>{{ item.price }}</b></span>
                 <span class="cart__quantity">qty: <b>{{ item.quantity }}</b></span>
             </div>
-            <button class="del-btn" @click="$parent.removeFromCart(item)">&times;</button>
+            <button class="cart__del-btn" @click="$parent.removeFromCart(item)">&times;</button>
         </div>
     </div>
 </template>
