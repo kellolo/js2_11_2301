@@ -6,63 +6,153 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:300,400,600|Orbitron:400,600&display=swap&subset=cyrillic" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
-    <title>LomOFF Devices</title>
+    <script src="https://kit.fontawesome.com/04791b84e6.js" crossorigin="anonymous"></script>
+    <title>E-SHOP</title>
+    <link rel="stylesheet" href="sass/main.css">
 </head>
 
 <body>
-    <div class="container">
-        <header class="main-header">
-            <div class="logo">
-                <a href="index.html" class="logo__link">
-                    <img src="img/myLogo.png" alt="company_logo">
-                </a>
-            </div>
-            <form class="search-form">
-                <div class="search-form__relative">
-                    <input type="text" id="search" class="search-form__input" placeholder="Search...">
-                    <button class="search-form__btn" type="submit"><i class="fas fa-search"></i></button>
+    <div id="app">
+        <div class="container">
+            <header class="main-header">
+                <div class="logo">
+                    <a href="index.html" class="logo__link">
+                        <p class="logo__text">e-shop</p>
+                    </a>
                 </div>
-            </form>
-            <nav class="main-nav">
-                <ul class="main-nav__list">
-                    <li class="main-nav__item">
-                        <button id="cart-main-btn" class="main-nav__btn">Cart <i class="fas fa-shopping-cart"></i></button>
+                <input class="search-input" type="text" placeholder="Search...">
+                <nav class="main-nav">
+                    <ul class="main-nav__list">
+                        <li class="main-nav__item">
+                            <button class="main-nav__btn" @click="showCart">Cart <i class="fas fa-shopping-cart"></i></button>
+                        </li>
+                    </ul>
+                </nav>
+            </header>
+            <main class="main">
+                <div class="products">
+
+                    <div class="product" v-for="item of items">
+                        <img class="product__pic" src="https://placehold.it/200x150">
+                        <h2 class="product__title">{{ item.product_name }}</h2>
+                        <span class="product__price">{{ item.price }} $</span>
+                        <button class="buy-btn" @click="addToCart(item)">add to cart</button>
+                    </div>
+    
+                </div>
+                <div class="cart-wrapper" v-show="visible">
+                    <div class="cart" v-for="item of cartItems">
+                       
+                        <div class="cart__item">
+                             <img class="cart__pic" src="https://placehold.it/100x80">
+                             <div class="cart__description">
+                                 <h3 class="cart__title">{{ item.product_name }}</h3>
+                                 <span class="cart__price">$: <b>{{ item.price }}</b></span>
+                                 <span class="cart__quantity">qty: <b>{{ item.quantity }}</b></span>
+                             </div>
+                             <button class="del-btn" @click="removeFromCart(item)">&times;</button>
+                        </div>
+
+                    </div>
+                    <div class="cart-total">
+                        <span class="cart-total__price">Total price: <b>{{ _calculateSum }}</b> $</span>
+                        <span class="cart-total__quantity">Total quantity: <b> {{ _checkTotal }} </b> pcs</span>
+                    </div>
+                </div>
+    
+            </main>
+            <footer class="footer">
+                <ul class="footer__list">
+                    <li class="footer__item">Copyright © 2019<span class="highlight">e-shop</span></li>
+                    <li class="footer__item"><a href="#" class="footer__link">Privacy Policy</a></li>
+                    <li class="footer__item"><a href="#" class="footer__link">FAQ</a></li>
+                    <li class="footer__item"><a href="#" class="footer__link">Support</a></li>
+                </ul>
+                <ul class="footer__list">
+                    <li class="footer__item">Designed by <span class="highlight">Dmitriy Lomov</span></li>
+                    <li class="footer__item">Only for <a href="https://geekbrains.ru/" class="footer__link">GeekBrains</a></span>
                     </li>
                 </ul>
-            </nav>
-        </header>
-        <main class="main">
-            <div class="products">
-
-            </div>
-            <div class="cart-wrapper" id="cartWrapper">
-                <div class="cart">
-                    <span>Cart is empty</span>
-                </div>
-                <div class="cart-total">
-                    <span class="cart-total__price">Total price: <b id="price">0</b> $</span>
-                    <span class="cart-total__quantity">Total quantity: <b id="quantity">0</b> pcs</span>
-                </div>
-            </div>
-
-        </main>
-        <footer class="footer">
-            <ul class="footer__list">
-                <li class="footer__item">Copyright © 2019<span class="highlight">LomOFF Devices</span></li>
-                <li class="footer__item"><a href="#" class="footer__link">Privacy Policy</a></li>
-                <li class="footer__item"><a href="#" class="footer__link">FAQ</a></li>
-                <li class="footer__item"><a href="#" class="footer__link">Support</a></li>
-            </ul>
-            <ul class="footer__list">
-                <li class="footer__item">Designed by <span class="highlight">Dmitriy Lomov</span></li>
-                <li class="footer__item">Only for <a href="https://geekbrains.ru/" class="footer__link">GeekBrains</a></span>
-                </li>
-            </ul>
-        </footer>
+            </footer>
+        </div>
     </div>
-    <script src="https://kit.fontawesome.com/04791b84e6.js" crossorigin="anonymous"></script>
-    <script src="js/script.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+    <script>
+        const app = new Vue({
+            el: '#app',
+
+            data: {
+                API: 'https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses',
+                
+                items: [],
+                cartItems: [],
+                visible: false,
+                
+            },
+
+            methods: {
+                getData(url) {
+                    return fetch(url)
+                        .then(d => d.json())
+                },
+                showCart() {
+                    this.visible = !this.visible
+                },
+                addToCart (item) {
+                    let serverResponse200
+                    this.getData(this.API + '/addToBasket.json')
+                        .then (response => { serverResponse200 = response })
+                        .finally (() => {
+                            if (serverResponse200) {
+                                let id = item.id_product
+                                let find = this.cartItems.find(el => +el.id_product === +id)
+                                if (find) {
+                                    find.quantity++
+                                } else {
+                                    this.$set(item, 'quantity', 1)
+                                    this.cartItems.push(item)
+                                }
+                            }
+                        })
+                },
+                removeFromCart (item) {
+                    let serverResponse200
+                    this.getData(this.API + '/deleteFromBasket.json')
+                        .then (response => { serverResponse200 = response })
+                        .finally (() => {
+                            if (serverResponse200) {
+                                let id = item.id_product
+                                let find = this.cartItems.find(el => +el.id_product === +id)
+                                if (find.quantity > 1) {
+                                    find.quantity--
+                                } else {
+                                    this.cartItems.splice(this.cartItems.indexOf(find), 1)
+                                }
+                            }
+                           
+                    })
+                }
+            },
+
+            computed: {
+                _calculateSum() {
+                    return this.cartItems.reduce((total, el) => total += el.price * el.quantity, 0)
+                },
+                _checkTotal() {
+                    return this.cartItems.reduce((total, el) => total += el.quantity, 0)
+                }
+            },
+
+            mounted () {
+                this.getData(this.API + '/catalogData.json')
+                    .then(parsedData => { this.items = parsedData })
+
+                this.getData(this.API + '/getBasket.json')
+                    .then(parsedData => { this.cartItems = parsedData.contents })
+            }
+        })
+    </script>
 </body>
 
 </html>

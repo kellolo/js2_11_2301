@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <style>
+    .areas {
+      display: flex;
+    }
+    .areas textarea {
+      width: 400px;
+      height: 150px;
+      margin: 10px;
+    }
+  </style>
+</head>
+<body>
+<form action="" id="form">
+  <div class="areas">
+    <textarea name="from">
+    Таким aren't don't образом, 'сплочённость' команды 'профессионалов' однозначно фиксирует 'необходимость' поставленных обществом задач. Каждый из нас 'понимает' очевидную вещь: выбранный нами инновационный путь 'требует' определения и уточнения вывода текущих активов.
+    </textarea>
+    <textarea name="to"></textarea>
+  </div>
+  <input type="submit" value="заменить кавычки">
+</form>
+
+<script>
+  const regexp = /([^n])(')/gm;
+  document.querySelector('#form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    this.to.value = this.from.value.replace(regexp, (a,b,c) => c.replace('\'', b+'"'));
+  })
+</script>
+</body>
+</html>
