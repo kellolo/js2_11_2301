@@ -2,6 +2,7 @@ const path = require('path');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin'); 
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const VueLoaderPlugin = require ('vue-loader/lib/plugin');
 
 module.exports = {
   entry: { main: './src/index.js' },
@@ -12,6 +13,11 @@ module.exports = {
 
   module: {
     rules: [
+      {
+          test: /\.vue$/, 
+          exclude: /node_modules/,
+          loader: 'vue-loader'
+      },
       {
         test: /\.js$/,
         exclude: /node_modules/,
@@ -35,6 +41,7 @@ module.exports = {
       hash: true,
       template: './src/public/index.html',
       filename: 'index.html'
-    })
+    }),
+    new VueLoaderPlugin ()
   ]
 };

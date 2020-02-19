@@ -1,0 +1,54 @@
+[
+  {
+    "id_product": 123,
+    "product_name": "Ноутбук",
+    "price": 45600
+  },
+  {
+    "id_product": 456,
+    "product_name": "Мышка",
+    "price": 1000
+  },
+  {
+    "id_product": 1,
+    "product_name": "Смартфон Samsung Galaxy A50 64GB",
+    "price": 13450,
+    "img": "//avatars.mds.yandex.net/get-mpic/1522540/img_id2530073925465738437.jpeg/5hq"
+  },
+  {
+    "id_product": 2,
+    "product_name": "Увлажнитель воздуха Polaris PUH 5906Di",
+    "price": 3490,
+    "img": "//avatars.mds.yandex.net/get-mpic/1750349/img_id4303831469389882904.jpeg/5hq"
+  },
+  {
+    "id_product": 3,
+    "product_name": "Наушники Motorola VerveBuds 300",
+    "price": 3500,
+    "img": "//avatars.mds.yandex.net/get-mpic/1992523/img_id4593927921808990682.jpeg/5hq"
+  },
+  {
+    "id_product": 4,
+    "product_name": "Гриль Kitfort KT-1631",
+    "price": 3690,
+    "img": "//avatars.mds.yandex.net/get-mpic/1056698/img_id8551801163665136561.jpeg/5hq"
+  },
+  {
+    "id_product": 5,
+    "product_name": "Телевизор Samsung T27H390SI 27\" (2017)",
+    "price": 14950,
+    "img": "//avatars.mds.yandex.net/get-mpic/200316/img_id6727218969809458955.jpeg/5hq"
+  },
+  {
+    "id_product": 6,
+    "product_name": "Клавиатура Logitech Wireless Touch Keyboard K400 Plus Black USB",
+    "price": 1590,
+    "img": "//avatars.mds.yandex.net/get-mpic/1767083/img_id306458008157473134.jpeg/5hq"
+  },
+  {
+    "id_product": 7,
+    "product_name": "Сетевой накопитель (NAS) Synology DS218j",
+    "price": 12830,
+    "img": "//avatars.mds.yandex.net/get-mpic/331398/img_id1351536192401917192.jpeg/5hq"
+  }
+]
