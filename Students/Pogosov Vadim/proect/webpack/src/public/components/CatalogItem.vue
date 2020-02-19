@@ -23,7 +23,8 @@ export default {
         add_btnClickitem(em) {
             console.log(this.$root.$children[0])
             
-            this.$root.$children[0].$children[0].add_btnClick(em)
+            this.$root.$children[0].$refs.cart.add_btnClick(em)
+
         }
     }
     

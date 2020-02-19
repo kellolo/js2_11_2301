@@ -3,20 +3,15 @@
         <header>
             <div class="logo">E-shop</div>
             <div class="cart">
-                <form action="#" class="search-form">
-                    <input type="text" class="search-field">
-                    <button class="btn-search" type="submit">
-                        <i class="fas fa-search"></i>
-                    </button>
-                </form>
-                <button class="btn-cart" type="button" @click="btn_cartClick">Корзина</button>
-                <div class="cart-block" v-show="btn_cart_cliked" > 
-                    <cart />
-                </div> 
+                <filterItems />
+                <button class="btn-cart" type="button" @click="btn_cartClick=!btn_cartClick">Корзина</button>
+                <!--<div class="cart-block" invisible> </div> -->
+                    <cart ref="cart" v-show="btn_cartClick" />
+                 
             </div>
         </header>
         <main>
-            <catalog />
+            <catalog ref="catalog"/>
         </main>
     </div>
 </template>
@@ -25,11 +20,11 @@
 
 import catalog from './Catalog.vue'
 import cart from './Cart.vue'
-
+import filterItems from './FilterItem.vue'
 export default {
     data() {
         return {
-            btn_cart_cliked: false
+            btn_cartClick: false
         }
     },
     methods: {
@@ -37,12 +32,19 @@ export default {
             return fetch(url)
                     .then(d => d.json())
         },
-        btn_cartClick () {
-            this.btn_cart_cliked = !this.btn_cart_cliked
-            // <!-- this.calculateSum () -->
+        postData (url, params) {
+            return fetch(url, {
+                method: 'POST',
+                body: JSON.stringify(params)
+            }, )
+                    .then(d => d.json())
         },
+        // btn_cartClick () {
+        //     this.btn_cart_cliked = !this.btn_cart_cliked
+        //     // <!-- this.calculateSum () -->
+        // },
     },
-    components: { catalog, cart }
+    components: { catalog, cart, filterItems }
 
 }
 </script>

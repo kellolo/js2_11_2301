@@ -1,6 +1,6 @@
 <template>
     <div class="products">
-        <item v-for="i of items" :key="i.id_product" :item="i" />
+        <item v-for="i of filter" :key="i.id_product" :item="i" />
     </div>
 </template>
 
@@ -11,17 +11,25 @@ export default {
     data() {
         return {
             items: [],
-            urlGetData: 'https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses',
+            filter: [],
+            urlGetData: '/api/catalog',
         }
     },
     mounted() {
-        this.$parent.getData(this.urlGetData + '/catalogData.json')
+        this.$parent.getData(this.urlGetData)
             .then (data => {
                 this.items = data
+                this.filter = data
         })
     },
     methods: {
-       
+       filterItems(strit) {
+        //    console.log("1234vfv")
+            let regv = new RegExp (strit, "i")
+            this.filter = this.items.filter(el => regv.test(el.product_name))
+
+       }
+        
 
     },
     components: {item}
