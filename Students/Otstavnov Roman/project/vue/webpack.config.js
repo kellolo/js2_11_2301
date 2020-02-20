@@ -54,5 +54,13 @@ module.exports = {
   devServer: {
     contentBase: 'src/public/',
     port: 7000,
+    proxy: {
+      '/api': {
+        target: 'http://localhost:7001/',
+        pathRewrite: { '/api': '' },
+        secure: false,
+        changeOrigin: true,
+      }
+    }
   }
 }

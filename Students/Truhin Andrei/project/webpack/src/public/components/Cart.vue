@@ -13,15 +13,15 @@ export default {
   data() {
     return {
       cart: [],
-      urlCart:
-        "https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/getBasket.json"
+       urlCart: '/api/cart',
+      // urlCart:
+      //   "https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/getBasket.json"
     };
   },
   mounted() {
     this.$parent
       .getData(this.urlCart)
       .then(data => (this.cart = data.contents));
-    this.$root.$on("addItemToCart", item => this.addItem(item));
   },
   methods: {
     removeItem(item) {
@@ -50,10 +50,12 @@ export default {
       let serverResponse200;
       this.$parent
         .getData(
-          "https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/addToBasket.json"
+          //'/api/addtocart',
+          "https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/addToBasket.json",
         )
         .then(response => {
           serverResponse200 = response;
+console.log(JSON.stringify(item))
         })
         .finally(() => {
           let find = this.cart.find(el => el.id_product === item.id_product);
