@@ -17,14 +17,14 @@
                         <i class="fas fa-search"></i>
                     </button>
                 </form>
-                <button class="btn-cart" type="button" @click="toggleCart">Корзина</button>
+                <button class="btn-cart" type="button" @click="cart.visible=!cart.visible">Корзина</button>
                 <div class="cart-block" v-show="cart.visible">
                     <div class="d-flex">
                         <strong class="d-block">Всего товаров</strong> <div id="quantity">{{ cart.countGoods }}</div>
                     </div>
                     <hr>
                     <div class="cart-items">
-                        <div class="cart-item" v-for="el of cart.items">
+                        <div class="cart-item" v-for="el of cart.contents">
                             <div class="product-bio">
                                 <img :src="el.img" alt="Some image">
                                 <div class="product-desc">
@@ -35,7 +35,7 @@
                             </div>
                             <div class="right-block">
                                 <p class="product-price">{{ el.quantity * el.price }}</p>
-                                <button class="del-btn" @click="cart.removeProduct (el)">&times;</button>
+                                <button class="del-btn" @click="removeProduct (el)">&times;</button>
                             </div>
                         </div>
                     </div>
@@ -53,7 +53,7 @@
                     <div class="desc">
                         <h3>{{ el.product_name }}</h3>
                         <p>{{ el.price }} $</p>
-                        <button class="buy-btn" @click="cart.addProduct (el)">Купить</button>
+                        <button class="buy-btn" @click="addProduct (el)">Купить</button>
                     </div>
                 </div>
             </div>

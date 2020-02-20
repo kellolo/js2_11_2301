@@ -1,17 +1,30 @@
 const path = require('path')
 const HtmlPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require('mini-css-extract-plugin')
+const VueLoaderPlugin = require ('vue-loader/lib/plugin')
+
 const devMode = process.env.NODE_ENV !== 'production'
 
 module.exports = {
-    mode: 'development',
-    entry: './src/index.js',
-    output: {
-        path: path.resolve(__dirname, 'dist'),
-        filename: '[name].js'
+    devServer: {
+        port: 3000,
+        proxy: {
+            '/api': {
+                target: 'http://localhost:8080/',
+                pathRewrite: { '^/api': '' },
+                secure: false,
+                changeOrigin: true,
+            }
+        }
     },
     module: {
-        rules: [{
+        rules: [
+            {
+                test: /\.vue$/, 
+                exclude: /node_modules/,
+                loader: 'vue-loader'
+            },
+            {
                 test: /\.js$/,
                 exclude: /node_modules/,
                 loader: 'babel-loader'
@@ -72,6 +85,7 @@ module.exports = {
         new MiniCssExtractPlugin({
             filename: devMode ? '[name].css' : '[name].[hash].css',
             chunkFilename: devMode ? '[id].css' : '[id].[hash].css',
-        })
+        }),
+        new VueLoaderPlugin ()
     ]
 }
