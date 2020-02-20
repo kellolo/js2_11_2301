@@ -1,3 +1,6 @@
+
+
+
 <template>
     <form action="#" class="search-form" @submit.prevent="$root.$children[0].$refs.catalog.filter(str)">
         <input type="text" class="search-field" v-model="str">
