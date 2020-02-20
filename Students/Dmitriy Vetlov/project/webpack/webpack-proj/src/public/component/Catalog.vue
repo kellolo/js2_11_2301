@@ -11,11 +11,12 @@ export default {
         return {
             items: [],
             filtered: [],
-            urlGetData: 'https://raw.githubusercontent.com/Vetl-off0098/online-store-api/master/responses'
+            urlGetData: '/api/catalog',
+            //urlGetData: 'https://raw.githubusercontent.com/Vetl-off0098/online-store-api/master/responses'
         }
     },
     mounted() {
-        this.$parent.getData(this.urlGetData + '/catalogData.json')
+        this.$parent.getData(this.urlGetData)
             .then(data => {
                 this.items = data
                 this.filtered = data

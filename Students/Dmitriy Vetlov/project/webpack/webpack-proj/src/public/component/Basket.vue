@@ -11,11 +11,12 @@ export default {
     data() {
         return {
             basketItems: [],
-            urlServerResponse: 'https://raw.githubusercontent.com/Vetl-off0098/online-store-api/master/responses'
+            urlServerResponse: '/api/basket',
+            //urlServerResponse: 'https://raw.githubusercontent.com/Vetl-off0098/online-store-api/master/responses'
         }
     },
     mounted() {
-        this.$parent.getData(this.urlServerResponse + '/getBasket.json')
+        this.$parent.getData(this.urlServerResponse)
             .then(data => {
                 this.basketItems = data.contents
             })
