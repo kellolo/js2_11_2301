@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport"
+        content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>4 lecssion</title>
+</head>
+<body>
+<form action="" id="form" style="display: table-caption">
+  <div style="text-align: center;">
+    <textarea name="text1" style="width: 600px; height: 200px; margin: 15px;">
+      She wouldn't listen to me. 'I'm telling you,' she said, 'the king of the pumpkins lives in the middle of the woods and the woods that he lives in are the woods right next to our house, the woods you can see out of the window over there. She pointed with her hand to the woods that were, in fact, just outside the window behind our house. 'He doesn't live in a field like the other pumpkins,' continued mother, 'because he's not an ordinary pumpkin. He's the King Pumpkin.
+    </textarea>
+    <input type="submit" value="Изменить">
+    <textarea name="text2" style="width: 600px; height: 200px; margin: 15px;"></textarea>
+  </div>
+  
+</form>
+
+<script>
+  const regexp = /([^n])(')/gm;
+  document.querySelector('#form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    this.text2.value = this.text1.value.replace(regexp, (a,b,c) => c.replace('\'', b+'"'));
+  })
+</script>
+</body>
+</html>
