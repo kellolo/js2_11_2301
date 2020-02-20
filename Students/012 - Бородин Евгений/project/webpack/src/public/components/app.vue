@@ -3,18 +3,13 @@
         <header>
             <div class="logo">E-shop</div>
             <div class="cart">
-                <form action="#" class="search-form">
-                    <input type="text" class="search-field" v-model="searchtext">
-                    <button class="btn-search" type="submit" @click="searchtext=''">
-                        <i class="fas fa-search"></i>
-                    </button>
-                </form>
+                <filt />
                 <button class="btn-cart" type="button" @click="cartvisible=!cartvisible">Корзина</button>
-                <cart v-show="cartvisible" />
+                <cart ref="cart" v-show="cartvisible" />
             </div>
         </header>
         <main>
-            <catalog :searchtext="searchtext" />
+            <catalog ref="catalog" />
         </main>
     </div>
 </template>
@@ -23,11 +18,11 @@
 
 import catalog from './Catalog.vue'
 import cart from './Cart.vue'
+import filt from './filt.vue'
 
 export default {
     data() {
         return {
-            searchtext: '',
             cartvisible: false
         }
     },
@@ -37,7 +32,7 @@ export default {
                     .then(d => d.json())
         }
     },
-    components: { catalog, cart }
+    components: { catalog, cart, filt }
 }
 </script>
 
