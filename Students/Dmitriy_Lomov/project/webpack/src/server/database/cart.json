@@ -1,14 +1,22 @@
-{"contents": [
-    {
-    "id_product": 1,
-    "product_name": "Notebook",
-    "price": 1000,
-    "quantity": 10
-    },
-    {
-    "id_product": 4,
-    "product_name": "Mouse",
-    "price": 10,
-    "quantity": 5
-    }
-]}
+{
+ "contents": [
+  {
+   "id_product": 1,
+   "product_name": "Notebook",
+   "price": 1000,
+   "quantity": 1
+  },
+  {
+   "id_product": 3,
+   "product_name": "Keyboard",
+   "price": 20,
+   "quantity": 1
+  },
+  {
+   "id_product": 8,
+   "product_name": "Gamepad",
+   "price": 24,
+   "quantity": 1
+  }
+ ]
+}

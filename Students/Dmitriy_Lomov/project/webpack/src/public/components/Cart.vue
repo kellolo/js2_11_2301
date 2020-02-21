@@ -21,38 +21,36 @@ export default {
     
     methods: {
         addToCart (item) {
-            let serverResponse200
-            this.$parent.getData(this.urlGetData)
-                .then (response => { serverResponse200 = response })
-                .finally (() => {
-                    if (serverResponse200) {
-                        let id = item.id_product
-                        let find = this.items.find(el => +el.id_product === +id)
-                        if (find) {
-                            find.quantity++
-                        } else {
-                            const obj = Object.assign ({}, item, {quantity: 1})
-                            this.items.push(obj)
-                        }
-                    }
+            let id = item.id_product
+            let find = this.items.find(el => +el.id_product === +id)
+            if (find) {
+                this.$parent.putData(`/api/cart/${id}`, {delta: 1})
+                    .then((d) => {
+                        d.result ? find.quantity++ : console.log ('error')
+                    })
+                //find.quantity++
+            } else {
+                let ob = Object.assign ({}, item, {quantity: 1})
+                this.$parent.postData(`/api/cart`, ob)
+                .then (d => {
+                    d.result ? this.items.push(ob) : console.log ('error')
                 })
+            }
         },
         removeFromCart (item) {
-            let serverResponse200
-            this.$parent.getData(this.urlGetData)
-                .then (response => { serverResponse200 = response })
-                .finally (() => {
-                    if (serverResponse200) {
-                        let id = item.id_product
-                        let find = this.items.find(el => +el.id_product === +id)
-                        if (find.quantity > 1) {
-                            find.quantity--
-                        } else {
-                            this.items.splice(this.items.indexOf(find), 1)
-                        }
-                    }
-                
-            })
+            let id = item.id_product
+            let find = this.items.find(el => +el.id_product === +id)
+            if (find.quantity > 1) {
+                this.$parent.putData(`/api/cart/${id}`, {delta: -1})
+                    .then((d) => {
+                        d.result ? find.quantity-- : console.log ('error')
+                    })
+            } else {
+                this.$parent.deleteData(`/api/cart/${id}`)
+                .then((d) => {
+                        d.result ? this.items.splice(this.items.indexOf(find), 1) : console.log ('error')
+                    })
+            }
         }
     },
 
