@@ -1,10 +1,10 @@
 <template>
-  <div class="product-item" v-show="item.isVisible">
-    <img :src="item.img" alt="Some img">
+  <div class="product-item">
+    <img :src="getImage" alt="Some img">
     <div class="desc">
-      <h3>{{ item.name }}</h3>
+      <h3>{{ item.product_name }}</h3>
       <p>{{ item.price }} $</p>
-      <button class="buy-btn" @click="addToCart">Купить</button>
+      <button class="buy-btn" @click="$root.$children[0].$refs.cart.addToCart(item)">Купить</button>
     </div>
   </div>
 </template>
@@ -14,38 +14,10 @@
     props: {
       item: {type: Object},
     },
-
-    methods: {
-      addToCart () {
-        const cart = this.$parent.$parent.cart;
-
-        let serverResponse200;
-        fetch('https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/addToBasket.json')
-          .then(d => d.json())
-          .then(response => { serverResponse200 = response })
-          .finally(() => {
-            if (serverResponse200) {
-              let find = cart.items.find(cartItem => cartItem.id === +this.item.id)
-              if (!find) {
-                cart.items.push({
-                  name: this.item.name,
-                  price: +this.item.price,
-                  id: +this.item.id,
-                  img: this.item.img,
-                  quantity: 1
-                })
-              } else {
-                find.quantity++
-              }
-              cart.amount += +this.item.price;
-              cart.count += 1;
-            }
-          })
+    computed: {
+      getImage () {
+        return this.item.img || 'https://placehold.it/200x150';
       }
-    },
-
-    data () {
-      return {}
     },
   }
 </script>

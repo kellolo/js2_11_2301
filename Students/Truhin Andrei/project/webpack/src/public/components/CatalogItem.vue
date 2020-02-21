@@ -21,7 +21,7 @@ export default {
   },
   methods: {
     add(item) {
-      this.$root.$emit("addItemToCart", item);
+      this.$root.$children[0].$refs.cart.addItem(item);
     }
   }
 };

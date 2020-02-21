@@ -1,6 +1,6 @@
 <template>
     <div class="products">
-        <item v-for="i of items" v-show="filteredItem(searchtext, i.product_name)" :key="i.id_product" :item="i" />
+        <item v-for="i of filtered" :key="i.id_product" :item="i" />
     </div>
 </template>
 
@@ -11,25 +11,22 @@ export default {
     data() {
         return {
             items: [],
-            urlGetData: 'https://raw.githubusercontent.com/bor1eu/online-store-api/master/responses/catalogData.json'
+            filtered: [],
+            // urlGetData: 'https://raw.githubusercontent.com/bor1eu/online-store-api/master/responses/catalogData.json'
+            urlGetData: '/api/catalog'
         }
     },
-    props: {
-        searchtext: {
-            type: String,
-            default: ''
-            }
-    },
     methods: {
-        filteredItem (filterString, testString) {
+        filter (filterString) {
             let filterRegExp = new RegExp (filterString, 'i')            
-            return filterRegExp.test( testString )
+            this.filtered = this.items.filter (el => filterRegExp.test (el.product_name))
         }
     },
     mounted() {
         this.$parent.getData(this.urlGetData)
             .then (data => {
                 this.items = data
+                this.filter('')
         })
     },
     components: {item}

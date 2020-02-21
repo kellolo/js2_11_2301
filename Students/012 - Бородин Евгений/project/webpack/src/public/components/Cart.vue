@@ -25,7 +25,8 @@ export default {
                 countGoods: 0,
                 contents: []
             },
-            urlGetData: 'https://raw.githubusercontent.com/bor1eu/online-store-api/master/responses/getBasket.json'
+            // urlGetData: 'https://raw.githubusercontent.com/bor1eu/online-store-api/master/responses/getBasket.json'
+            urlGetData: '/api/cart'
         }
     },
     methods: {
