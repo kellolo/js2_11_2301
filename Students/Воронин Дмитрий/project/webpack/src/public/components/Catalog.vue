@@ -1,6 +1,6 @@
 <template>
     <div class="products">
-        <item v-for="i of items" :key="i.id_product" :item="i" />
+        <item v-for="i of filtered" :key="i.id_product" :item="i" />
     </div>
 </template>
 
@@ -11,16 +11,23 @@ export default {
     data() {
         return {
             items: [],
-            urlGetData: '../data/dataItem.json',
+            filtered: [],
+            urlGetData: '/api/catalog',
         }
     },
     mounted() {
         this.$parent.getData(this.urlGetData)
             .then (data => {
-                this.items = data
+                this.items = data;
+                this.filtered = data;
         })
     },
-
+    methods: {
+        filter (string) {
+            let reg = new RegExp (string, 'i');
+            this.filtered = this.items.filter (el => reg.test (el.product_name))
+        }
+    },
     components: {item}
 }
 </script>

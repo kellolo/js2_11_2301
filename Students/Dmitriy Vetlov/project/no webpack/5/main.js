@@ -37,7 +37,7 @@ let app = new Vue({
         },
 
         filterGoods() {
-            this.items = this.items.filter(name => name.product_name === this.searchLine)
+            this.items = this.items.filter(name => name.product_name.toLowerCase() === this.searchLine.toLowerCase())
             // console.log(this.items)
         }
     },
