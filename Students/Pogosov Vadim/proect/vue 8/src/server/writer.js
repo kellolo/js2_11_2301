@@ -1,5 +1,6 @@
 const fs = require('fs')
-// const logger = require('./logger')
+const logger = require('./loger')
+
 
 function writeFile (file, text, res, log) {
     fs.writeFile(file, text, (err) => {
@@ -7,7 +8,7 @@ function writeFile (file, text, res, log) {
             res.sendStatus (500, '{"result": 0}')
         } else {
             res.send ('{"result": 1}')
-            // logger(log.name, log.action)
+            logger(log.name, log.action)
         }
     })
 }
