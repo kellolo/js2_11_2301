@@ -1,6 +1,6 @@
 <template>
-  <form action="#" class="search-form">
-    <input @input="onInputSearchField" type="text" class="search-field">
+  <form action="#" class="search-form" @submit.prevent="$root.$children[0].$refs.catalog.filter(searchLine)">
+    <input @input="$root.$children[0].$refs.catalog.filter(searchLine)" v-model="searchLine" type="text" class="search-field">
     <button class="btn-search" type="submit">
       <i class="fas fa-search"></i>
     </button>
@@ -13,15 +13,6 @@
       return {
         searchLine: '',
       }
-    },
-    methods: {
-      onInputSearchField (el) {
-        this.searchLine = el.target.value
-        const regExp = new RegExp(this.searchLine, 'i')
-        this.$parent.products.forEach(product => {
-          this.$set(product, 'isVisible', regExp.test(product.name))
-        })
-      },
     },
   }
 </script>

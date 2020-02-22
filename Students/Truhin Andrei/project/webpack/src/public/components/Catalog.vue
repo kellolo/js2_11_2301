@@ -12,8 +12,9 @@ export default {
     return {
       items: [],
       filteredItems: [],
-      urlGetData:
-        "https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/catalogData.json"
+      urlGetData: '/api/catalog',
+      // urlGetData:
+      //   "https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/catalogData.json"
     };
   },
   mounted() {
@@ -23,6 +24,7 @@ export default {
         this.items = data;
       })
       .finally(() => (this.filteredItems = this.items));
+      
     this.$root.$on("searchTransfer", searchLine =>
       this.filterGoods(searchLine)
     );
