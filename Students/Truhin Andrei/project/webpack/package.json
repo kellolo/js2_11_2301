@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "serv": "webpack-dev-server --mode development --open",
     "dev": "webpack --mode development",
-    "build": "webpack --mode production"
+    "build": "webpack --mode production",
+    "server": "nodemon src/server/server"
   },
   "author": "truhin-andrei",
   "license": "ISC",
@@ -22,8 +23,15 @@
     "mini-css-extract-plugin": "^0.9.0",
     "postcss-loader": "^3.0.0",
     "style-loader": "^1.1.3",
+    "vue-loader": "^15.9.0",
+    "vue-template-compiler": "^2.6.11",
     "webpack": "^4.41.5",
     "webpack-cli": "^3.3.10",
-    "webpack-dev-server": "^3.10.1"
+    "webpack-dev-server": "^3.10.1",
+    "nodemon": "^2.0.2"
+  },
+  "dependencies": {
+    "vue": "^2.6.11",
+    "express": "^4.17.1"
   }
 }
