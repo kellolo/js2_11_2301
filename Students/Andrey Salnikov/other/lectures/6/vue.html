@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+            width: 40%;
+            margin: 0 auto
+        }
+        .post {
+            border-radius: 5px;
+            border: 2px solid grey;
+            padding: 15px;
+            margin-bottom: 10px
+        }
+        .post-footer {
+            text-align: right
+        }
+        .font-it {
+            font-style: italic
+        }
+        .red {
+            color: red
+        }
+    </style>
+</head>
+<body>
+    <div class="" id="app">
+        <label for="">
+            <input type="text" v-model="postsQuantity"> Количество постов
+        </label>
+        <button @click="getPosts">OK</button>
+        <div class="container">
+            <post :ex="true"></post>
+        </div>
+        <br>
+        <br>
+        <br>
+        <div class="container">
+            <post v-for="el of items" :post="el"></post>
+        </div>
+    <!--div v-for="el of items">
+        <button @click="toggleClick(el)">{{ el.hidden ? '+' : '-' }}</button>
+        <p v-if="!el.hidden">{{ el.name }}</p>
+        <br v-else-if=(false)>
+        <hr v-else>
+    </div-->
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="post.js"></script>
+    <script src="main.js"></script>
+</body>
+</html>

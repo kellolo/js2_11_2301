@@ -1,7 +1,6 @@
 <template>
-    <div class="cart-wrapper" v-show="visible">
+    <div class="cart-wrapper">
         <item v-for="i of items" :key="i.id_product" :item="i" />
-            
         <div class="cart-total">
             <span class="cart-total__price">Total price: <b>{{ _calculateSum }}</b> $</span>
             <span class="cart-total__quantity">Total quantity: <b> {{ _checkTotal }} </b> pcs</span>
@@ -15,17 +14,15 @@ import item from './CartItem.vue'
 export default {
     data() {
         return {
-            name: 'cart',
             items: [],
-            visible: false,
-            urlGetData: 'https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/',
+            urlGetData: '/api/cart',
         }
     },
     
     methods: {
         addToCart (item) {
             let serverResponse200
-            this.$parent.getData(this.urlGetData + '/addToBasket.json')
+            this.$parent.getData(this.urlGetData)
                 .then (response => { serverResponse200 = response })
                 .finally (() => {
                     if (serverResponse200) {
@@ -34,15 +31,15 @@ export default {
                         if (find) {
                             find.quantity++
                         } else {
-                            this.$set(item, 'quantity', 1)
-                            this.items.push(item)
+                            const obj = Object.assign ({}, item, {quantity: 1})
+                            this.items.push(obj)
                         }
                     }
                 })
         },
         removeFromCart (item) {
             let serverResponse200
-            this.$parent.getData(this.urlGetData + '/deleteFromBasket.json')
+            this.$parent.getData(this.urlGetData)
                 .then (response => { serverResponse200 = response })
                 .finally (() => {
                     if (serverResponse200) {
@@ -69,7 +66,7 @@ export default {
     },
 
     mounted() {
-        this.$parent.getData(this.urlGetData + '/getBasket.json')
+        this.$parent.getData(this.urlGetData)
             .then (data => {
                 this.items = data.contents
         })
