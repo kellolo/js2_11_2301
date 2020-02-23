@@ -1,34 +1,22 @@
 {
-  "name": "2",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
+  "name": "shop-cli",
+  "version": "0.1.0",
+  "private": true,
   "scripts": {
-    "build": "webpack --mode development",
-    "dev": "webpack-dev-server --hot --open",
-    "serve": "nodemon src/server/server"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "devDependencies": {
-    "@babel/core": "^7.8.4",
-    "@babel/preset-env": "^7.8.4",
-    "babel-loader": "^8.0.6",
-    "copy-webpack-plugin": "^5.1.1",
-    "css-loader": "^3.4.2",
-    "html-webpack-plugin": "^3.2.0",
-    "mini-css-extract-plugin": "^0.9.0",
-    "nodemon": "^2.0.2",
-    "vue-loader": "^15.9.0",
-    "vue-template-compiler": "^2.6.11",
-    "webpack": "^4.41.5",
-    "webpack-cli": "^3.3.10",
-    "webpack-dev-server": "^3.10.3"
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build"
   },
   "dependencies": {
-    "express": "^4.17.1",
-    "moment": "^2.24.0",
-    "vue": "^2.6.11"
+    "core-js": "^3.6.4",
+    "vue": "^2.6.11",
+    "vue-router": "^3.1.5"
+  },
+  "devDependencies": {
+    "@vue/cli-plugin-babel": "~4.2.0",
+    "@vue/cli-plugin-router": "~4.2.0",
+    "@vue/cli-service": "~4.2.0",
+    "node-sass": "^4.12.0",
+    "sass-loader": "^8.0.2",
+    "vue-template-compiler": "^2.6.11"
   }
 }
