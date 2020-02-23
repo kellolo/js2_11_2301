@@ -31,12 +31,28 @@
           .then(result => result.json())
       },
       postData (url, body) {
-        return fetch(
-                url,
+        return fetch(url,
                 {
                   method: 'post',
                   headers: { 'Content-Type': 'application/json;charset=utf-8' },
                   body: JSON.stringify(body)
+                })
+          .then(result => result.json())
+      },
+      putData (url, body) {
+        return fetch(url,
+                {
+                  method: 'put',
+                  headers: { 'Content-Type': 'application/json;charset=utf-8' },
+                  body: JSON.stringify(body)
+                })
+          .then(result => result.json())
+      },
+      deleteData (url) {
+        return fetch(url,
+                {
+                  method: 'delete',
+                  headers: { 'Content-Type': 'application/json;charset=utf-8' },
                 })
           .then(result => result.json())
       }

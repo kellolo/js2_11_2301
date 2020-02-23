@@ -45,7 +45,7 @@
           });
       },
       removeProduct(item) {
-        this.$parent.postData('/api/cart/remove', item)
+        this.$parent.deleteData(`/api/cart/${item.product_id}`)
           .then(result => {
             if(result.cartItems) {
               this.items = result.cartItems;
