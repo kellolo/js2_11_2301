@@ -4,6 +4,9 @@ let fs = require('fs')
 let server = express()
 server.use(express.json())
 
+let basket = require('./basket')
+let writer = require('./writer')
+
 server.use('/', express.static('./src/static'))
 
 server.get('/catalog', (req, res) => {
@@ -22,6 +25,41 @@ server.get('/basket', (req, res) => {
             res.send(data)
         } else {
             res.sendStatus(404, JSON.stringify ({result: 0}))
+        }
+    })
+})
+
+server.post('/basket', (req, res) => {
+    let path = './src/server/database/basket.json'
+    fs.readFile(path, 'utf-8', (err, data) => {
+        if(!err) {
+            let {newBasket, name} = basket.add(req, JSON.parse(data))
+            writer(path, JSON.stringify(newBasket, null, ' '), res, {name: name, action: 'add'})
+        } else {
+            res.sendStatus(500, JSON.stringify ({result: 0}))
+        }
+    })
+})
+
+server.put('/basket/:id', (req, res) => {
+    let path = './src/server/database/basket.json'
+    fs.readFile(path, 'utf-8', (err, data) => {
+        if(!err) {
+            let {newBasket, name} = basket.change(req, JSON.parse(data))
+            writer(path, JSON.stringify(newBasket, null, ' '), res, {name: name, action: 'change'})
+        } else {
+            res.sendStatus(500, JSON.stringify ({result: 0}))
+        }
+    })
+})
+server.delete('/basket/:id', (req, res) => {
+    let path = './src/server/database/basket.json'
+    fs.readFile(path, 'utf-8', (err, data) => {
+        if(!err) {
+            let {newBasket, name} = basket.delete(req, JSON.parse(data))
+            writer(path, JSON.stringify(newBasket, null, ' '), res, {name: name, action: 'del'})
+        } else {
+            res.sendStatus(500, JSON.stringify ({result: 0}))
         }
     })
 })
