@@ -1350,5 +1350,245 @@
    "product_name": "Увлажнитель воздуха Polaris PUH 5906Di"
   },
   "time": 1582468843119
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 1,
+   "product_name": "Смартфон Samsung Galaxy A50 64GB"
+  },
+  "time": 1582541976787
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 1,
+   "product_name": "Смартфон Samsung Galaxy A50 64GB"
+  },
+  "time": 1582541978127
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 1,
+   "product_name": "Смартфон Samsung Galaxy A50 64GB"
+  },
+  "time": 1582541979024
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 2,
+   "product_name": "Увлажнитель воздуха Polaris PUH 5906Di"
+  },
+  "time": 1582541980083
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 1,
+   "product_name": "Смартфон Samsung Galaxy A50 64GB"
+  },
+  "time": 1582542096291
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 1,
+   "product_name": "Смартфон Samsung Galaxy A50 64GB"
+  },
+  "time": 1582542426479
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 2,
+   "product_name": "Увлажнитель воздуха Polaris PUH 5906Di"
+  },
+  "time": 1582542427502
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 2,
+   "product_name": "Увлажнитель воздуха Polaris PUH 5906Di"
+  },
+  "time": 1582543226344
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 2,
+   "product_name": "Увлажнитель воздуха Polaris PUH 5906Di"
+  },
+  "time": 1582543226925
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 5,
+   "product_name": "Телевизор Samsung T27H390SI 27\" (2017)"
+  },
+  "time": 1582543228770
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 5,
+   "product_name": "Телевизор Samsung T27H390SI 27\" (2017)"
+  },
+  "time": 1582543229254
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 5,
+   "product_name": "Телевизор Samsung T27H390SI 27\" (2017)"
+  },
+  "time": 1582543229428
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 1,
+   "product_name": "Смартфон Samsung Galaxy A50 64GB"
+  },
+  "time": 1582543230226
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 5,
+   "product_name": "Телевизор Samsung T27H390SI 27\" (2017)"
+  },
+  "time": 1582543231452
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 5,
+   "product_name": "Телевизор Samsung T27H390SI 27\" (2017)"
+  },
+  "time": 1582543231711
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 2,
+   "product_name": "Увлажнитель воздуха Polaris PUH 5906Di"
+  },
+  "time": 1582543232102
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 2,
+   "product_name": "Увлажнитель воздуха Polaris PUH 5906Di"
+  },
+  "time": 1582543232662
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 2,
+   "product_name": "Увлажнитель воздуха Polaris PUH 5906Di"
+  },
+  "time": 1582543233967
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 1,
+   "product_name": "Смартфон Samsung Galaxy A50 64GB"
+  },
+  "time": 1582543332714
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 1,
+   "product_name": "Смартфон Samsung Galaxy A50 64GB"
+  },
+  "time": 1582543333220
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 1,
+   "product_name": "Смартфон Samsung Galaxy A50 64GB"
+  },
+  "time": 1582543333428
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 1,
+   "product_name": "Смартфон Samsung Galaxy A50 64GB"
+  },
+  "time": 1582543333473
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 1,
+   "product_name": "Смартфон Samsung Galaxy A50 64GB"
+  },
+  "time": 1582543335845
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 1,
+   "product_name": "Смартфон Samsung Galaxy A50 64GB"
+  },
+  "time": 1582543336398
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 1,
+   "product_name": "Смартфон Samsung Galaxy A50 64GB"
+  },
+  "time": 1582543336597
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 456,
+   "product_name": "Мышка"
+  },
+  "time": 1582543337049
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 456,
+   "product_name": "Мышка"
+  },
+  "time": 1582543337556
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 456,
+   "product_name": "Мышка"
+  },
+  "time": 1582543337730
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 456,
+   "product_name": "Мышка"
+  },
+  "time": 1582543337809
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 1,
+   "product_name": "Смартфон Samsung Galaxy A50 64GB"
+  },
+  "time": 1582543498054
  }
 ]
