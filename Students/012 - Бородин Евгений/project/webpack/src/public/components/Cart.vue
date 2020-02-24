@@ -41,38 +41,41 @@ export default {
             this.cart.countGoods = count
         },
         addProduct (selectedItem) {
-            let serverResponse200
-            this.$parent.getData('https://raw.githubusercontent.com/bor1eu/online-store-api/master/responses/addToBasket.json')
-                .then (response => { serverResponse200 = response })
-                .finally (() => {
-                    if (serverResponse200) {
-                        console.log (`Товар ${selectedItem.product_name} добавлен в корзину`)
-                        let find = this.cart.contents.find (item => item.id_product === +selectedItem.id_product )
-                        if (!find) {
-                            this.cart.contents.push ({...selectedItem, quantity: 1, img: this.cartImage})
-                        } else {
-                            find.quantity++
-                        }
+            let id = selectedItem.id_product
+            let find = this.cart.contents.find(el => +el.id_product === +id)
+            if (find) {
+                this.$parent.putData(`/api/cart/${id}`, {delta: 1})
+                    .then((d) => {
+                        d.result ? find.quantity++ : console.log ('error')
                         this.calcCart()
-                    }
+                    })
+                //find.quantity++
+            } else {
+                let ob = Object.assign ({}, selectedItem, {quantity: 1})
+                this.$parent.postData(`/api/cart`, ob)
+                .then (d => {
+                    d.result ? this.cart.contents.push(ob) : console.log ('error')
+                    this.calcCart()
                 })
+            }
         },
         removeProduct (selectedItem) {
-            let serverResponse200
-            this.$parent.getData('https://raw.githubusercontent.com/bor1eu/online-store-api/master/responses/deleteFromBasket.json')
-                .then (response => { serverResponse200 = response })
-                .finally (() => {
-                    if (serverResponse200) {
-                        console.log (`Товар ${selectedItem.product_name} удален из корзины`)
-                        let find = this.cart.contents.find (item => item.id_product === +selectedItem.id_product )
-                        if (find.quantity > 1) {
-                            find.quantity--
-                        } else {
-                            this.cart.contents.splice (this.cart.contents.indexOf(find), 1)
-                        }
+            let id = selectedItem.id_product
+            let find = this.cart.contents.find(el => +el.id_product === +id)
+            if (find.quantity > 1) {
+                this.$parent.putData(`/api/cart/${id}`, {delta: -1})
+                    .then((d) => {
+                        d.result ? find.quantity-- : console.log ('error')
                         this.calcCart()
-                    }
-                })
+                    })
+            } else {
+                this.$parent.deleteData(`/api/cart/${id}`)
+                .then((d) => {
+                        d.result ? this.cart.contents.splice(this.cart.contents.indexOf(find), 1) : console.log ('error')
+                        this.calcCart()
+                    })
+            }
+            
         }
     },
     mounted() {

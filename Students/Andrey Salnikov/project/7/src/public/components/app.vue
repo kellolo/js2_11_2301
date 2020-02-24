@@ -32,6 +32,32 @@ export default {
             return fetch(url)
                     .then(d => d.json())
         },
+        postData (url, data) {
+            return fetch(url, {
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(data)
+            }).then(d => d.json())
+        },
+        putData (url, data) {
+            return fetch(url, {
+                method: 'PUT',
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(data)
+            }).then(d => d.json())
+        },
+        deleteData (url) {
+            return fetch(url, {
+                method: 'DELETE',
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            }).then(d => d.json())
+        },
         // someMethod (val) {
         //     console.log (val)
         // }

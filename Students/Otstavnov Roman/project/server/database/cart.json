@@ -1,0 +1,29 @@
+[
+ {
+  "product_id": 2,
+  "product_name": "Увлажнитель воздуха Polaris PUH 5906Di",
+  "price": 3490,
+  "img": "//avatars.mds.yandex.net/get-mpic/1750349/img_id4303831469389882904.jpeg/5hq",
+  "quantity": 1
+ },
+ {
+  "product_id": 5,
+  "product_name": "Телевизор Samsung T27H390SI 27\" (2017)",
+  "price": 14950,
+  "img": "//avatars.mds.yandex.net/get-mpic/200316/img_id6727218969809458955.jpeg/5hq",
+  "quantity": 1
+ },
+ {
+  "product_id": 1,
+  "product_name": "Смартфон Samsung Galaxy A50 64GB",
+  "price": 13450,
+  "img": "//avatars.mds.yandex.net/get-mpic/1522540/img_id2530073925465738437.jpeg/5hq",
+  "quantity": 8
+ },
+ {
+  "product_id": 456,
+  "product_name": "Мышка",
+  "price": 1000,
+  "quantity": 4
+ }
+]
