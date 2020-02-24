@@ -8,11 +8,6 @@
     "dev": "webpack-dev-server --hot --open",
     "serve": "nodemon src/server/server"
   },
-  "nodemonConfig": {
-    "ignore": [
-      "*.json"
-    ]
-  },
   "keywords": [],
   "author": "",
   "license": "ISC",
@@ -33,7 +28,6 @@
   },
   "dependencies": {
     "express": "^4.17.1",
-    "moment": "^2.24.0",
     "vue": "^2.6.11"
   }
 }
