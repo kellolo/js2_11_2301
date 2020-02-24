@@ -4,7 +4,10 @@ const bodyParser = require('body-parser');
 const cart = require('./cart');
 const logger = require('./logger');
 const writeToFile = require('./writeToFile');
+
+const catalogPath = './database/catalog.json';
 const cartPath = './database/cart.json';
+const statsPath = './database/stats.json';
 
 const server = express();
 server.use(express.json());
@@ -13,7 +16,7 @@ server.use(bodyParser.urlencoded({extended: false}));
 server.use('/', express.static('./static'));
 
 server.get('/catalog', (req, res) => {
-  fs.readFile('./database/catalog.json', 'utf-8', (err, data) => {
+  fs.readFile(catalogPath, 'utf-8', (err, data) => {
     if (!err) {
       res.send(data)
     } else {
@@ -43,7 +46,7 @@ server.post('/cart/add', (req, res) => {
         cartItems,
         () => {
           res.send(JSON.stringify({cartItems}));
-          logger('./database/stats.json', 'add', {
+          logger(statsPath, 'add', {
             product_id: newItem.product_id,
             product_name: newItem.product_name,
           });
@@ -53,6 +56,7 @@ server.post('/cart/add', (req, res) => {
     }
   });
 });
+
 server.delete('/cart/:id', (req, res) => {
   const id = +req.params.id;
   fs.readFile(cartPath, 'utf-8', (err, data) => {
@@ -65,7 +69,7 @@ server.delete('/cart/:id', (req, res) => {
         cartItems,
         () => {
           res.send(JSON.stringify({cartItems}));
-          logger('./database/stats.json', 'remove', {
+          logger(statsPath, 'remove', {
             product_id: deletedItem.product_id,
             product_name: deletedItem.product_name,
           });
@@ -81,10 +85,3 @@ listening at port http://localhost:7001
 catalog: http://localhost:7001/catalog
 cart: http://localhost:7001/cart
 `));
-
-
-const getCartItems = () => JSON.parse(fs.readFileSync(
-  './database/cart.json',
-  'utf-8'
-));
-
