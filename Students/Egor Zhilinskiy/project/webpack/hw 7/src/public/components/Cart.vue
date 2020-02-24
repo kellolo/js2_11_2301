@@ -13,7 +13,7 @@ export default {
             name: 'cart',
             items: [],
             urlGetData: '/api/cart',
-            //urlGetData: 'https://raw.githubusercontent.com/gek-finn/online-store-api/master/responses/',
+            // urlGetData: 'https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/',
         }
     },
     

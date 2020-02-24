@@ -14,7 +14,7 @@ export default {
             items: [],
             filtered: [],
             urlGetData: '/api/catalog',
-            //urlGetData: 'https://raw.githubusercontent.com/gek-finn/online-store-api/master/responses/catalogData.json',
+            //urlGetData: 'https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/catalogData.json',
         }
     },
     mounted() {
