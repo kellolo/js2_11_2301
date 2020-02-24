@@ -1,0 +1,1594 @@
+[
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 1,
+   "product_name": "Смартфон Samsung Galaxy A50 64GB"
+  },
+  "time": 1582464483251
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 1,
+   "product_name": "Смартфон Samsung Galaxy A50 64GB"
+  },
+  "time": 1582464483943
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 456,
+   "product_name": "Мышка"
+  },
+  "time": 1582464484418
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 123,
+   "product_name": "Ноутбук"
+  },
+  "time": 1582464502172
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 123,
+   "product_name": "Ноутбук"
+  },
+  "time": 1582464502496
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 456,
+   "product_name": "Мышка"
+  },
+  "time": 1582465159413
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 4,
+   "product_name": "Гриль Kitfort KT-1631"
+  },
+  "time": 1582465160957
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 4,
+   "product_name": "Гриль Kitfort KT-1631"
+  },
+  "time": 1582465161851
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 4,
+   "product_name": "Гриль Kitfort KT-1631"
+  },
+  "time": 1582465162100
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 4,
+   "product_name": "Гриль Kitfort KT-1631"
+  },
+  "time": 1582465162337
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 4,
+   "product_name": "Гриль Kitfort KT-1631"
+  },
+  "time": 1582465162538
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 4,
+   "product_name": "Гриль Kitfort KT-1631"
+  },
+  "time": 1582465162728
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 4,
+   "product_name": "Гриль Kitfort KT-1631"
+  },
+  "time": 1582465164047
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 4,
+   "product_name": "Гриль Kitfort KT-1631"
+  },
+  "time": 1582465164513
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 4,
+   "product_name": "Гриль Kitfort KT-1631"
+  },
+  "time": 1582465164760
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 123,
+   "product_name": "Ноутбук"
+  },
+  "time": 1582465418132
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 123,
+   "product_name": "Ноутбук"
+  },
+  "time": 1582465418829
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 3,
+   "product_name": "Наушники Motorola VerveBuds 300"
+  },
+  "time": 1582465420849
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 456,
+   "product_name": "Мышка"
+  },
+  "time": 1582465434393
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 456,
+   "product_name": "Мышка"
+  },
+  "time": 1582465434853
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 3,
+   "product_name": "Наушники Motorola VerveBuds 300"
+  },
+  "time": 1582465535198
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 3,
+   "product_name": "Наушники Motorola VerveBuds 300"
+  },
+  "time": 1582465536931
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 3,
+   "product_name": "Наушники Motorola VerveBuds 300"
+  },
+  "time": 1582465537564
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 6,
+   "product_name": "Клавиатура Logitech Wireless Touch Keyboard K400 Plus Black USB"
+  },
+  "time": 1582465538796
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 3,
+   "product_name": "Наушники Motorola VerveBuds 300"
+  },
+  "time": 1582465540134
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 3,
+   "product_name": "Наушники Motorola VerveBuds 300"
+  },
+  "time": 1582465540857
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 3,
+   "product_name": "Наушники Motorola VerveBuds 300"
+  },
+  "time": 1582465541056
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 3,
+   "product_name": "Наушники Motorola VerveBuds 300"
+  },
+  "time": 1582465541106
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 4,
+   "product_name": "Гриль Kitfort KT-1631"
+  },
+  "time": 1582465541911
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 123,
+   "product_name": "Ноутбук"
+  },
+  "time": 1582465542658
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 456,
+   "product_name": "Мышка"
+  },
+  "time": 1582465543025
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 1,
+   "product_name": "Смартфон Samsung Galaxy A50 64GB"
+  },
+  "time": 1582465543791
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 1,
+   "product_name": "Смартфон Samsung Galaxy A50 64GB"
+  },
+  "time": 1582465543967
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 1,
+   "product_name": "Смартфон Samsung Galaxy A50 64GB"
+  },
+  "time": 1582465544041
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 456,
+   "product_name": "Мышка"
+  },
+  "time": 1582465544195
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 456,
+   "product_name": "Мышка"
+  },
+  "time": 1582465544807
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 456,
+   "product_name": "Мышка"
+  },
+  "time": 1582465545058
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 456,
+   "product_name": "Мышка"
+  },
+  "time": 1582465545160
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 123,
+   "product_name": "Ноутбук"
+  },
+  "time": 1582465545417
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 123,
+   "product_name": "Ноутбук"
+  },
+  "time": 1582465545600
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 123,
+   "product_name": "Ноутбук"
+  },
+  "time": 1582465545817
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 4,
+   "product_name": "Гриль Kitfort KT-1631"
+  },
+  "time": 1582465546051
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 1,
+   "product_name": "Смартфон Samsung Galaxy A50 64GB"
+  },
+  "time": 1582465721623
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 2,
+   "product_name": "Увлажнитель воздуха Polaris PUH 5906Di"
+  },
+  "time": 1582465723168
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 2,
+   "product_name": "Увлажнитель воздуха Polaris PUH 5906Di"
+  },
+  "time": 1582465723796
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 5,
+   "product_name": "Телевизор Samsung T27H390SI 27\" (2017)"
+  },
+  "time": 1582465806593
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 5,
+   "product_name": "Телевизор Samsung T27H390SI 27\" (2017)"
+  },
+  "time": 1582465807458
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 4,
+   "product_name": "Гриль Kitfort KT-1631"
+  },
+  "time": 1582466646032
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 4,
+   "product_name": "Гриль Kitfort KT-1631"
+  },
+  "time": 1582466646934
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 4,
+   "product_name": "Гриль Kitfort KT-1631"
+  },
+  "time": 1582466647803
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 4,
+   "product_name": "Гриль Kitfort KT-1631"
+  },
+  "time": 1582466648042
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 4,
+   "product_name": "Гриль Kitfort KT-1631"
+  },
+  "time": 1582466648069
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 4,
+   "product_name": "Гриль Kitfort KT-1631"
+  },
+  "time": 1582466648248
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 4,
+   "product_name": "Гриль Kitfort KT-1631"
+  },
+  "time": 1582466649689
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 4,
+   "product_name": "Гриль Kitfort KT-1631"
+  },
+  "time": 1582466651474
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 4,
+   "product_name": "Гриль Kitfort KT-1631"
+  },
+  "time": 1582466651642
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 4,
+   "product_name": "Гриль Kitfort KT-1631"
+  },
+  "time": 1582466651725
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 4,
+   "product_name": "Гриль Kitfort KT-1631"
+  },
+  "time": 1582466651806
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 4,
+   "product_name": "Гриль Kitfort KT-1631"
+  },
+  "time": 1582466651975
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 4,
+   "product_name": "Гриль Kitfort KT-1631"
+  },
+  "time": 1582466652141
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 4,
+   "product_name": "Гриль Kitfort KT-1631"
+  },
+  "time": 1582466652580
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 4,
+   "product_name": "Гриль Kitfort KT-1631"
+  },
+  "time": 1582466652715
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 4,
+   "product_name": "Гриль Kitfort KT-1631"
+  },
+  "time": 1582466652839
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 4,
+   "product_name": "Гриль Kitfort KT-1631"
+  },
+  "time": 1582466654085
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 4,
+   "product_name": "Гриль Kitfort KT-1631"
+  },
+  "time": 1582466655138
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 4,
+   "product_name": "Гриль Kitfort KT-1631"
+  },
+  "time": 1582466655378
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 4,
+   "product_name": "Гриль Kitfort KT-1631"
+  },
+  "time": 1582466655391
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 4,
+   "product_name": "Гриль Kitfort KT-1631"
+  },
+  "time": 1582466655575
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 4,
+   "product_name": "Гриль Kitfort KT-1631"
+  },
+  "time": 1582466655771
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 4,
+   "product_name": "Гриль Kitfort KT-1631"
+  },
+  "time": 1582466656511
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 4,
+   "product_name": "Гриль Kitfort KT-1631"
+  },
+  "time": 1582466656971
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 4,
+   "product_name": "Гриль Kitfort KT-1631"
+  },
+  "time": 1582466657164
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 4,
+   "product_name": "Гриль Kitfort KT-1631"
+  },
+  "time": 1582466657223
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 4,
+   "product_name": "Гриль Kitfort KT-1631"
+  },
+  "time": 1582466657689
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 4,
+   "product_name": "Гриль Kitfort KT-1631"
+  },
+  "time": 1582466658191
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 2,
+   "product_name": "Увлажнитель воздуха Polaris PUH 5906Di"
+  },
+  "time": 1582466667018
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 2,
+   "product_name": "Увлажнитель воздуха Polaris PUH 5906Di"
+  },
+  "time": 1582466668120
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 1,
+   "product_name": "Смартфон Samsung Galaxy A50 64GB"
+  },
+  "time": 1582466668552
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 1,
+   "product_name": "Смартфон Samsung Galaxy A50 64GB"
+  },
+  "time": 1582467142847
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 2,
+   "product_name": "Увлажнитель воздуха Polaris PUH 5906Di"
+  },
+  "time": 1582467143632
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 456,
+   "product_name": "Мышка"
+  },
+  "time": 1582467144321
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 123,
+   "product_name": "Ноутбук"
+  },
+  "time": 1582467145098
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 123,
+   "product_name": "Ноутбук"
+  },
+  "time": 1582467145346
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 123,
+   "product_name": "Ноутбук"
+  },
+  "time": 1582467145357
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 123,
+   "product_name": "Ноутбук"
+  },
+  "time": 1582467145527
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 123,
+   "product_name": "Ноутбук"
+  },
+  "time": 1582467146411
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 123,
+   "product_name": "Ноутбук"
+  },
+  "time": 1582467147634
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 123,
+   "product_name": "Ноутбук"
+  },
+  "time": 1582467148093
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 123,
+   "product_name": "Ноутбук"
+  },
+  "time": 1582467149211
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 123,
+   "product_name": "Ноутбук"
+  },
+  "time": 1582467169107
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 1,
+   "product_name": "Смартфон Samsung Galaxy A50 64GB"
+  },
+  "time": 1582467407391
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 1,
+   "product_name": "Смартфон Samsung Galaxy A50 64GB"
+  },
+  "time": 1582467409883
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 123,
+   "product_name": "Ноутбук"
+  },
+  "time": 1582467418810
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 1,
+   "product_name": "Смартфон Samsung Galaxy A50 64GB"
+  },
+  "time": 1582467425381
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 456,
+   "product_name": "Мышка"
+  },
+  "time": 1582467487704
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 1,
+   "product_name": "Смартфон Samsung Galaxy A50 64GB"
+  },
+  "time": 1582467488261
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 1,
+   "product_name": "Смартфон Samsung Galaxy A50 64GB"
+  },
+  "time": 1582467488912
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 1,
+   "product_name": "Смартфон Samsung Galaxy A50 64GB"
+  },
+  "time": 1582467490096
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 1,
+   "product_name": "Смартфон Samsung Galaxy A50 64GB"
+  },
+  "time": 1582467490687
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 2,
+   "product_name": "Увлажнитель воздуха Polaris PUH 5906Di"
+  },
+  "time": 1582467491843
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 5,
+   "product_name": "Телевизор Samsung T27H390SI 27\" (2017)"
+  },
+  "time": 1582467492349
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 2,
+   "product_name": "Увлажнитель воздуха Polaris PUH 5906Di"
+  },
+  "time": 1582467494843
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 5,
+   "product_name": "Телевизор Samsung T27H390SI 27\" (2017)"
+  },
+  "time": 1582467495559
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 456,
+   "product_name": "Мышка"
+  },
+  "time": 1582467496972
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 1,
+   "product_name": "Смартфон Samsung Galaxy A50 64GB"
+  },
+  "time": 1582468029752
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 2,
+   "product_name": "Увлажнитель воздуха Polaris PUH 5906Di"
+  },
+  "time": 1582468030391
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 456,
+   "product_name": "Мышка"
+  },
+  "time": 1582468031486
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 456,
+   "product_name": "Мышка"
+  },
+  "time": 1582468031735
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 1,
+   "product_name": "Смартфон Samsung Galaxy A50 64GB"
+  },
+  "time": 1582468032437
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 1,
+   "product_name": "Смартфон Samsung Galaxy A50 64GB"
+  },
+  "time": 1582468033030
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 1,
+   "product_name": "Смартфон Samsung Galaxy A50 64GB"
+  },
+  "time": 1582468033227
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 1,
+   "product_name": "Смартфон Samsung Galaxy A50 64GB"
+  },
+  "time": 1582468175671
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 2,
+   "product_name": "Увлажнитель воздуха Polaris PUH 5906Di"
+  },
+  "time": 1582468176563
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 456,
+   "product_name": "Мышка"
+  },
+  "time": 1582468177177
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 456,
+   "product_name": "Мышка"
+  },
+  "time": 1582468240445
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 456,
+   "product_name": "Мышка"
+  },
+  "time": 1582468241293
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 456,
+   "product_name": "Мышка"
+  },
+  "time": 1582468241980
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 456,
+   "product_name": "Мышка"
+  },
+  "time": 1582468242816
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 456,
+   "product_name": "Мышка"
+  },
+  "time": 1582468243063
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 2,
+   "product_name": "Увлажнитель воздуха Polaris PUH 5906Di"
+  },
+  "time": 1582468310736
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 1,
+   "product_name": "Смартфон Samsung Galaxy A50 64GB"
+  },
+  "time": 1582468311973
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 1,
+   "product_name": "Смартфон Samsung Galaxy A50 64GB"
+  },
+  "time": 1582468312450
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 1,
+   "product_name": "Смартфон Samsung Galaxy A50 64GB"
+  },
+  "time": 1582468312915
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 1,
+   "product_name": "Смартфон Samsung Galaxy A50 64GB"
+  },
+  "time": 1582468313093
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 1,
+   "product_name": "Смартфон Samsung Galaxy A50 64GB"
+  },
+  "time": 1582468313164
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 1,
+   "product_name": "Смартфон Samsung Galaxy A50 64GB"
+  },
+  "time": 1582468313860
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 1,
+   "product_name": "Смартфон Samsung Galaxy A50 64GB"
+  },
+  "time": 1582468314693
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 1,
+   "product_name": "Смартфон Samsung Galaxy A50 64GB"
+  },
+  "time": 1582468314884
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 1,
+   "product_name": "Смартфон Samsung Galaxy A50 64GB"
+  },
+  "time": 1582468314954
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 1,
+   "product_name": "Смартфон Samsung Galaxy A50 64GB"
+  },
+  "time": 1582468315075
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 1,
+   "product_name": "Смартфон Samsung Galaxy A50 64GB"
+  },
+  "time": 1582468315255
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 123,
+   "product_name": "Ноутбук"
+  },
+  "time": 1582468316840
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 123,
+   "product_name": "Ноутбук"
+  },
+  "time": 1582468317321
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 456,
+   "product_name": "Мышка"
+  },
+  "time": 1582468317589
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 1,
+   "product_name": "Смартфон Samsung Galaxy A50 64GB"
+  },
+  "time": 1582468318515
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 4,
+   "product_name": "Гриль Kitfort KT-1631"
+  },
+  "time": 1582468318849
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 5,
+   "product_name": "Телевизор Samsung T27H390SI 27\" (2017)"
+  },
+  "time": 1582468320069
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 5,
+   "product_name": "Телевизор Samsung T27H390SI 27\" (2017)"
+  },
+  "time": 1582468320247
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 5,
+   "product_name": "Телевизор Samsung T27H390SI 27\" (2017)"
+  },
+  "time": 1582468320323
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 5,
+   "product_name": "Телевизор Samsung T27H390SI 27\" (2017)"
+  },
+  "time": 1582468321253
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 4,
+   "product_name": "Гриль Kitfort KT-1631"
+  },
+  "time": 1582468323011
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 456,
+   "product_name": "Мышка"
+  },
+  "time": 1582468332457
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 123,
+   "product_name": "Ноутбук"
+  },
+  "time": 1582468333444
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 123,
+   "product_name": "Ноутбук"
+  },
+  "time": 1582468334184
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 1,
+   "product_name": "Смартфон Samsung Galaxy A50 64GB"
+  },
+  "time": 1582468335226
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 5,
+   "product_name": "Телевизор Samsung T27H390SI 27\" (2017)"
+  },
+  "time": 1582468336110
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 5,
+   "product_name": "Телевизор Samsung T27H390SI 27\" (2017)"
+  },
+  "time": 1582468337709
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 1,
+   "product_name": "Смартфон Samsung Galaxy A50 64GB"
+  },
+  "time": 1582468589226
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 2,
+   "product_name": "Увлажнитель воздуха Polaris PUH 5906Di"
+  },
+  "time": 1582468590944
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 2,
+   "product_name": "Увлажнитель воздуха Polaris PUH 5906Di"
+  },
+  "time": 1582468838000
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 2,
+   "product_name": "Увлажнитель воздуха Polaris PUH 5906Di"
+  },
+  "time": 1582468838145
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 2,
+   "product_name": "Увлажнитель воздуха Polaris PUH 5906Di"
+  },
+  "time": 1582468838622
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 2,
+   "product_name": "Увлажнитель воздуха Polaris PUH 5906Di"
+  },
+  "time": 1582468838776
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 2,
+   "product_name": "Увлажнитель воздуха Polaris PUH 5906Di"
+  },
+  "time": 1582468838877
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 2,
+   "product_name": "Увлажнитель воздуха Polaris PUH 5906Di"
+  },
+  "time": 1582468839033
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 2,
+   "product_name": "Увлажнитель воздуха Polaris PUH 5906Di"
+  },
+  "time": 1582468839184
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 2,
+   "product_name": "Увлажнитель воздуха Polaris PUH 5906Di"
+  },
+  "time": 1582468839318
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 2,
+   "product_name": "Увлажнитель воздуха Polaris PUH 5906Di"
+  },
+  "time": 1582468839462
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 2,
+   "product_name": "Увлажнитель воздуха Polaris PUH 5906Di"
+  },
+  "time": 1582468839748
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 2,
+   "product_name": "Увлажнитель воздуха Polaris PUH 5906Di"
+  },
+  "time": 1582468840261
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 2,
+   "product_name": "Увлажнитель воздуха Polaris PUH 5906Di"
+  },
+  "time": 1582468841011
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 2,
+   "product_name": "Увлажнитель воздуха Polaris PUH 5906Di"
+  },
+  "time": 1582468841195
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 2,
+   "product_name": "Увлажнитель воздуха Polaris PUH 5906Di"
+  },
+  "time": 1582468841267
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 2,
+   "product_name": "Увлажнитель воздуха Polaris PUH 5906Di"
+  },
+  "time": 1582468841360
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 1,
+   "product_name": "Смартфон Samsung Galaxy A50 64GB"
+  },
+  "time": 1582468841752
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 2,
+   "product_name": "Увлажнитель воздуха Polaris PUH 5906Di"
+  },
+  "time": 1582468842776
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 2,
+   "product_name": "Увлажнитель воздуха Polaris PUH 5906Di"
+  },
+  "time": 1582468842943
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 2,
+   "product_name": "Увлажнитель воздуха Polaris PUH 5906Di"
+  },
+  "time": 1582468843026
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 2,
+   "product_name": "Увлажнитель воздуха Polaris PUH 5906Di"
+  },
+  "time": 1582468843119
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 1,
+   "product_name": "Смартфон Samsung Galaxy A50 64GB"
+  },
+  "time": 1582541976787
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 1,
+   "product_name": "Смартфон Samsung Galaxy A50 64GB"
+  },
+  "time": 1582541978127
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 1,
+   "product_name": "Смартфон Samsung Galaxy A50 64GB"
+  },
+  "time": 1582541979024
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 2,
+   "product_name": "Увлажнитель воздуха Polaris PUH 5906Di"
+  },
+  "time": 1582541980083
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 1,
+   "product_name": "Смартфон Samsung Galaxy A50 64GB"
+  },
+  "time": 1582542096291
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 1,
+   "product_name": "Смартфон Samsung Galaxy A50 64GB"
+  },
+  "time": 1582542426479
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 2,
+   "product_name": "Увлажнитель воздуха Polaris PUH 5906Di"
+  },
+  "time": 1582542427502
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 2,
+   "product_name": "Увлажнитель воздуха Polaris PUH 5906Di"
+  },
+  "time": 1582543226344
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 2,
+   "product_name": "Увлажнитель воздуха Polaris PUH 5906Di"
+  },
+  "time": 1582543226925
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 5,
+   "product_name": "Телевизор Samsung T27H390SI 27\" (2017)"
+  },
+  "time": 1582543228770
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 5,
+   "product_name": "Телевизор Samsung T27H390SI 27\" (2017)"
+  },
+  "time": 1582543229254
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 5,
+   "product_name": "Телевизор Samsung T27H390SI 27\" (2017)"
+  },
+  "time": 1582543229428
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 1,
+   "product_name": "Смартфон Samsung Galaxy A50 64GB"
+  },
+  "time": 1582543230226
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 5,
+   "product_name": "Телевизор Samsung T27H390SI 27\" (2017)"
+  },
+  "time": 1582543231452
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 5,
+   "product_name": "Телевизор Samsung T27H390SI 27\" (2017)"
+  },
+  "time": 1582543231711
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 2,
+   "product_name": "Увлажнитель воздуха Polaris PUH 5906Di"
+  },
+  "time": 1582543232102
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 2,
+   "product_name": "Увлажнитель воздуха Polaris PUH 5906Di"
+  },
+  "time": 1582543232662
+ },
+ {
+  "action": "remove",
+  "data": {
+   "product_id": 2,
+   "product_name": "Увлажнитель воздуха Polaris PUH 5906Di"
+  },
+  "time": 1582543233967
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 1,
+   "product_name": "Смартфон Samsung Galaxy A50 64GB"
+  },
+  "time": 1582543332714
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 1,
+   "product_name": "Смартфон Samsung Galaxy A50 64GB"
+  },
+  "time": 1582543333220
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 1,
+   "product_name": "Смартфон Samsung Galaxy A50 64GB"
+  },
+  "time": 1582543333428
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 1,
+   "product_name": "Смартфон Samsung Galaxy A50 64GB"
+  },
+  "time": 1582543333473
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 1,
+   "product_name": "Смартфон Samsung Galaxy A50 64GB"
+  },
+  "time": 1582543335845
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 1,
+   "product_name": "Смартфон Samsung Galaxy A50 64GB"
+  },
+  "time": 1582543336398
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 1,
+   "product_name": "Смартфон Samsung Galaxy A50 64GB"
+  },
+  "time": 1582543336597
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 456,
+   "product_name": "Мышка"
+  },
+  "time": 1582543337049
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 456,
+   "product_name": "Мышка"
+  },
+  "time": 1582543337556
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 456,
+   "product_name": "Мышка"
+  },
+  "time": 1582543337730
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 456,
+   "product_name": "Мышка"
+  },
+  "time": 1582543337809
+ },
+ {
+  "action": "add",
+  "data": {
+   "product_id": 1,
+   "product_name": "Смартфон Samsung Galaxy A50 64GB"
+  },
+  "time": 1582543498054
+ }
+]
