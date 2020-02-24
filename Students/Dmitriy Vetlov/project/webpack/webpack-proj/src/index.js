@@ -1,4 +1,5 @@
 import './public/css/style.css'
+import './public/css/normalize.css'
 import Vue from 'vue'
 import app from './public/component/app.vue'
 
