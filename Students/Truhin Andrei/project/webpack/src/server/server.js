@@ -1,12 +1,11 @@
 let express = require('express');
 let fs = require('fs');
-//const bodyParser = require('body-parser');
-
 
 let server = express();
+let cart = require('./cart');
+let writer = require('./writer');
 
 server.use(express.json());
-//server.use(bodyParser.json());
 
 server.get('/catalog', (request, response) =>{
   fs.readFile('./src/server/database/catalog.json', 'utf-8', (err, data) =>{
@@ -28,19 +27,41 @@ server.get('/cart', (request, response) => {
   })
 });
 
-// server.get('/addtocart', (req, res) => {
-//   fs.readFile('./src/server/database/cart.json', 'utf8', (err, data) => {
-//     console.log(1,  res);
-//     const cart = JSON.parse(data);
-//     const item = req.body;
-//   //  console.log(req);
-//     cart.contents.push(item);
+server.post('/cart', (request, response) => {
+  let path = './src/server/database/cart.json';
+  fs.readFile(path, 'utf-8', (err, data) => {
+    if (!err) {
+     let {newCart, name} = cart.add(request, JSON.parse(data))
+     writer(path, JSON.stringify(newCart, null, ' '), response, { name: name, action: 'add'})
+    } else {
+      response.sendStatus(500, JSON.stringify({result: 0}))
+    }
+  })
+});
 
-//     fs.writeFile('./src/server/database/cart.json', JSON.stringify(cart), (err) => {
-//       console.log('done');
-//     });
-//   });
-// });
+server.put('/cart/:id', (request, response) => {
+  let path = './src/server/database/cart.json';
+  fs.readFile(path, 'utf-8', (err, data) => {
+    if (!err) {
+     let {newCart, name} = cart.change(request, JSON.parse(data))
+     writer(path, JSON.stringify(newCart, null, ' '), response, { name: name, action: 'change'})
+    } else {
+      response.sendStatus(500, JSON.stringify({result: 0}))
+    }
+  })
+});
+
+server.delete('/cart/:id', (request, response) => {
+  let path = './src/server/database/cart.json';
+  fs.readFile(path, 'utf-8', (err, data) => {
+    if (!err) {
+     let {newCart, name} = cart.delete(request, JSON.parse(data))
+     writer(path, JSON.stringify(newCart, null, ' '), response, { name: name, action: 'delete'})
+    } else {
+      response.sendStatus(500, JSON.stringify({result: 0}))
+    }
+  })
+});
 
 server.listen(8080, () => {
   console.log('port 8080');

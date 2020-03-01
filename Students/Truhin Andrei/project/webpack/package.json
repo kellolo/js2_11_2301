@@ -10,6 +10,11 @@
     "build": "webpack --mode production",
     "server": "nodemon src/server/server"
   },
+  "nodemonConfig": {
+    "ignore": [
+      "*.json"
+    ]
+  },
   "author": "truhin-andrei",
   "license": "ISC",
   "devDependencies": {
@@ -31,7 +36,8 @@
     "nodemon": "^2.0.2"
   },
   "dependencies": {
-    "vue": "^2.6.11",
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "moment": "^2.24.0",
+    "vue": "^2.6.11"
   }
 }
