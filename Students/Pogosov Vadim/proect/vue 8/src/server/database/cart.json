@@ -1,0 +1,16 @@
+{
+ "contents": [
+  {
+   "id_product": 6,
+   "product_name": "Router",
+   "price": 30,
+   "quantity": 3
+  },
+  {
+   "id_product": 2,
+   "product_name": "Display",
+   "price": 200,
+   "quantity": 1
+  }
+ ]
+}

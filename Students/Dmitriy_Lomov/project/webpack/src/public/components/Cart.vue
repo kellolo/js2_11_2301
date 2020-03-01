@@ -1,7 +1,6 @@
 <template>
-    <div class="cart-wrapper" v-show="visible">
+    <div class="cart-wrapper">
         <item v-for="i of items" :key="i.id_product" :item="i" />
-            
         <div class="cart-total">
             <span class="cart-total__price">Total price: <b>{{ _calculateSum }}</b> $</span>
             <span class="cart-total__quantity">Total quantity: <b> {{ _checkTotal }} </b> pcs</span>
@@ -15,47 +14,43 @@ import item from './CartItem.vue'
 export default {
     data() {
         return {
-            name: 'cart',
             items: [],
-            visible: false,
-            urlGetData: 'https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses/',
+            urlGetData: '/api/cart',
         }
     },
     
     methods: {
         addToCart (item) {
-            let serverResponse200
-            this.$parent.getData(this.urlGetData + '/addToBasket.json')
-                .then (response => { serverResponse200 = response })
-                .finally (() => {
-                    if (serverResponse200) {
-                        let id = item.id_product
-                        let find = this.items.find(el => +el.id_product === +id)
-                        if (find) {
-                            find.quantity++
-                        } else {
-                            this.$set(item, 'quantity', 1)
-                            this.items.push(item)
-                        }
-                    }
+            let id = item.id_product
+            let find = this.items.find(el => +el.id_product === +id)
+            if (find) {
+                this.$parent.putData(`/api/cart/${id}`, {delta: 1})
+                    .then((d) => {
+                        d.result ? find.quantity++ : console.log ('error')
+                    })
+                //find.quantity++
+            } else {
+                let ob = Object.assign ({}, item, {quantity: 1})
+                this.$parent.postData(`/api/cart`, ob)
+                .then (d => {
+                    d.result ? this.items.push(ob) : console.log ('error')
                 })
+            }
         },
         removeFromCart (item) {
-            let serverResponse200
-            this.$parent.getData(this.urlGetData + '/deleteFromBasket.json')
-                .then (response => { serverResponse200 = response })
-                .finally (() => {
-                    if (serverResponse200) {
-                        let id = item.id_product
-                        let find = this.items.find(el => +el.id_product === +id)
-                        if (find.quantity > 1) {
-                            find.quantity--
-                        } else {
-                            this.items.splice(this.items.indexOf(find), 1)
-                        }
-                    }
-                
-            })
+            let id = item.id_product
+            let find = this.items.find(el => +el.id_product === +id)
+            if (find.quantity > 1) {
+                this.$parent.putData(`/api/cart/${id}`, {delta: -1})
+                    .then((d) => {
+                        d.result ? find.quantity-- : console.log ('error')
+                    })
+            } else {
+                this.$parent.deleteData(`/api/cart/${id}`)
+                .then((d) => {
+                        d.result ? this.items.splice(this.items.indexOf(find), 1) : console.log ('error')
+                    })
+            }
         }
     },
 
@@ -69,7 +64,7 @@ export default {
     },
 
     mounted() {
-        this.$parent.getData(this.urlGetData + '/getBasket.json')
+        this.$parent.getData(this.urlGetData)
             .then (data => {
                 this.items = data.contents
         })

@@ -6,19 +6,18 @@
                 <p class="logo__text">e-shop</p>
             </a>
         </div>
-        <input class="search-input" type="text" placeholder="Search...">
+        <filt />
         <nav class="main-nav">
             <ul class="main-nav__list">
                 <li class="main-nav__item">
-                    <button class="main-nav__btn" @click="toggle">Cart <i class="fas fa-shopping-cart"></i></button>
+                    <button class="main-nav__btn" @click="cartVisible = !cartVisible">Cart <i class="fas fa-shopping-cart"></i></button>
                 </li>
             </ul>
         </nav>
+        <cart ref="cart" v-show="cartVisible"/>
     </header>
     <main class="main">
-        <catalog />
-        
-        <cart />
+        <catalog ref="catalog"/>
     </main>
     <footer class="footer">
         <ul class="footer__list">
@@ -40,20 +39,50 @@
 
 import catalog from './Catalog.vue'
 import cart from './Cart.vue'
+import filt from './Filter-item.vue'
 
 export default {
+    data (){
+        return {
+            cartVisible: false
+        }
+    },
     methods: {
-        toggle () {
-            this.$children[1].visible = !this.$children[1].visible
-        },
         getData (url) {
             return fetch(url)
                     .then(d => d.json())
+        },
+        postData (url, data) {
+            return fetch(url, {
+                method: 'POST',
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(data)
+            }).then(d => d.json())
+        },
+        putData (url, data) {
+            return fetch(url, {
+                method: 'PUT',
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(data)
+            }).then(d => d.json())
+        },
+        deleteData (url) {
+            return fetch(url, {
+                method: 'DELETE',
+                headers: {
+                    "Content-Type": "application/json"
+                }
+            }).then(d => d.json())
         }
     },
     components: { 
         catalog,
-        cart
+        cart,
+        filt
     }
 }
 </script>

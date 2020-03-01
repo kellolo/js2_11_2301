@@ -10,7 +10,7 @@ let app = new Vue ({
             el.hidden ? el.hidden = !el.hidden : this.$set(el, 'hidden', true)
         },
         getPosts () {
-            fetch (`https://jsonplaceholder.typicode.com/comments?_limit=${this.postsQuantity}`)
+            fetch (`https://jsonplaceholder.typicode.com/comments`)
                 .then (dJSON => dJSON.json())
                 .then (d => { this.items = d })
         }

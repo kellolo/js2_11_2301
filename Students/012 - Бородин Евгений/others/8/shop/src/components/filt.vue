@@ -1,0 +1,19 @@
+<template>
+    <form action="#" class="search-form" @submit.prevent="$root.$children[0].$children[2].$refs.catalog.filter(str)">
+        <input type="text" class="search-field" v-model="str">
+        <button class="btn-search" type="submit">
+            Search
+            <!-- <i class="fas fa-search"></i> -->
+        </button>
+    </form>
+</template>
+
+<script>
+export default {
+    data() {
+        return {
+            str: ''
+        }
+    }
+}
+</script>

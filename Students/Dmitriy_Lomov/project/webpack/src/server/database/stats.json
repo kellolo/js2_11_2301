@@ -1,0 +1,42 @@
+[
+ {
+  "time": "21 02 20 02:43:34",
+  "product_name": "Router",
+  "userAction": "del"
+ },
+ {
+  "time": "21 02 20 02:43:35",
+  "product_name": "Notebook",
+  "userAction": "del"
+ },
+ {
+  "time": "21 02 20 02:43:37",
+  "product_name": "Display",
+  "userAction": "change"
+ },
+ {
+  "time": "21 02 20 02:43:38",
+  "product_name": "Display",
+  "userAction": "del"
+ },
+ {
+  "time": "21 02 20 02:43:40",
+  "product_name": "Keyboard",
+  "userAction": "del"
+ },
+ {
+  "time": "21 02 20 02:43:49",
+  "product_name": "Notebook",
+  "userAction": "add"
+ },
+ {
+  "time": "21 02 20 02:43:53",
+  "product_name": "Keyboard",
+  "userAction": "add"
+ },
+ {
+  "time": "21 02 20 02:43:57",
+  "product_name": "Gamepad",
+  "userAction": "add"
+ }
+]
